@@ -40,7 +40,7 @@
                     <div class="header-left d-flex align-items-center">
                         <div class="menu-toggle-btn mr-20">
                             <button id="menu-toggle" class="main-btn primary-btn btn-hover">
-                                <i class="lni lni-chevron-right me-2"></i> {{ __('Menu') }}
+                                <i class="lni lni-chevron-right me-2 pl-5"></i> القائمة
                             </button>
                         </div>
                     </div>
@@ -64,12 +64,12 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
                                 <li>
-                                        <a href="{{ route('profile.show') }}"> <i class="lni lni-user"></i> {{ __('My profile') }}</a>
+                                        <a class="fw-bold" href="{{ route('profile.show') }}"> <i class="lni lni-user pl-5 "></i>حسابي</a>
                                 </li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"> <i class="lni lni-exit"></i> {{ __('Logout') }}</a>
+                                        <a class="fw-bold" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"> <i class="lni lni-exit pl-5"></i>تسجيل الخروج</a>
                                     </form>
                                 </li>
                             </ul>
