@@ -12,6 +12,13 @@ class ComplaintController extends Controller
         $complaints = Complaint::paginate(3);
         return view('Complaints.index')->with('complaints',$complaints);
     }
+
+    public function archive()
+    {
+        $complaints = Complaint::onlyTrashed()->paginate(3);
+        return view('Complaints.archive')->with('complaints',$complaints);
+    }
+
     public function show($id)
     {
         $complaint = Complaint::where('id',$id)->first();
