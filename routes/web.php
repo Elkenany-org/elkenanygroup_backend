@@ -94,6 +94,9 @@ Route::prefix('complaint')->group(function () {
     Route::get('/' , [ComplaintController::class,'index'])->name('complaint.index');
     Route::get('/archive' , [ComplaintController::class,'archive'])->name('complaint.archive');
     Route::get('/show/{id}' , [ComplaintController::class, 'create'])->name('complaint.show');
+    Route::get('/destroy/{id}' , [JobController::class,'soft_delete'])->name('complaint.soft_delete');
+    Route::get('/restore/{id}' , [JobController::class,'restore'])->name('complaint.restore');
+    Route::get('/delete/{id}' , [JobController::class,'hard_delete'])->name('complaint.hard_delete');
 });
 
 Auth::routes();
