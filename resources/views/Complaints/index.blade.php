@@ -6,7 +6,7 @@
   <div class="three mb-3 d-flex justify-content-between align-items-center">
     <h1 class="d-inline-block w-25 ">الشكاوي</h1>
 
-    <a type="button" class="btn btn-secondary py-2" href="{{ route('News.archive') }}">الارشيف</a>
+    <a type="button" class="btn btn-secondary py-2" href="{{ route('complaint.archive') }}">الارشيف</a>
   </div>
   @if ($complaints->count() > 0)
     <table class="table" id="table">
