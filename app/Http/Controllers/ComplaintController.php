@@ -53,14 +53,22 @@ class ComplaintController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Complaint  $complaint
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Complaint $complaint)
+    public function soft_delete($id)
     {
-        //
+        $complaint = Complaint::find($id);    
+        $complaint->delete();
+        return redirect()->route('Complaints.index');
+    }
+    public function restore($id)
+    {
+        $complaint = Complaint::withTrashed()->find($id);    
+        $complaint->restore();
+        return redirect()->route('Complaints.archive');
+    }
+
+    public function hard_delete($id)
+    {
+        Complaint::where('id', $id)->forceDelete();
+        return redirect()->route('Complaints.archive'); 
     }
 }
