@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('first_name');
             $table->text('last_name');
             $table->text('email');
-            $table->integer('phone_number')->length(20);
+            $table->longInteger('phone_number');
             $table->longtext('message');
             $table->softDeletes();
             $table->timestamps();

@@ -22,7 +22,7 @@ class ComplaintController extends Controller
     public function show($id)
     {
         $complaint = Complaint::where('id',$id)->first();
-        return view('Complaints.show',compact('compaint'));
+        return view('Complaints.show',compact('complaint'));
     }
 
 

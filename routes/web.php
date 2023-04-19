@@ -91,12 +91,12 @@ Route::prefix('job')->group(function () {
 
 //complaint
 Route::prefix('complaint')->group(function () {
-    Route::get('/' , [ComplaintController::class,'index'])->name('complaint.index');
-    Route::get('/archive' , [ComplaintController::class,'archive'])->name('complaint.archive');
-    Route::get('/show/{id}' , [ComplaintController::class, 'create'])->name('complaint.show');
-    Route::get('/destroy/{id}' , [JobController::class,'soft_delete'])->name('complaint.soft_delete');
-    Route::get('/restore/{id}' , [JobController::class,'restore'])->name('complaint.restore');
-    Route::get('/delete/{id}' , [JobController::class,'hard_delete'])->name('complaint.hard_delete');
+    Route::get('/' , [ComplaintController::class,'index'])->name('Complaints.index');
+    Route::get('/archive' , [ComplaintController::class,'archive'])->name('Complaints.archive');
+    Route::get('/show/{id}' , [ComplaintController::class, 'show'])->name('Complaints.show');
+    Route::get('/destroy/{id}' , [ComplaintController::class,'soft_delete'])->name('Complaints.soft_delete');
+    Route::get('/restore/{id}' , [ComplaintController::class,'restore'])->name('Complaints.restore');
+    Route::get('/delete/{id}' , [ComplaintController::class,'hard_delete'])->name('Complaints.hard_delete');
 });
 
 Auth::routes();

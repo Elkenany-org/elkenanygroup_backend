@@ -22,8 +22,8 @@
             <span class="text">اتصل بنا</span>
         </a>
     </li>
-    <li class="nav-item @if(request()->routeIs('complaint.index')) active @endif">
-        <a class="search " href="{{ route('complaint.index') }}">
+    <li class="nav-item @if(request()->routeIs('Complaints.index') || request()->routeIs('Complaints.archive')) active @endif">
+        <a class="search " href="{{ route('Complaints.index') }}">
               <span class="icon">
                 <i class="fa-solid fa-message"></i>
               </span>

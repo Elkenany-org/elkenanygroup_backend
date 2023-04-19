@@ -6,7 +6,7 @@
   <div class="three mb-3 d-flex justify-content-between align-items-center">
     <h1 class="d-inline-block w-25 ">الشكاوي</h1>
 
-    <a type="button" class="btn btn-secondary py-2" href="{{ route('complaint.archive') }}">الارشيف</a>
+    <a type="button" class="btn btn-secondary py-2" href="{{ route('Complaints.archive') }}">الارشيف</a>
   </div>
   @if ($complaints->count() > 0)
     <table class="table" id="table">
@@ -27,11 +27,11 @@
             <tr class="search2" style="border-bottom: 1px double #5d657b">
               <th scope="row" style="color: #2f80ed">{{$counter++}}</th>
               <td><p class="ms-5 title" style="inline-size: 17rem; overflow-wrap: break-word">{{$complaint->first_name}}</p></td>
-              <td><p class="ms-5 title" style="inline-size: 17rem; overflow-wrap: break-word">{{$complaint->second_name}}</p></td>
+              <td><p class="ms-5 title" style="inline-size: 17rem; overflow-wrap: break-word">{{$complaint->last_name}}</p></td>
               <td><p class="ms-5 title" style="inline-size: 17rem; overflow-wrap: break-word">{{$complaint->created_at}}</p></td>
               <td>
-                <a class="btn btn-secondary ms-1 py-1" href="{{ route('complaint.show', $complaint->id) }}">عرض</a> 
-                <a class="btn btn-danger ms-1 py-1" href="{{ route('complaint.soft_delete', $complaint->id) }}">حذف</a>  
+                <a class="btn btn-secondary ms-1 py-1" href="{{ route('Complaints.show', $complaint->id) }}">عرض</a> 
+                <a class="btn btn-danger ms-1 py-1" href="{{ route('Complaints.soft_delete', $complaint->id) }}">حذف</a>  
               </td>
             </tr>
                 
@@ -39,7 +39,7 @@
           </tbody>
     </table>  
     <div class="pagination justify-content-center">
-      {{$news->links()}}
+      {{$complaints->links()}}
     </div>
     @else
     <div class="alert alert-danger fw-bold" role="alert">لا يوجد شكاوي</div>

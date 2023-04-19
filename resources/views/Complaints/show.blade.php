@@ -1,44 +1,75 @@
 @extends('layouts.app')
 
 @section('content')
+    <!-- ========== title-wrapper start ========== -->
+    <div class="title-wrapper pt-30">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="title mb-30">
+                    <h2>الشكوي</h2>
+                </div>
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- ========== title-wrapper end ========== -->
+    <div class="card-styles">
+        <div class="card-style-3 mb-30">
+            <div class="card-content">
 
-<div class="p-3">
+                
+                <div class="row">
+                    <div class="col-12 d-flex align-items-center ">
+                        <div class="d-inline-block input-style-1">
+                          <label for="name">الاسم الاول</label>
+                          <input type="text" class="form-control" name="first_name"
+                               style=" margin-left: 70px;" id="name" placeholder="{{$complaint->first_name}}"
+                               readonly>
+                        </div>
+                        <div class="d-inline-block input-style-1">
+                          <label for="name" style=" margin-right: 70px;">الاسم الثاني</label>
+                          <input type="text" class="form-control" name="last_name"
+                                style=" margin-right: 70px;" id="name" placeholder="{{$complaint->first_name}}"
+                                readonly>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-12">
+                      <div class="input-style-1">
+                        <label for="name">البريد الالكتروني</label>
+                        <input type="text" class="form-control" name="email"
+                             id="name" placeholder="{{$complaint->email}}" readonly>
+                      </div>
+                    </div>
 
-    <form action="{{route('News.update', $event->id)}}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <label for="fname">العنوان: </label>
-        <input type="text" id="fname" name="title" value="{{$event->title}}"><br><br>
-        <label for="fname">القسم: </label>
-        <select name="category_id" class="form-control w-25">
-          @foreach($categories as $category)
-              <option value="{{ $category->id }}">{{ $category->name_ar }}</option>
-          @endforeach
-        </select><br>
-        <label for="lname">الوصف: </label>
-        <textarea name="description">{{$event->description}}</textarea>
-        <input type="file" id="file" name="image">
-        <input type="submit" value="Submit">
-    </form> 
-</div>
+                    <div class="col-12">
+                      <div class="input-style-1">
+                        <label for="name">رقم الموبايل</label>
+                        <input type="text" class="form-control" name="phone_number"
+                             id="name" placeholder="{{$complaint->phone_number}}" readonly>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="input-style-1">
+                        <label for="name">الرسالة</label>
+                        <textarea type="text" class="form-control" name="message" rows="8"
+                             id="name" placeholder="{{$complaint->message}}" readonly></textarea>
+                      </div>
+                    </div>
 
-    <script>
-      tinymce.init({
-        selector: "textarea",
-        directionality: 'rtl',
-        plugins:
-          "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss",
-        toolbar:
-          "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
-        tinycomments_mode: "embedded",
-        tinycomments_author: "Author name",
-        mergetags_list: [
-          { value: "First.Name", title: "First Name" },
-          { value: "Email", title: "Email" },
-        ],
-      });
-        
-    </script>
+                    
+                    <!-- end col -->
+                    <div class="col-12">
+                        <div class="button-group d-flex justify-content-center flex-wrap">
+                            <a href="{{ route('Complaints.soft_delete', $complaint->id) }}" class="main-btn danger-btn btn-hover w-25 text-center">
+                                حذف
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
 @endsection
-
-    
-  
