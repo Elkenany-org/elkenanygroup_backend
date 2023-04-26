@@ -7,6 +7,11 @@ use Throwable;
 
 class Handler extends ExceptionHandler
 {
+    public function render($request , Throwable $exception)
+    {
+        return parent::render($request,$exception);
+    }
+
     /**
      * A list of exception types with their corresponding custom log levels.
      *
