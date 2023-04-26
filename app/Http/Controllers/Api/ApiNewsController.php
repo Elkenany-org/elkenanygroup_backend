@@ -30,4 +30,10 @@ class ApiNewsController extends Controller
         return response()->json($event, 200);
     }
 
+    public function search(Request $request)
+    {
+        $event = News::where('title', 'LIKE', "%{$request->title}%")->first();
+        return response()->json($event, 200);
+    }
+
 }

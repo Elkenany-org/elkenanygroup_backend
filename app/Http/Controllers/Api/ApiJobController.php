@@ -11,13 +11,19 @@ class ApiJobController extends Controller
 {
     public function index()
     {
-        $Jobs = Job::all();
-        return response()->json($Jobs, 200);
+        $jobs = Job::all();
+        return response()->json($jobs, 200);
     }
 
     public function show($id)
     {
-        $Job = Job::where('id' , $id)->first();
-        return response()->json($Job, 200);
+        $job = Job::where('id' , $id)->first();
+        return response()->json($job, 200);
+    }
+
+    public function search(Request $request)
+    {
+        $job = Job::where('title', 'LIKE', "%{$request->title}%")->first();
+        return response()->json($job, 200);
     }
 }
