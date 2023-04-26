@@ -5,9 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiNewsController;
 use App\Http\Controllers\Api\ApiJobController;
 use App\Http\Controllers\Api\ApiCategoryController;
+use App\Http\Controllers\Api\ApiContactUsController;
 use App\Models\News;
 use App\Models\Job;
 use App\Models\Category;
+use App\Models\ContactUs;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +25,7 @@ use App\Models\Category;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-// Route::get('/jobs', function () {
-//     return Job::all();
-// });
-// Route::get('/jobs' , [ApiJobController::class,'index']);
+
 
 //news
 Route::prefix('news')->group(function () {
@@ -49,4 +48,12 @@ Route::prefix('categories')->group(function () {
     Route::get('/' , [ApiCategoryController::class,'index']);
     Route::get('/show/{id}' , [ApiCategoryController::class,'show']);
     Route::get('/search/{id}', [ApiCategoryController::class, 'show']);
+});
+
+
+//contactus
+Route::prefix('infos')->group(function () {
+    Route::get('/' , [ApiContactUsController::class,'index']);
+    Route::get('/show/{id}' , [ApiContactUsController::class,'show']);
+    Route::get('/search/{id}', [ApiContactUsController::class, 'show']);
 });
