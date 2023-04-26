@@ -13,7 +13,6 @@ class ApiNewsController extends Controller
     public function index()
     {
         $news = News::all();
-        $post;
         return response()->json($news, 200);
     }
 
