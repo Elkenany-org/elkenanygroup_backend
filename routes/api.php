@@ -4,8 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiNewsController;
 use App\Http\Controllers\Api\ApiJobController;
+use App\Http\Controllers\Api\ApiCategoryController;
 use App\Models\News;
 use App\Models\Job;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +41,12 @@ Route::prefix('jobs')->group(function () {
     Route::get('/' , [ApiJobController::class,'index']);
     Route::get('/show/{id}' , [ApiJobController::class,'show']);
     Route::get('/search/{id}', [ApiJobController::class, 'show']);
+});
+
+
+//catgories
+Route::prefix('categories')->group(function () {
+    Route::get('/' , [ApiCategoryController::class,'index']);
+    Route::get('/show/{id}' , [ApiCategoryController::class,'show']);
+    Route::get('/search/{id}', [ApiCategoryController::class, 'show']);
 });
