@@ -14,6 +14,12 @@ class ContactUsController extends Controller
         return view('ContactUs.index')->with('all_messages' , $all_messages);
     }
 
+    public function archive()
+    {
+        $all_messages = ContactUs::onlyTrashed()->paginate(3);
+        return view('ContactUs.archive')->with('all_messages',$all_messages);
+    }
+
     public function create()
     {
         return view('ContactUs.create');

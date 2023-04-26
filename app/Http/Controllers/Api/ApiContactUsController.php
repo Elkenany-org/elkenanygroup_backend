@@ -19,7 +19,7 @@ class ApiContactUsController extends Controller
             'phone' => 'required',
             'message' => 'required'
         ]);
-        $bool = ContactUs::create([
+        $ret = ContactUs::create([
             'company_name' => $request->company_name,
             'first_name' => $request->first_name,
             'second_name' => $request->second_name,
@@ -27,7 +27,7 @@ class ApiContactUsController extends Controller
             'phone' => $request->phone,
             'message' => $request->message,
         ]);
-        if($bool != null)
+        if($ret != null)
         {
             return response()->json(200);
         }
