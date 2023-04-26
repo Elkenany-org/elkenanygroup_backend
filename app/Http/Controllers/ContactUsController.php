@@ -38,6 +38,7 @@ class ContactUsController extends Controller
             'phone' => $request->phone,
             'message' => $request->message,
         ]);
+        
         return redirect()->route('ContactUs.index');
     }
 

@@ -4,20 +4,37 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\ContactUs;
 
 
 class ApiContactUsController extends Controller
 {
-    public function index()
+    public function store(Request $request)
     {
-        $categories = Category::all();
-        return response()->json($categories, 200);
+        $request->validate([
+            'company_name' => 'required',
+            'first_name' => 'required',
+            'second_name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'message' => 'required'
+        ]);
+        $bool = ContactUs::create([
+            'company_name' => $request->company_name,
+            'first_name' => $request->first_name,
+            'second_name' => $request->second_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message,
+        ]);
+        if($bool != null)
+        {
+            return response()->json(200);
+        }
+        else
+        {
+            return response()->json(404);
+        }
     }
 
-    public function show($id)
-    {
-        $category = Category::where('id' , $id)->first();
-        return response()->json($category, 200);
-    }
 }

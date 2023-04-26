@@ -6,10 +6,12 @@ use App\Http\Controllers\Api\ApiNewsController;
 use App\Http\Controllers\Api\ApiJobController;
 use App\Http\Controllers\Api\ApiCategoryController;
 use App\Http\Controllers\Api\ApiContactUsController;
+use App\Http\Controllers\Api\ApiInfoController;
 use App\Models\News;
 use App\Models\Job;
 use App\Models\Category;
 use App\Models\ContactUs;
+use App\Models\Info;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,9 +53,12 @@ Route::prefix('categories')->group(function () {
 });
 
 
-//contactus
+//infos
 Route::prefix('infos')->group(function () {
-    Route::get('/' , [ApiContactUsController::class,'index']);
-    Route::get('/show/{id}' , [ApiContactUsController::class,'show']);
-    Route::get('/search/{id}', [ApiContactUsController::class, 'show']);
+    Route::get('/' , [ApiInfoController::class,'index']);
+    Route::get('/show/{id}' , [ApiInfoController::class,'show']);
+    Route::get('/search/{id}', [ApiInfoController::class, 'show']);
 });
+
+//contactus
+Route::post('contactus/store' , [ApiContactUsController::class,'store']);
