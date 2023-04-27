@@ -6,7 +6,7 @@ use App\Http\Controllers\InfoController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\JobController;
-// use App\Http\Controllers\ComplaintController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,17 +31,25 @@ Route::get('/error', function () {
 //info
 Route::prefix('info')->group(function () {
     Route::get('/' , [InfoController::class,'index'])->name('info.index');
+    Route::get('/archive' , [InfoController::class,'archive'])->name('info.archive');
     Route::get('create' , [InfoController::class, 'create'])->name('info.create');
-    Route::get('/show/{id}' , [InfoController::class,'show'])->name('info.show');
+    Route::post('/store' , [InfoController::class,'store'])->name('info.store');
     Route::get('/edit/{id}' , [InfoController::class,'edit'])->name('info.edit');
-    Route::put('/info/update/{id}' , [InfoController::class,'update'])->name('info.update');
-    Route::put('/info/delete/{id}' , [InfoController::class,'delete'])->name('info.delete');
+    Route::put('/update/{id}' , [InfoController::class,'update'])->name('info.update');
+    Route::get('/soft_delete/{id}' , [InfoController::class,'soft_delete'])->name('info.soft_delete');
+    Route::get('/restore/{id}' , [InfoController::class,'restore'])->name('info.restore');
+    Route::get('/hard_delete/{id}' , [InfoController::class,'restore'])->name('info.hard_delete');
 });
 
 //contactus
-Route::get('/contactus' , [ContactUsController::class,'index'])->name('contactus.index');
-Route::get('/contactus/create' , [ContactUsController::class,'create'])->name('contactus.create');
-Route::get('/contactus/store' , [ContactUsController::class,'store'])->name('contactus.store');
+Route::prefix('contactus')->group(function () {
+    Route::get('/' , [ContactUsController::class,'index'])->name('contactus.index');
+    Route::get('/archive' , [ContactUsController::class,'archive'])->name('contactus.archive');
+    Route::get('/show/{id}' , [ContactUsController::class,'show'])->name('contactus.show');
+    Route::get('/destroy/{id}' , [ContactUsController::class,'soft_delete'])->name('contactus.soft_delete');
+    Route::get('/restore/{id}' , [ContactUsController::class,'restore'])->name('contactus.restore');
+    Route::get('/delete/{id}' , [ContactUsController::class,'hard_delete'])->name('contactus.hard_delete');
+});
 
 
 
@@ -79,16 +87,16 @@ Route::prefix('news')->group(function () {
 
 //Jobs
 Route::prefix('job')->group(function () {
-    Route::get('/' , [JobController::class,'index'])->name('Jobs.index');
-    Route::get('/archive' , [JobController::class,'archive'])->name('Jobs.archive');
-    Route::get('/create' , [JobController::class, 'create'])->name('Jobs.create');
-    Route::post('/store' , [JobController::class, 'store'])->name('Jobs.store');
-    Route::get('/show/{id}' , [JobController::class,'show'])->name('Jobs.show');
-    Route::get('/edit/{id}' , [JobController::class,'edit'])->name('Jobs.edit');
-    Route::get('/update/{id}' , [JobController::class,'update'])->name('Jobs.update');
-    Route::get('/destroy/{id}' , [JobController::class,'soft_delete'])->name('Jobs.soft_delete');
-    Route::get('/restore/{id}' , [JobController::class,'restore'])->name('Jobs.restore');
-    Route::get('/delete/{id}' , [JobController::class,'hard_delete'])->name('Jobs.hard_delete');
+    Route::get('/' , [JobController::class,'index'])->name('job.index');
+    Route::get('/archive' , [JobController::class,'archive'])->name('job.archive');
+    Route::get('/create' , [JobController::class, 'create'])->name('job.create');
+    Route::post('/store' , [JobController::class, 'store'])->name('job.store');
+    Route::get('/show/{id}' , [JobController::class,'show'])->name('job.show');
+    Route::get('/edit/{id}' , [JobController::class,'edit'])->name('job.edit');
+    Route::get('/update/{id}' , [JobController::class,'update'])->name('job.update');
+    Route::get('/destroy/{id}' , [JobController::class,'soft_delete'])->name('job.soft_delete');
+    Route::get('/restore/{id}' , [JobController::class,'restore'])->name('job.restore');
+    Route::get('/delete/{id}' , [JobController::class,'hard_delete'])->name('job.hard_delete');
 });
 
 

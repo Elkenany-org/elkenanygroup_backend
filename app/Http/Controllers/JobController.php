@@ -9,13 +9,13 @@ class JobController extends Controller
 {
     public function index()
     {
-        $jobs = Job::all();
+        $jobs = Job::paginate(3);
         return view('Jobs.index')->with('jobs' , $jobs);
     }
 
     public function archive()
     {
-        $jobs = Job::onlyTrashed()->get();;
+        $jobs = Job::onlyTrashed()->paginate(3);
         return view('Jobs.archive')->with('jobs',$jobs);
     }
 
@@ -83,18 +83,18 @@ class JobController extends Controller
     {
         $job = Job::find($id);    
         $job->delete();
-        return redirect()->route('Jobs.index');
+        return redirect()->back();
     }
     public function restore($id)
     {
         $job = Job::withTrashed()->find($id);    
         $job->restore();
-        return redirect()->route('Jobs.archive');
+        return redirect()->back();
     }
 
     public function hard_delete($id)
     {
         Job::where('id', $id)->forceDelete();
-        return redirect()->route('Jobs.archive'); 
+        return redirect()->back(); 
     }
 }

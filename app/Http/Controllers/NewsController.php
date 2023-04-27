@@ -19,7 +19,6 @@ class NewsController extends Controller
 
     public function archive()
     {
-        
         $news = News::onlyTrashed()->get();
         return view('News.archive')->with('news',$news);
     }

@@ -6,7 +6,7 @@
         <div class="row align-items-center">
             <div class="col-md-6">
                 <div class="title mb-30">
-                    <h2>{{ __('My profile') }}</h2>
+                    <h2>حسابي</h2>
                 </div>
             </div>
             <!-- end col -->
@@ -65,9 +65,9 @@
                         <!-- end col -->
                         <div class="col-12">
                             <div class="input-style-1">
-                                <label for="password">{{ __('New password') }}</label>
+                                <label for="password">كلمة السر</label>
                                 <input type="password" @error('password') class="form-control is-invalid"
-                                       @enderror name="password" id="password" placeholder="{{ __('New password') }}"
+                                       @enderror name="password" id="password" placeholder="ادخل كلمة السر الجديدة"
                                        required>
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -79,17 +79,17 @@
                         <!-- end col -->
                         <div class="col-12">
                             <div class="input-style-1">
-                                <label for="password_confirmation">{{ __('New password confirmation') }}</label>
+                                <label for="password_confirmation">كلمة السر مرة اخري</label>
                                 <input type="password" @error('password') class="form-control is-invalid"
                                        @enderror name="password_confirmation" id="password_confirmation"
-                                       placeholder="{{ __('New password confirmation') }}" required>
+                                       placeholder="اعد كتابة كلمة السر الجديدة مرة اخري" required>
                             </div>
                         </div>
                         <!-- end col -->
                         <div class="col-12">
                             <div class="button-group d-flex justify-content-center flex-wrap">
                                 <button type="submit" class="main-btn primary-btn btn-hover w-100 text-center">
-                                    {{ __('Submit') }}
+                                    تأكيد
                                 </button>
                             </div>
                         </div>

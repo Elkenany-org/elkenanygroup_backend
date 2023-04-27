@@ -1,5 +1,10 @@
+@extends('layouts.app')
 
-<form action="{{route('Jobs.update' , $job->id)}}" method="POST">
+@section('content')
+
+<div class="p-3">
+
+<form action="{{route('job.update' , $job->id)}}" method="POST">
     @csrf
     <label for="fname">Title: </label>
     <input type="text" id="fname" name="title" value="{{$job->title}}"><br><br>
@@ -18,4 +23,7 @@
     
     <input type="submit" value="Submit">
 </form> 
-  
+
+</div>
+
+@endsection

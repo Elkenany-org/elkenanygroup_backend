@@ -10,9 +10,11 @@
 
     {{-- <input type="text" class="mySearch" id="mySearch" placeholder="بحث"> --}}
 
-    <a type="button" class="btn btn-secondary py-2" href="{{ route('Jobs.archive') }}">الارشيف</a>
+    <a type="button" class="btn btn-secondary py-2" href="{{ route('job.archive') }}">الارشيف</a>
   </div>
-
+  
+  @if ($jobs->count() > 0)
+  
     <table class="table">
         <thead style="border-bottom: #2f80ed 3px solid">
           <tr style="color: #2f80ed">
@@ -36,12 +38,18 @@
             <td><p class="ms-5" style="inline-size: 7rem; overflow-wrap: break-word">{{($job->created_at)->format('d/m/Y   h:i:s')}}</p></td>
             <td><p class="ms-5" style="inline-size: 7rem; overflow-wrap: break-word">{{($job->updated_at)->format('d/m/Y   h:i:s')}}</p></td>  
             <td>
-              <a class="btn btn-secondary ms-1 py-1" href="{{ route('Jobs.edit', $job->id) }}">تعديل</a> 
-              <a class="btn btn-danger ms-1 py-1" href="{{ route('Jobs.soft_delete', $job->id) }}">حذف</a>  
+              <a class="btn btn-secondary ms-1 py-1" href="{{ route('job.edit', $job->id) }}">تعديل</a> 
+              <a class="btn btn-danger ms-1 py-1" href="{{ route('job.soft_delete', $job->id) }}">حذف</a>  
             </td>
            </tr>
           @endforeach        
     </table>
+    <div class="pagination justify-content-center">
+      {{$jobs->links()}}
+    </div>
+    @else
+      <div class="alert alert-danger fw-bold" role="alert">لا يوجد وظائف</div>
+    @endif
     
     
 </div>

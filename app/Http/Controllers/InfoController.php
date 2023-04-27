@@ -6,32 +6,46 @@ use App\Models\Info;
 use Illuminate\Http\Request;
 
 
+
 class InfoController extends Controller
 {
     
     public function index()
     {
-        $all_info = Info::all();
+        $all_info = Info::paginate(3);
         return view('Info.index')->with('all_info' , $all_info);
     }
-
+    public function archive()
+    {
+        $all_info = Info::onlyTrashed()->paginate(3);
+        return view('Info.archive')->with('all_info',$all_info);
+    }
     public function create()
     {
-        return view('Info.create');
+        $types = ['--لا شئ--' , 'عنوان' , 'ايميل' , 'رقم تليفون' ];
+        return view('Info.create',compact('types'));
     }
-
+    
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'type' => 'required',
-            'description' => 'required'
-        ]);
+        $types = ['--لا شئ--' , 'عنوان' , 'ايميل' , 'رقم تليفون' ];
+        if($request->type_index == 0)
+        {
+            return redirect()->back()->withErrors(['msg' => 'من فضلك اختر النوع!']);
+        }
+        else
+        {
+            $this->validate($request,[
+                'type_index' => 'required',
+                'description' => 'required'
+            ]);
 
-        Post::create([
-            'type' => $request->type,
-            'description' => $request->description
-        ]);
-        return redirect()->route('Info.index');
+            Info::create([
+                'type' => $types[$request->type_index],
+                'description' => $request->description
+            ]);
+            return redirect()->route('info.index');
+        }
     }
 
     
@@ -62,10 +76,18 @@ class InfoController extends Controller
         return redirect()->route('Info.index'); 
     }
 
-    public function destroy($id)
+    public function soft_delete($id)
     {
         $info = Info::find($id);
         $info->delete();
+        return redirect()->back();
+    }
+
+    public function restore($id)
+    {
+        $info = Info::withTrashed()->find($id);
+        $info->restore();
+        return redirect()->back();
     }
 
     public function hardDelete($id)

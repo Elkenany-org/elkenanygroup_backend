@@ -97,7 +97,7 @@
     <!-- ========== section end ========== -->
 
     <!-- ========== footer start =========== -->
-    <footer class="footer">
+    {{-- <footer class="footer">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 order-last order-md-first">
@@ -115,7 +115,7 @@
             <!-- end row -->
         </div>
         <!-- end container -->
-    </footer>
+    </footer> --}}
     <!-- ========== footer end =========== -->
 </main>
 <!-- ======== main-wrapper end =========== -->

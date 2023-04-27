@@ -4,7 +4,7 @@
 
 <div class="p-3">
 
-<form action="{{route('Jobs.store')}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('job.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <label for="fname">اسم الوظيفة: </label>
     <input type="text" id="fname" name="title"><br><br>
