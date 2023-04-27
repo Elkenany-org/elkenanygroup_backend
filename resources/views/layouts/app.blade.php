@@ -56,9 +56,14 @@
                                     data-bs-toggle="dropdown" aria-expanded="false">
                             
                                 <div class="profile-info ms-2">
-                                    <div class="info">
-                                        <h6 class="text-light fw-bold">{{ Auth::user()->name }}</h6>
-                                    </div>
+                                    
+                                    @if(!empty(Auth::user()->name))
+                                        <div class="info">
+                                            <h6 class="text-light fw-bold">{{ Auth::user()->name }}</h6>
+                                        </div>
+                                    @else
+                                        <script>window.location.href = "{{ route('login') }}";</script>
+                                    @endif
                                 </div>
                                 <i class="lni lni-chevron-down"></i>
                             </button>

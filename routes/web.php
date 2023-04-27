@@ -6,7 +6,7 @@ use App\Http\Controllers\InfoController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\JobController;
-use App\Http\Controllers\ComplaintController;
+// use App\Http\Controllers\ComplaintController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +22,9 @@ use App\Http\Controllers\ComplaintController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/error', function () {
+    return view('errors.404');
+})->name('error_page');
 
 
 
@@ -56,7 +59,6 @@ Route::prefix('category')->group(function () {
     Route::get('/delete/{id}' , [CategoryController::class,'hard_delete'])->name('category.hard_delete');
 });
 
-Route::get('/hh' , [NewsController::class,'index'])->name('Jobs.index');
 
 //News
 Route::prefix('news')->group(function () {
@@ -89,25 +91,15 @@ Route::prefix('job')->group(function () {
     Route::get('/delete/{id}' , [JobController::class,'hard_delete'])->name('Jobs.hard_delete');
 });
 
-//complaint
-Route::prefix('complaint')->group(function () {
-    Route::get('/' , [ComplaintController::class,'index'])->name('Complaints.index');
-    Route::get('/archive' , [ComplaintController::class,'archive'])->name('Complaints.archive');
-    Route::get('/show/{id}' , [ComplaintController::class, 'show'])->name('Complaints.show');
-    Route::get('/destroy/{id}' , [ComplaintController::class,'soft_delete'])->name('Complaints.soft_delete');
-    Route::get('/restore/{id}' , [ComplaintController::class,'restore'])->name('Complaints.restore');
-    Route::get('/delete/{id}' , [ComplaintController::class,'hard_delete'])->name('Complaints.hard_delete');
-});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 Route::middleware('auth')->group(function () {
     Route::view('about', 'about')->name('about');
-    
     Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
-    
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });

@@ -23,7 +23,7 @@
         </a>
     </li>
     <li class="nav-item @if(request()->routeIs('Complaints.index') || request()->routeIs('Complaints.archive')) active @endif">
-        <a class="search " href="{{ route('Complaints.index') }}">
+        <a class="search " href="">
               <span class="icon">
                 <i class="fa-solid fa-message"></i>
               </span>
