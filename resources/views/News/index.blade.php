@@ -17,7 +17,7 @@
     <table class="table" id="table">
           <thead style="border-bottom: #2f80ed 3px solid">
             <tr style="color: #2f80ed">
-              <th scope="col" style="width:70px">#</th>
+              <th scope="col" style="width:60px">#</th>
               <th style="width: 7rem" scope="col">الصورة</th>
               <th scope="col">العنوان</th>
               <th scope="col">القسم</th>
