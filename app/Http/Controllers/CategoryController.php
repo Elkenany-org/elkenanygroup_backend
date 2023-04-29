@@ -76,7 +76,8 @@ class CategoryController extends Controller
     
     public function hard_delete($id)
     {
-        Category::where('id', $id)->forceDelete();
+        $category = Category::where('id', $id);
+        $category->forceDelete();
         return redirect()->route('category.archive'); 
     }
 }
