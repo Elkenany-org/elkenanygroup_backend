@@ -13,13 +13,13 @@ class NewsController extends Controller
     
     public function index()
     {
-        $news = News::paginate(3);
+        $news = News::paginate(10);
         return view('News.index',compact('news'));
     }
 
     public function archive()
     {
-        $news = News::onlyTrashed()->get();
+        $news = News::onlyTrashed()->paginate(10);
         return view('News.archive')->with('news',$news);
     }
 

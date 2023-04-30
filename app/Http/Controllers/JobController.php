@@ -9,13 +9,13 @@ class JobController extends Controller
 {
     public function index()
     {
-        $jobs = Job::paginate(3);
+        $jobs = Job::paginate(10);
         return view('Jobs.index')->with('jobs' , $jobs);
     }
 
     public function archive()
     {
-        $jobs = Job::onlyTrashed()->paginate(3);
+        $jobs = Job::onlyTrashed()->paginate(10);
         return view('Jobs.archive')->with('jobs',$jobs);
     }
 

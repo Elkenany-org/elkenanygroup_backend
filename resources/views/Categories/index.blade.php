@@ -4,7 +4,7 @@
 
 <div class="p-3">
   <div class="three mb-3 d-flex justify-content-between align-items-center">
-    <h1 class="d-inline-block w-25 ">الاخبار</h1>
+    <h1 class="d-inline-block w-25 ">اقسام الاخبار</h1>
     
     {{-- <input type="text" class="mySearch" id="mySearch2" onkeyup="search2(this.value)" placeholder="بحث"> --}}
     {{-- <input type="text" class="mySearch" id="mySearch" placeholder="بحث"> --}}
