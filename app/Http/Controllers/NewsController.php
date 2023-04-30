@@ -118,11 +118,20 @@ class NewsController extends Controller
     }
     public function search(Request $request)
     {
-        $query = $request->input('query');
-        $news = News::where('title', 'LIKE', '%'.$query.'%')->get();
-        return view('News.test')->with('news',$news);
+        $title = $request->title;
+        $news = News::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
+        return view('News.index')->with('news',$news);
     }
 
+    // public function search(Request $request)
+    // {
+    //     $query = $request->input('query');
+
+    //     $news = News::where('name', 'like', '%'.$query.'%')
+    //                 ->paginate(10);
+
+    //     return view('News.rows_of_index', compact('news', 'query'));
+    // }
 
     // public function search(Request $request)
     // {

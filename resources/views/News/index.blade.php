@@ -7,11 +7,13 @@
     <h1 class="d-inline-block w-25 ">الاخبار</h1>
     
     {{-- <input type="text" class="mySearch" id="mySearch" placeholder="بحث"> --}}
-    {{-- <form id="search-form" method="get">
-      <input type="text" name="query" id="search-input">
+    <form id="search-form" action="{{route('News.search')}}" method="get">
+      <input type="text" name="title" id="search-input">
       <button type="submit">Search</button>
-  </form> --}}
-    <input type="text"  id="mySearch" onkeyup="search(this.value)" placeholder="بحث" title="Type in a category">
+  </form>
+  
+ 
+    {{-- <input type="text"  id="mySearch" onkeyup="search(this.value)" placeholder="بحث" title="Type in a category"> --}}
 
 
     <a type="button" class="btn btn-secondary py-2" href="{{ route('News.archive') }}">الارشيف</a>
@@ -29,9 +31,27 @@
               <th scope="col">الخيارات</th>
             </tr>
           </thead>
-          <tbody id="tbody">
-            @include('News.rows_of_index')
-          </tbody>
+            {{-- @include('News.rows_of_index') --}}
+            <tbody id="tbody">
+              @php
+                    $counter =1;
+                @endphp
+              @foreach ($news as $event)
+              <tr class="search2" style="border-bottom: 1px double #5d657b">
+                <th scope="row" style="color: #2f80ed">{{$counter++}}</th>
+                <td><img src="images/news/{{$event->image}}" alt="error" style="width: 60px"></td>
+                <td><p class="ms-5 title" style="inline-size: 17rem; overflow-wrap: break-word">{{$event->title}}</p></td>
+                <td><p class="ms-5 title" style="inline-size: 17rem; overflow-wrap: break-word">{{$event->category->name_ar}}</p></td>
+                <td><p class="ms-5" style="inline-size: 7rem; overflow-wrap: break-word">{{($event->created_at)->format('d/m/Y   h:i:s')}}</p></td>
+                <td><p class="ms-5" style="inline-size: 7rem; overflow-wrap: break-word">{{($event->updated_at)->format('d/m/Y   h:i:s')}}</p></td>
+                <td>
+                  <a class="btn btn-secondary ms-1 py-1" href="{{ route('News.edit', $event->id) }}">تعديل</a> 
+                  <a class="btn btn-danger ms-1 py-1" href="{{ route('News.soft_delete', $event->id) }}">حذف</a>  
+                </td>
+              </tr>
+                  
+              @endforeach
+              </tbody>
     </table>  
     <div class="pagination justify-content-center">
       {{$news->links()}}
