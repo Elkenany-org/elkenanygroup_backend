@@ -28,8 +28,8 @@
               <td scope="row" style="color: #2f80ed">{{$counter++}}</td>
               <td style="max-width: 30px;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$message->first_name}}</p></td>
               <td style="max-width: 30px;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$message->second_name}}</p></td>
-              <td class=""><p class=" title" style=" overflow-wrap: break-word;max-width: 85px;">{{$message->created_at}}</p></td>
-              <td class="">
+              <td ><p class=" title" style=" overflow-wrap: break-word;max-width: 85px;">{{$message->created_at}}</p></td>
+              <td>
                 <a class="btn btn-secondary  py-1 " href="{{ route('contactus.show', $message->id) }}">عرض</a> 
                 <a class="btn btn-danger  py-1 " href="{{ route('contactus.soft_delete', $message->id) }}">حذف</a>  
               </td>
