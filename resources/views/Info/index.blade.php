@@ -12,8 +12,8 @@
     <table class="table" id="table">
           <thead style="border-bottom: #2f80ed 3px solid">
             <tr style="color: #2f80ed">
-              <th scope="col" style="width:70px">#</th>
-              <th style="width: 7rem" scope="col">النوع</th>
+              <th scope="col" style="width: 5rem;">#</th>
+              <th scope="col">النوع</th>
               <th scope="col">الوصف</th>
               <th scope="col">تاريخ الانشاء</th>
               <th scope="col">الخيارات</th>
@@ -26,14 +26,16 @@
             @foreach ($all_info as $info)
             <tr class="search2" style="border-bottom: 1px double #5d657b">
               <th scope="row" style="color: #2f80ed">{{$counter++}}</th>
-              <td><p class="ms-5 title" style="inline-size: 17rem; overflow-wrap: break-word">{{$info->type}}</p></td>
-              <td><p class="ms-5 title" style="inline-size: 17rem; overflow-wrap: break-word">{{$info->description}}</p></td>
-              <td><p class="ms-5 title" style="inline-size: 17rem; overflow-wrap: break-word">{{$info->created_at}}</p></td>
+
+              <td style="max-width:  7rem;;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$info->type}}</p></td>
+              <td style="max-width: 11rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$info->description}}</p></td>
+              <td ><p class=" title" style=" overflow-wrap: break-word;max-width: 85px;">{{$info->created_at}}</p></td>
               <td>
                 <a class="btn btn-secondary ms-1 py-1" href="{{ route('info.edit', $info->id) }}">تعديل</a> 
                 <a class="btn btn-danger ms-1 py-1" href="{{ route('info.soft_delete', $info->id) }}">حذف</a>  
               </td>
             </tr>
+            
                 
             @endforeach
           </tbody>
