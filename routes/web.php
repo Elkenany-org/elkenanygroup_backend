@@ -20,7 +20,7 @@ use App\Http\Controllers\JobController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 Route::get('/error', function () {
     return view('errors.404');
