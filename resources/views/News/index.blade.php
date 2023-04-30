@@ -6,15 +6,11 @@
   <div class="three mb-3 d-flex justify-content-between align-items-center">
     <h1 class="d-inline-block w-25 ">الاخبار</h1>
     
-    {{-- <input type="text" class="mySearch" id="mySearch" placeholder="بحث"> --}}
-    <form id="search-form" action="{{route('News.search')}}" method="get">
-      <input type="text" name="title" id="search-input">
-      <button type="submit">Search</button>
-  </form>
+    <form class="display: flex;justify-content: center;align-items: center;" id="search-form" action="{{route('News.search')}}" method="get">
+      <input class="mySearch" type="text" name="title" id="search-input">
+      <button class="btn btn-outline-secondary"  type="submit"><b>Search</b></button>
+    </form>
   
- 
-    {{-- <input type="text"  id="mySearch" onkeyup="search(this.value)" placeholder="بحث" title="Type in a category"> --}}
-
 
     <a type="button" class="btn btn-secondary py-2" href="{{ route('News.archive') }}">الارشيف</a>
   </div>
