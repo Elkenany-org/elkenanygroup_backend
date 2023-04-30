@@ -120,10 +120,6 @@ class NewsController extends Controller
     {
         $title = $request->title;
         $news = News::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
-        // foreach($news as $event)
-        // {
-        //     $event->image = 'images/news/'.$event->image;
-        // }
         return view('News.index')->with('news',$news);
     }
 
