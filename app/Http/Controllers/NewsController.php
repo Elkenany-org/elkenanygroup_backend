@@ -120,42 +120,12 @@ class NewsController extends Controller
     {
         $title = $request->title;
         $news = News::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
+        // foreach($news as $event)
+        // {
+        //     $event->image = 'images/news/'.$event->image;
+        // }
         return view('News.index')->with('news',$news);
     }
-
-    // public function search(Request $request)
-    // {
-    //     $query = $request->input('query');
-
-    //     $news = News::where('name', 'like', '%'.$query.'%')
-    //                 ->paginate(10);
-
-    //     return view('News.rows_of_index', compact('news', 'query'));
-    // }
-
-    // public function search(Request $request)
-    // {
-    //     $query = $request->input('query');
-    //     $news = News::where('title', 'LIKE', '%'.$query.'%')->get();
-    //     return view('News.index', compact('news'));
-
-
-        // $news = News::where('title' , $request->search_string)->first();
-        // echo $request->search_string;
-        // // dd($request->search_string->get());
-        // return view('News.test')->with('event',$request->search_string);
-        // if($news->count()>0)
-        // {
-        //     // return view('News.index')->with('news',$news)->render();
-        //     // return view('News.create');
-        // }
-        // if($news->count() == 0)
-        // {
-        //     $news = News::all();
-        //     return view('News.index')->with('news',$news);
-        // }
-
-    // }
 
 }
 
