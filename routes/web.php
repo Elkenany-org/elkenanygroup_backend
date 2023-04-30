@@ -81,6 +81,7 @@ Route::prefix('news')->group(function () {
     Route::get('/restore/{id}' , [NewsController::class,'restore'])->name('News.restore');
     Route::get('/delete/{id}' , [NewsController::class,'hard_delete'])->name('News.hard_delete');
     Route::get('/search', [NewsController::class, 'search'])->name('News.search');
+    Route::get('/archive_search', [NewsController::class, 'archive_search'])->name('News.archive_search');
 
 });
 

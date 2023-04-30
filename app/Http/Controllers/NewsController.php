@@ -122,6 +122,12 @@ class NewsController extends Controller
         $news = News::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
         return view('News.index')->with('news',$news);
     }
+    public function archive_search(Request $request)
+    {
+        $title = $request->title;
+        $news = News::onlyTrashed()->where('title', 'LIKE', '%'.$title.'%')->paginate(10);
+        return view('News.archive')->with('news',$news);
+    }
 
 }
 
