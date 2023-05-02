@@ -35,8 +35,8 @@
             <th scope="row" style="color: #2f80ed">{{$counter++}}</th>
             <td style="max-width:  7rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$job->title}}</p></td>
             <td style="max-width:  11rem;word-wrap: break-word;padding-left: 50px;"><p class=" title" style=" overflow-wrap: break-word">{{$job->address}}</p></td>
-            <td style="max-width:  7rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{($job->created_at)->format('d/m/Y   h:i:s')}}</p></td>
-            <td style="max-width:  7rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{($job->updated_at)->format('d/m/Y   h:i:s')}}</p></td>
+            <td style="word-wrap: break-word;"><p class=" title" style=" overflow-wrap: break-word;max-width:  5rem;">{{($job->created_at)->format('d/m/Y   h:i:s')}}</p></td>
+            <td style="word-wrap: break-word;"><p class=" title" style=" overflow-wrap: break-word;max-width:  5rem;">{{($job->updated_at)->format('d/m/Y   h:i:s')}}</p></td>
             <td>
               <a class="btn btn-secondary ms-1 py-1" href="{{ route('job.edit', $job->id) }}">تعديل</a> 
               <a class="btn btn-danger ms-1 py-1" href="{{ route('job.soft_delete', $job->id) }}">حذف</a>  
