@@ -80,7 +80,7 @@
             <span class="icon">
                 <i class="fa-solid fa-newspaper fa-sm"></i>
             </span>
-            <span class="text">اتصل بنا</span>
+            <span class="text">البيانات</span>
         </a>
         <ul id="ddmenu_5" class="dropdown-nav collapse">
             <li>
