@@ -6,6 +6,11 @@
   <div class="three mb-3 d-flex justify-content-between align-items-center">
     <h1 class="d-inline-block w-25 ">البيانات</h1>
 
+    <form class="d-f justify-content-center align-items-center" id="search-form" action="{{route('info.search')}}" method="get">
+      <input class="mySearch" type="text" name="description" id="search-input">
+      <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
+    </form>
+
     <a type="button" class="btn btn-secondary py-2" href="{{ route('info.archive') }}">الارشيف</a>
   </div>
   @if ($all_info->count() > 0)

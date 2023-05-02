@@ -96,4 +96,16 @@ class InfoController extends Controller
         $info->forceDelete();
         return redirect()->back();
     }
+    public function search(Request $request)
+    {
+        $description = $request->description;
+        $all_info = Info::where('description', 'LIKE', '%'.$description.'%')->paginate(10);
+        return view('Info.index')->with('all_info',$all_info);
+    }
+    public function archive_search(Request $request)
+    {
+        $description = $request->description;
+        $all_info = Info::onlyTrashed()->where('description', 'LIKE', '%'.$description.'%')->paginate(10);
+        return view('Info.archive')->with('all_info',$all_info);
+    }
 }
