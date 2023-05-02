@@ -97,4 +97,16 @@ class JobController extends Controller
         Job::where('id', $id)->forceDelete();
         return redirect()->back(); 
     }
+    public function search(Request $request)
+    {
+        $title = $request->title;
+        $jobs = Job::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
+        return view('Jobs.index')->with('jobs',$jobs);
+    }
+    public function archive_search(Request $request)
+    {
+        $title = $request->title;
+        $jobs = Job::onlyTrashed()->where('title', 'LIKE', '%'.$title.'%')->paginate(10);
+        return view('Jobs.archive')->with('jobs',$jobs);
+    }
 }

@@ -5,10 +5,10 @@
   <div class="three mb-3 d-flex justify-content-between align-items-center">
     <h1 class="d-inline-block w-25 ">الوظائف</h1>
     
-    <input type="text" class="mySearch" id="mySearch2" onkeyup="search2(this.value)" placeholder="بحث">
-    {{-- <input type="text" class="mySearch" id="mySearch" placeholder="بحث"> --}}
-
-    {{-- <input type="text" class="mySearch" id="mySearch" placeholder="بحث"> --}}
+    <form class="display: flex;justify-content: center;align-items: center;" id="search-form" action="{{route('job.search')}}" method="get">
+      <input class="mySearch" type="text" name="title" id="search-input">
+      <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
+    </form>
 
     <a type="button" class="btn btn-secondary py-2" href="{{ route('job.archive') }}">الارشيف</a>
   </div>

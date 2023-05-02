@@ -100,6 +100,8 @@ Route::prefix('job')->group(function () {
     Route::get('/destroy/{id}' , [JobController::class,'soft_delete'])->name('job.soft_delete');
     Route::get('/restore/{id}' , [JobController::class,'restore'])->name('job.restore');
     Route::get('/delete/{id}' , [JobController::class,'hard_delete'])->name('job.hard_delete');
+    Route::get('/search' , [JobController::class,'search'])->name('job.search');
+    Route::get('/archive_search' , [JobController::class,'archive_search'])->name('job.archive_search');
 });
 
 
