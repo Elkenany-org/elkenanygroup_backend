@@ -15,6 +15,7 @@
               <th scope="col" style="width: 7rem;">#</th>
               <th scope="col">الاسم الاول</th>
               <th scope="col">الاسم الثاني</th>
+              <th scope="col">اسم الشركة</th>
               <th scope="col">تاريخ الانشاء</th>
               <th scope="col">الخيارات</th>
             </tr>
@@ -28,6 +29,7 @@
               <td scope="row" style="color: #2f80ed">{{$counter++}}</td>
               <td style="max-width: 30px;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$message->first_name}}</p></td>
               <td style="max-width: 30px;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$message->second_name}}</p></td>
+              <td style="max-width: 30px;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$message->company_name}}</p></td>
               <td ><p class=" title" style=" overflow-wrap: break-word;max-width: 85px;">{{$message->created_at}}</p></td>
               <td>
                 <a class="btn btn-secondary ms-1 py-1" href="{{ route('contactus.show', $message->id) }}">عرض</a> 
@@ -49,61 +51,3 @@
   
 </div>
 @endsection
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  // function search2 (input2) 
-  // {
-  //     input2 = input2.toLowerCase()
-  //     let links2 = document.querySelectorAll(".search2")
-      
-  //     for (let index = 0; index < links2.length; index++) {
-  //         if (links2[index].textContent.toLowerCase().includes(input2)) {
-  //           links2[index].style.display = "table-row"
-  //           }   else {
-  //             links2[index].style.display = "none"
-  //         }
-  //     }
-  // }
-
-
-  
-  //   $(document).on('keyup',function(e){
-  //   e.preventDefault();
-  //   let search_string = $('#mySearch').val();
-
-  //   $.ajax({
-  //     url:"{{route('News.search')}}",
-  //     method:'GET',
-  //     data:{search_string:search_string},
-  //     success:function(res)
-  //     {
-  //       $('.search2').html(res);
-  //     }
-  //     // success: function(){
-  //     //                alert( "Data Saved: " + 'ssssssssss' );
-  //     //             }
-  //   });
-    
-  //   console.log(search_string);
-  // })
-  $(document).ready(function() {
-  $('#mySearch').on('keyup', function() {
-    var query = $(this).val();
-    $.ajax({
-      url: '{{ route("News.search") }}',
-      method: 'GET',
-      data: {
-        query: query
-      },
-      success: function(response) {
-        $('#tbody').html(response);
-      }
-    });
-  });
-  console.log($(this).val());
-});
-
-  
-</script>

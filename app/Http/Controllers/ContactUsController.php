@@ -37,7 +37,7 @@ class ContactUsController extends Controller
 
     public function restore($id)
     {
-        $message = ContactUs::find($id);
+        $message = ContactUs::withTrashed()->find($id);
         $message->restore();
         return redirect()->back();
     }
