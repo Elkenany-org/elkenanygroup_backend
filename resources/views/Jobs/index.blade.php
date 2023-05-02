@@ -41,15 +41,7 @@
               <a class="btn btn-secondary ms-1 py-1" href="{{ route('job.edit', $job->id) }}">تعديل</a> 
               <a class="btn btn-danger ms-1 py-1" href="{{ route('job.soft_delete', $job->id) }}">حذف</a>  
             </td>
-          {{-- </tr>
-           <tr >
-            <th scope="row" style="color: #2f80ed; width: 70px">{{$counter++}}</th>
-            <td><p class="ms-5" style="inline-size: 17rem; overflow-wrap: break-word;padding-right: 40px;">{{$job->title}}</p></td>
-            <td><p class="ms-5" style="inline-size: 9rem; overflow-wrap: break-word">{{$job->address}}</p></td>
-            <td><p class="ms-5" style="inline-size: 7rem; overflow-wrap: break-word">{{($job->created_at)->format('d/m/Y   h:i:s')}}</p></td>
-            <td><p class="ms-5" style="inline-size: 7rem; overflow-wrap: break-word">{{($job->updated_at)->format('d/m/Y   h:i:s')}}</p></td>  
-            
-           </tr> --}}
+         
           @endforeach        
     </table>
     <div class="pagination justify-content-center">
