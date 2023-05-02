@@ -35,7 +35,7 @@
               <td style="max-width:  11rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$category->name_ar}}</p></td>
               <td style="max-width:  11rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$category->name_en}}</p></td>
               <td style="max-width:  5rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{($category->created_at)->format('d/m/Y   h:i:s')}}</p></td>
-              <td style="max-width:  5rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{($category->updated_at)->format('d/m/Y   h:i:s')}}</p></td>
+              <td style="max-width:  5rem;word-wrap: break-word;padding-left: 42px;"><p class=" title" style=" overflow-wrap: break-word">{{($category->updated_at)->format('d/m/Y   h:i:s')}}</p></td>
               <td>
                 <a class="btn btn-secondary ms-1 py-1" href="{{ route('category.edit', $category->id) }}">تعديل</a> 
                 <a class="btn btn-danger ms-1 py-1" href="{{ route('category.soft_delete', $category->id) }}">حذف</a>  
