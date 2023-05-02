@@ -4,12 +4,12 @@
 
 <div class="p-3">
   <div class="three mb-3 d-flex justify-content-between align-items-center">
-    <h1 class="d-inline-block w-25 ">الاخبار</h1>
+    <h1 class="d-inline-block w-25 ">ارشيف الاقسام</h1>
     
-    {{-- <input type="text" class="mySearch" id="mySearch2" onkeyup="search2(this.value)" placeholder="بحث"> --}}
-    {{-- <input type="text" class="mySearch" id="mySearch" placeholder="بحث"> --}}
-
-    <input type="text" class="mySearch" id="mySearch" placeholder="بحث">
+    <form class="d-f justify-content-center align-items-center" id="search-form" action="{{route('category.archive_search')}}" method="get">
+      <input class="mySearch" type="text" name="name" id="search-input">
+      <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
+    </form>
 
     <a type="button" class="btn btn-secondary py-2" href="{{ route('category.index') }}">الاقسام</a>
   </div>
@@ -34,7 +34,6 @@
               <td><p class="ms-5 title" style="inline-size: 17rem; overflow-wrap: break-word">{{$category->name_ar}}</p></td>
               <td><p class="ms-5 title" style="inline-size: 17rem; overflow-wrap: break-word">{{$category->name_en}}</p></td>
               <td><p class="ms-5" style="inline-size: 7rem; overflow-wrap: break-word">{{($category->deleted_at)->format('d/m/Y   h:i:s')}}</p></td>
-              {{-- <td><p class="ms-5" style="inline-size: 7rem; overflow-wrap: break-word">{{$category->deleted_at}}</p></td> --}}
               <td>
                 <a class="btn btn-secondary ms-1 py-1" href="{{ route('category.restore', $category->id) }}">استرجاع</a> 
                 <a class="btn btn-danger ms-1 py-1" href="{{ route('category.hard_delete', $category->id) }}">حذف نهائي</a>  
@@ -56,60 +55,3 @@
 </div>
 @endsection
 
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  // function search2 (input2) 
-  // {
-  //     input2 = input2.toLowerCase()
-  //     let links2 = document.querySelectorAll(".search2")
-      
-  //     for (let index = 0; index < links2.length; index++) {
-  //         if (links2[index].textContent.toLowerCase().includes(input2)) {
-  //           links2[index].style.display = "table-row"
-  //           }   else {
-  //             links2[index].style.display = "none"
-  //         }
-  //     }
-  // }
-
-
-  
-  //   $(document).on('keyup',function(e){
-  //   e.preventDefault();
-  //   let search_string = $('#mySearch').val();
-
-  //   $.ajax({
-  //     url:"{{route('News.search')}}",
-  //     method:'GET',
-  //     data:{search_string:search_string},
-  //     success:function(res)
-  //     {
-  //       $('.search2').html(res);
-  //     }
-  //     // success: function(){
-  //     //                alert( "Data Saved: " + 'ssssssssss' );
-  //     //             }
-  //   });
-    
-  //   console.log(search_string);
-  // })
-  $(document).ready(function() {
-  $('#mySearch').on('keyup', function() {
-    var query = $(this).val();
-    $.ajax({
-      url: '{{ route("News.search") }}',
-      method: 'GET',
-      data: {
-        query: query
-      },
-      success: function(response) {
-        $('#tbody').html(response);
-      }
-    });
-  });
-  console.log($(this).val());
-});
-
-  
-</script>

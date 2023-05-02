@@ -66,6 +66,7 @@ Route::prefix('category')->group(function () {
     Route::get('/restore/{id}' , [CategoryController::class,'restore'])->name('category.restore');
     Route::get('/delete/{id}' , [CategoryController::class,'hard_delete'])->name('category.hard_delete');
     Route::get('/search' , [CategoryController::class,'search'])->name('category.search');
+    Route::get('/archive_search' , [CategoryController::class,'archive_search'])->name('category.archive_search');
 });
 
 
