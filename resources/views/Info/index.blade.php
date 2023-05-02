@@ -16,6 +16,7 @@
               <th scope="col">النوع</th>
               <th scope="col">الوصف</th>
               <th scope="col">تاريخ الانشاء</th>
+              <th scope="col">تاريخ التعديل</th>
               <th scope="col">الخيارات</th>
             </tr>
           </thead>
@@ -26,10 +27,11 @@
             @foreach ($all_info as $info)
             <tr class="search2" style="border-bottom: 1px double #5d657b">
               <th scope="row" style="color: #2f80ed">{{$counter++}}</th>
+              <td style="max-width:  7rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$info->type}}</p></td>
+              <td style="max-width:  11rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word;">{{$info->description}}</p></td>
+              <td style="word-wrap: break-word;"><p class=" title" style=" overflow-wrap: break-word; max-width:  7rem;">{{($info->created_at)->format('d/m/Y   h:i:s')}}</p></td>
+              <td style="word-wrap: break-word;"><p class=" title" style=" overflow-wrap: break-word; max-width:  7rem;">{{($info->updated_at)->format('d/m/Y   h:i:s')}}</p></td>
 
-              <td style="max-width:  7rem;;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$info->type}}</p></td>
-              <td style="max-width: 11rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$info->description}}</p></td>
-              <td ><p class=" title" style=" overflow-wrap: break-word;max-width: 85px;">{{$info->created_at}}</p></td>
               <td>
                 <a class="btn btn-secondary ms-1 py-1" href="{{ route('info.edit', $info->id) }}">تعديل</a> 
                 <a class="btn btn-danger ms-1 py-1" href="{{ route('info.soft_delete', $info->id) }}">حذف</a>  
