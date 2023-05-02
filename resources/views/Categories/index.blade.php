@@ -6,11 +6,11 @@
   <div class="three mb-3 d-flex justify-content-between align-items-center">
     <h1 class="d-inline-block w-25 ">اقسام الاخبار</h1>
     
-    {{-- <input type="text" class="mySearch" id="mySearch2" onkeyup="search2(this.value)" placeholder="بحث"> --}}
-    {{-- <input type="text" class="mySearch" id="mySearch" placeholder="بحث"> --}}
-
-    <input type="text" class="mySearch" id="mySearch" placeholder="بحث">
-
+    <form class="d-f justify-content-center align-items-center" id="search-form" action="{{route('category.search')}}" method="get">
+      <input class="mySearch" type="text" name="name" id="search-input">
+      <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
+    </form>
+  
     <a type="button" class="btn btn-secondary py-2" href="{{ route('category.archive') }}">الارشيف</a>
   </div>
   @if ($categories->count() > 0)
@@ -58,59 +58,3 @@
 @endsection
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  // function search2 (input2) 
-  // {
-  //     input2 = input2.toLowerCase()
-  //     let links2 = document.querySelectorAll(".search2")
-      
-  //     for (let index = 0; index < links2.length; index++) {
-  //         if (links2[index].textContent.toLowerCase().includes(input2)) {
-  //           links2[index].style.display = "table-row"
-  //           }   else {
-  //             links2[index].style.display = "none"
-  //         }
-  //     }
-  // }
-
-
-  
-  //   $(document).on('keyup',function(e){
-  //   e.preventDefault();
-  //   let search_string = $('#mySearch').val();
-
-  //   $.ajax({
-  //     url:"{{route('News.search')}}",
-  //     method:'GET',
-  //     data:{search_string:search_string},
-  //     success:function(res)
-  //     {
-  //       $('.search2').html(res);
-  //     }
-  //     // success: function(){
-  //     //                alert( "Data Saved: " + 'ssssssssss' );
-  //     //             }
-  //   });
-    
-  //   console.log(search_string);
-  // })
-  $(document).ready(function() {
-  $('#mySearch').on('keyup', function() {
-    var query = $(this).val();
-    $.ajax({
-      url: '{{ route("News.search") }}',
-      method: 'GET',
-      data: {
-        query: query
-      },
-      success: function(response) {
-        $('#tbody').html(response);
-      }
-    });
-  });
-  console.log($(this).val());
-});
-
-  
-</script>

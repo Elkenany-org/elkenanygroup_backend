@@ -65,6 +65,7 @@ Route::prefix('category')->group(function () {
     Route::get('/destroy/{id}' , [CategoryController::class,'soft_delete'])->name('category.soft_delete');
     Route::get('/restore/{id}' , [CategoryController::class,'restore'])->name('category.restore');
     Route::get('/delete/{id}' , [CategoryController::class,'hard_delete'])->name('category.hard_delete');
+    Route::get('/search' , [CategoryController::class,'search'])->name('category.search');
 });
 
 

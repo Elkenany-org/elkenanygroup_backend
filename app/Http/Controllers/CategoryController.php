@@ -80,4 +80,19 @@ class CategoryController extends Controller
         $category->forceDelete();
         return redirect()->route('category.archive'); 
     }
+    public function search(Request $request)
+    {
+        $name = $request->name;
+        $categories = Category::where('name_ar', 'LIKE', '%'.$name.'%')
+            ->orWhere('name_en', 'LIKE', '%'.$name.'%')->paginate(10);
+        return view('Categories.index')->with('categories',$categories);
+    }
+    public function archive_search(Request $request)
+    {
+        $name = $request->name;
+        $categories = Category::onlyTrashed()->where('name_ar', 'LIKE', '%'.$name.'%')
+            ->orWhere('name_en', 'LIKE', '%'.$name.'%')->paginate(10);
+        return view('Categories.archive')->with('categories',$categories);
+    }
+
 }
