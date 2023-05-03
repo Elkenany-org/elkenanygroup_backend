@@ -78,7 +78,7 @@
         <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_5"
         aria-controls="ddmenu_5" aria-expanded="true" aria-label="Toggle navigation">
             <span class="icon">
-                <i class="fa-solid fa-newspaper fa-sm"></i>
+                <i class="fa-solid fa-circle-info"></i>
             </span>
             <span class="text">البيانات</span>
         </a>
