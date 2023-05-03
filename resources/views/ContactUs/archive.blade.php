@@ -5,6 +5,15 @@
 <div class="p-3">
   <div class="three mb-3 d-flex justify-content-between align-items-center">
     <h1 class="d-inline-block w-25 ">ارشيف الشكاوي</h1>
+
+    <form class="d-f justify-content-center align-items-center" id="search-form" action="{{route('contactus.archive_search')}}" method="get">
+      <label>الاسم الاول</label>
+      <input class="mySearch w-25" type="text" name="first_name" id="search-input">
+      <label>اسم الشركة</label>
+      <input class="mySearch w-25" type="text" name="company_name" id="search-input">
+      <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
+    </form>
+
     <a type="button" class="btn btn-secondary py-2" href="{{ route('contactus.index') }}">الشكاوي</a>
   </div>
   @if ($all_messages->count() > 0)

@@ -54,11 +54,11 @@ class ContactUsController extends Controller
             ->where('first_name','LIKE','%'.$request->first_name.'%')->paginate(10);
         return view('ContactUs.index')->with('all_messages',$all_messages);
     }
-    // public function archive_search(Request $request)
-    // {
-    //     $all_messages = ContactUs::onlyTrashed()->where('company_name', 'LIKE', '%'.$request->company_name.'%')
-    //         ->where('first_name','LIKE','%'.$request->first_name.'%')->paginate(10);
-    //     return view('ContactUs.archive')->with('all_messages',$all_messages);
-    // }
+    public function archive_search(Request $request)
+    {
+        $all_messages = ContactUs::onlyTrashed()->where('company_name', 'LIKE', '%'.$request->company_name.'%')
+            ->where('first_name','LIKE','%'.$request->first_name.'%')->paginate(10);
+        return view('ContactUs.archive')->with('all_messages',$all_messages);
+    }
 
 }
