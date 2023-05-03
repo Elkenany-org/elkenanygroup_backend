@@ -18,8 +18,6 @@ return new class extends Migration
             $table->text('title');
             $table->text('address');
             $table->longtext('description');
-            $table->longtext('details');
-            $table->longtext('features');
             $table->softDeletes();
             $table->timestamps();
         });

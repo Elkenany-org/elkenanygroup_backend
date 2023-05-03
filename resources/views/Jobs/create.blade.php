@@ -25,7 +25,7 @@
                     <div class="col-12">
                         <div class="input-style-1">
                             <label for="description">الوصف</label>
-                            <textarea name="description"></textarea>
+                            <textarea name="description" class="form-control"></textarea>
                         </div>
                     </div>
             

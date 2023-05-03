@@ -31,15 +31,11 @@ class JobController extends Controller
             'title'=>'required',
             'address'=>'required',
             'description'=>'required',
-            'details'=>'required',
-            'features'=>'required',
         ]);
         Job::create([
             'title'=>$request->title,
             'address'=>$request->address,
             'description'=>$request->description,
-            'details'=>$request->details,
-            'features'=>$request->features,
         ]);
         return redirect()->route('Jobs.index');
     }
@@ -64,16 +60,12 @@ class JobController extends Controller
         $request->validate([
             'title'=>'required',
             'address'=>'required',
-            'description'=>'required',
-            'details'=>'required',
-            'features'=>'required',
+            'description'=>'required'
         ]);
         $job = Job::find($id);
         $job->title = $request->title;
         $job->address = $request->address;
         $job->description = $request->description;
-        $job->details = $request->details;
-        $job->features = $request->features;
         $job->save();
 
         return redirect()->route('Jobs.index');

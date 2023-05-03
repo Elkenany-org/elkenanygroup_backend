@@ -15,7 +15,5 @@ class Job extends Model
         'title',
         'address',
         'description',
-        'details',
-        'features'
     ];
 }
