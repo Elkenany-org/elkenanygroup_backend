@@ -11,13 +11,13 @@
 
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="name">العنوان</label>
-                  <input type="text" class="form-control" name="email" id="name">
+                  <label for="title">العنوان</label>
+                  <input type="text" class="form-control" name="title" id="name">
                 </div>
               </div>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="name">القسم</label>
+                  <label for="category_id">القسم</label>
                   <select name="category_id" class="form-control w-25">
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name_ar }}</option>
@@ -27,7 +27,7 @@
               </div>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="name">الرسالة</label>
+                  <label for="description">الرسالة</label>
                   <textarea name="description"></textarea>
                 </div>
               </div>
