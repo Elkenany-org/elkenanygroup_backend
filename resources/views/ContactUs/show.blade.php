@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- ========== title-wrapper start ========== -->
     <div class="title-wrapper pt-30">
         <div class="row align-items-center">
             <div class="col-md-6">
@@ -9,16 +8,11 @@
                     <h2>الشكوي</h2>
                 </div>
             </div>
-            <!-- end col -->
         </div>
-        <!-- end row -->
     </div>
-    <!-- ========== title-wrapper end ========== -->
     <div class="card-styles">
         <div class="card-style-3 mb-30">
-            <div class="card-content">
-
-                
+            <div class="card-content">            
                 <div class="row">
                     <div class="col-12 d-flex align-items-center ">
                         <div class="d-inline-block input-style-1">
@@ -34,7 +28,6 @@
                                 readonly>
                         </div>
                     </div>
-                    <!-- end col -->
                     <div class="col-12">
                       <div class="input-style-1">
                         <label for="name">البريد الالكتروني</label>
@@ -42,7 +35,6 @@
                              id="name" placeholder="{{$message->email}}" readonly>
                       </div>
                     </div>
-
                     <div class="col-12">
                       <div class="input-style-1">
                         <label for="name">رقم الموبايل</label>
@@ -58,8 +50,6 @@
                       </div>
                     </div>
 
-                    
-                    <!-- end col -->
                     <div class="col-12">
                         <div class="button-group d-flex justify-content-center flex-wrap">
                             <a href="{{ route('contactus.soft_delete', $message->id) }}" class="main-btn danger-btn btn-hover w-25 text-center">
