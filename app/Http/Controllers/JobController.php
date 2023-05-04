@@ -37,7 +37,7 @@ class JobController extends Controller
             'address'=>$request->address,
             'description'=>$request->description,
         ]);
-        return redirect()->back();
+        return redirect()->route('job.index');
     }
 
     
@@ -68,7 +68,7 @@ class JobController extends Controller
         $job->description = $request->description;
         $job->save();
 
-        return redirect()->route('Jobs.index');
+        return redirect()->route('job.index');
     }
 
     public function soft_delete($id)
