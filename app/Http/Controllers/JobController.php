@@ -37,7 +37,7 @@ class JobController extends Controller
             'address'=>$request->address,
             'description'=>$request->description,
         ]);
-        return redirect()->route('Jobs.index');
+        return redirect()->back();
     }
 
     
