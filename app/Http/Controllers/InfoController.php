@@ -12,12 +12,12 @@ class InfoController extends Controller
     
     public function index()
     {
-        $all_info = Info::paginate(10);
+        $all_info = Info::latest()->paginate(10);
         return view('Info.index')->with('all_info' , $all_info);
     }
     public function archive()
     {
-        $all_info = Info::onlyTrashed()->paginate(10);
+        $all_info = Info::latest()->onlyTrashed()->paginate(10);
         return view('Info.archive')->with('all_info',$all_info);
     }
     public function create()

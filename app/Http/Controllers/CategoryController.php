@@ -10,12 +10,12 @@ class CategoryController extends Controller
     
     public function index()
     {
-        $categories = Category::paginate(10);
+        $categories = Category::latest()->paginate(10);
         return view('Categories.index')->with('categories',$categories);
     }
     public function archive()
     {
-        $categories = Category::onlyTrashed()->paginate(10);
+        $categories = Category::latest()->onlyTrashed()->paginate(10);
         return view('Categories.archive')->with('categories',$categories);
     }
 

@@ -101,7 +101,7 @@ Route::prefix('job')->group(function () {
     Route::post('/store' , [JobController::class, 'store'])->name('job.store');
     Route::get('/show/{id}' , [JobController::class,'show'])->name('job.show');
     Route::get('/edit/{id}' , [JobController::class,'edit'])->name('job.edit');
-    Route::get('/update/{id}' , [JobController::class,'update'])->name('job.update');
+    Route::post('/update/{id}' , [JobController::class,'update'])->name('job.update');
     Route::get('/destroy/{id}' , [JobController::class,'soft_delete'])->name('job.soft_delete');
     Route::get('/restore/{id}' , [JobController::class,'restore'])->name('job.restore');
     Route::get('/delete/{id}' , [JobController::class,'hard_delete'])->name('job.hard_delete');
