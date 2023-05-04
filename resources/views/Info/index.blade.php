@@ -30,7 +30,7 @@
                   $counter =1;
               @endphp
             @foreach ($all_info as $info)
-            <tr class="search2" style="border-bottom: 1px double #5d657b">
+            <tr style="border-bottom: 1px double #5d657b">
               <th scope="row" style="color: #2f80ed">{{$counter++}}</th>
               <td style="max-width:  7rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$info->type}}</p></td>
               <td style="max-width:  11rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word;">{{$info->description}}</p></td>

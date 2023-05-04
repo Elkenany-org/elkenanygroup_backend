@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('second_name');
             $table->string('email');
-            $table->integer('phone');
+            $table->string('phone');
             $table->longtext('message');
             $table->softDeletes();
             $table->timestamps();
