@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->longtext('message');
+            $table->boolean('read')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

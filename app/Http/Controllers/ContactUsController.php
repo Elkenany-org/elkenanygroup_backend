@@ -23,6 +23,8 @@ class ContactUsController extends Controller
     public function show($id)
     {
         $message = ContactUs::where('id' , $id)->first();
+        $message->read = '1';
+        $message->save();
         return view('ContactUs.show')->with('message' , $message); 
     }
     

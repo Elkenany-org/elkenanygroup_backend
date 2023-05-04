@@ -50,6 +50,9 @@
               <a class="btn btn-secondary ms-1 py-1" href="{{ route('contactus.show', $message->id) }}">عرض</a> 
               <a class="btn btn-danger ms-1 py-1" href="{{ route('contactus.soft_delete', $message->id) }}">حذف</a>  
             </td>
+            @if ($message->read == 0)
+              <td><i class="fa-solid fa-circle" style="color: #0d6efd;"></i></td>  
+            @endif
           </tr>
               
           @endforeach
