@@ -43,7 +43,7 @@
             <td ><p class=" title" style=" overflow-wrap: break-word;max-width: 85px;">{{$message->deleted_at}}</p></td>
             <td>
               <a class="btn btn-secondary ms-1 py-1" href="{{ route('contactus.restore', $message->id) }}">استرجاع</a>  
-              <a class="btn btn-danger ms-1 py-1" href="{{ route('contactus.show', $message->id) }}">حذف نهائي</a> 
+              <a class="btn btn-danger ms-1 py-1" href="{{ route('contactus.hard_delete', $message->id) }}">حذف نهائي</a> 
             </td>
             @if ($message->read == 0)
               <td><i class="fa-solid fa-circle" style="color: #0d6efd;"></i></td>  

@@ -2,23 +2,54 @@
 
 @section('content')
 
-<div class="p-3">
+<div class="card-styles">
+  <div class="card-style-3 mb-30">
+      <div class="card-content">            
+          <div class="row">
+            <form action="{{route('News.update',$event->id)}}" method="POST" enctype="multipart/form-data">
+              @csrf
 
-    <form action="{{route('News.update', $event->id)}}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <label for="fname">العنوان: </label>
-        <input type="text" id="fname" name="title" value="{{$event->title}}"><br><br>
-        <label for="fname">القسم: </label>
-        <select name="category_id" class="form-control w-25">
-          @foreach($categories as $category)
-              <option value="{{ $category->id }}">{{ $category->name_ar }}</option>
-          @endforeach
-        </select><br>
-        <label for="lname">الوصف: </label>
-        <textarea name="description">{{$event->description}}</textarea>
-        <input type="file" id="file" name="image">
-        <input type="submit" value="Submit">
-    </form> 
+              <div class="col-12">
+                <div class="input-style-1">
+                  <label for="title">العنوان</label>
+                  <input type="text" class="form-control" name="title" value="{{$event->title}}">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="input-style-1">
+                  <label for="category_id">القسم</label>
+                  <select name="category_id" class="form-control w-25">
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name_ar }}</option>
+                    @endforeach
+                  </select>  
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="input-style-1">
+                  <label for="description">الوصف</label>
+                  <textarea name="description">{{$event->description}}</textarea>
+                </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="input-style-1">
+                  <label for="image">الصورة</label>
+                  <input type="file" class="file" name="image">
+                </div>
+              </div>
+              
+              <div class="col-12">
+                  <div class="button-group d-flex justify-content-center flex-wrap">
+                    <input class="main-btn primary-btn btn-hover w-25 text-center" type="submit" value="تعديل">
+                  </div>
+              </div>
+              </div>
+            </form> 
+      </div>
+  </div>
+</div>
+
 </div>
 
     <script>
