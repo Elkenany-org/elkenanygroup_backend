@@ -57,7 +57,7 @@ class CategoryController extends Controller
         $category->name_en = $request->name_en;
         $category->save();
 
-        return redirect()->route('Categories.index'); 
+        return redirect()->route('category.index'); 
     }
     
     public function soft_delete($id)

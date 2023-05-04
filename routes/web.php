@@ -27,6 +27,21 @@ Route::get('/error', function () {
 })->name('error_page');
 
 
+//News
+Route::prefix('news')->group(function () {
+    Route::get('/' , [NewsController::class,'index'])->name('News.index');
+    Route::get('/archive' , [NewsController::class,'archive'])->name('News.archive');
+    Route::get('/create' , [NewsController::class, 'create'])->name('News.create');
+    Route::post('/store' , [NewsController::class, 'store'])->name('News.store');
+    Route::get('/show/{id}' , [NewsController::class,'show'])->name('News.show');
+    Route::get('/edit/{id}' , [NewsController::class,'edit'])->name('News.edit');
+    Route::post('/update/{id}' , [NewsController::class,'update'])->name('News.update');
+    Route::get('/destroy/{id}' , [NewsController::class,'soft_delete'])->name('News.soft_delete');
+    Route::get('/restore/{id}' , [NewsController::class,'restore'])->name('News.restore');
+    Route::get('/delete/{id}' , [NewsController::class,'hard_delete'])->name('News.hard_delete');
+    Route::get('/search', [NewsController::class, 'search'])->name('News.search');
+    Route::get('/archive_search', [NewsController::class, 'archive_search'])->name('News.archive_search');
+});
 
 //info
 Route::prefix('info')->group(function () {
@@ -66,7 +81,7 @@ Route::prefix('category')->group(function () {
     Route::post('/store' , [CategoryController::class, 'store'])->name('category.store');
     Route::get('/show/{id}' , [CategoryController::class,'show'])->name('category.show');
     Route::get('/edit/{id}' , [CategoryController::class,'edit'])->name('category.edit');
-    Route::put('/update/{id}' , [CategoryController::class,'update'])->name('category.update');
+    Route::post('/update/{id}' , [CategoryController::class,'update'])->name('category.update');
     Route::get('/destroy/{id}' , [CategoryController::class,'soft_delete'])->name('category.soft_delete');
     Route::get('/restore/{id}' , [CategoryController::class,'restore'])->name('category.restore');
     Route::get('/delete/{id}' , [CategoryController::class,'hard_delete'])->name('category.hard_delete');
@@ -75,22 +90,6 @@ Route::prefix('category')->group(function () {
 });
 
 
-//News
-Route::prefix('news')->group(function () {
-    Route::get('/' , [NewsController::class,'index'])->name('News.index');
-    Route::get('/archive' , [NewsController::class,'archive'])->name('News.archive');
-    Route::get('/create' , [NewsController::class, 'create'])->name('News.create');
-    Route::post('/store' , [NewsController::class, 'store'])->name('News.store');
-    Route::get('/show/{id}' , [NewsController::class,'show'])->name('News.show');
-    Route::get('/edit/{id}' , [NewsController::class,'edit'])->name('News.edit');
-    Route::post('/update/{id}' , [NewsController::class,'update'])->name('News.update');
-    Route::get('/destroy/{id}' , [NewsController::class,'soft_delete'])->name('News.soft_delete');
-    Route::get('/restore/{id}' , [NewsController::class,'restore'])->name('News.restore');
-    Route::get('/delete/{id}' , [NewsController::class,'hard_delete'])->name('News.hard_delete');
-    Route::get('/search', [NewsController::class, 'search'])->name('News.search');
-    Route::get('/archive_search', [NewsController::class, 'archive_search'])->name('News.archive_search');
-
-});
 
 
 //Jobs
