@@ -89,6 +89,10 @@ class CategoryController extends Controller
     }
     public function archive_search(Request $request)
     {
+        if($request->name == null)
+        {
+        }
+        
         
     }
 
