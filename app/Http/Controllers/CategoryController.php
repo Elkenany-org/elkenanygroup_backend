@@ -89,16 +89,7 @@ class CategoryController extends Controller
     }
     public function archive_search(Request $request)
     {
-        if($request->name == null)
-        {
-            $categories = Category::onlyTrashed()->paginate(10);
-            return view('Categories.archive')->with('categories',$categories);
-        }
         
-        $name = $request->name;
-        $categories = Category::onlyTrashed()->where('name_ar', 'LIKE', '%'.$name.'%')
-            ->orWhere('name_en', 'LIKE', '%'.$name.'%')->paginate(10);    
-        return view('Categories.archive',compact('categories'));
     }
 
 }
