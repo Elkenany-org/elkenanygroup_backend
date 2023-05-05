@@ -95,6 +95,8 @@ class CategoryController extends Controller
             return view('Categories.archive')->with('categories',$categories);
         }
         
+        $name = $request->name;
+        
     }
 
 }
