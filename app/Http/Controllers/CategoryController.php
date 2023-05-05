@@ -91,8 +91,9 @@ class CategoryController extends Controller
     {
         if($request->name == null)
         {
+            $categories = Category::onlyTrashed()->paginate(10);
+            return view('Categories.archive')->with('categories',$categories);
         }
-        
         
     }
 
