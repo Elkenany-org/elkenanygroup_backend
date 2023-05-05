@@ -96,6 +96,8 @@ class CategoryController extends Controller
         }
         
         $name = $request->name;
+        $categories = Category::onlyTrashed()->where('name_ar', 'LIKE', '%'.$name.'%')
+            ->orWhere('name_en', 'LIKE', '%'.$name.'%')->paginate(10);    
         
     }
 
