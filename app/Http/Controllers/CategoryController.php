@@ -33,6 +33,7 @@ class CategoryController extends Controller
             'name_en'=>'required'
         ]);
         Category::create([
+            'name_ar'=>$request->name_ar,
         ]);
         return redirect()->route('category.index');
     }
