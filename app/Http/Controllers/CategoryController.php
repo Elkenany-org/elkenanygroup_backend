@@ -30,6 +30,7 @@ class CategoryController extends Controller
     {
         $this->validate($request,[
             'name_ar'=>'required',
+            'name_en'=>'required'
         ]);
     }
 
