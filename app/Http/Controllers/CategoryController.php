@@ -28,15 +28,6 @@ class CategoryController extends Controller
     
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'name_ar'=>'required',
-            'name_en'=>'required'
-        ]);
-        Category::create([
-            'name_ar'=>$request->name_ar,
-            'name_en'=>$request->name_en
-        ]);
-        return redirect()->route('category.index');
     }
 
     
