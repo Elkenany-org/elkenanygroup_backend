@@ -34,6 +34,7 @@ class CategoryController extends Controller
         ]);
         Category::create([
         ]);
+        return redirect()->route('category.index');
     }
 
     
