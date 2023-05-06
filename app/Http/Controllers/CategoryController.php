@@ -32,6 +32,8 @@ class CategoryController extends Controller
             'name_ar'=>'required',
             'name_en'=>'required'
         ]);
+        Category::create([
+        ]);
     }
 
     
