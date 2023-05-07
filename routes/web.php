@@ -41,6 +41,7 @@ Route::prefix('news')->group(function () {
     Route::get('/delete/{id}' , [NewsController::class,'hard_delete'])->name('News.hard_delete');
     Route::get('/search', [NewsController::class, 'search'])->name('News.search');
     Route::get('/archive_search', [NewsController::class, 'archive_search'])->name('News.archive_search');
+    Route::get('/desc_search', [NewsController::class, 'description_search'])->name('News.description_search');
 });
 
 //info

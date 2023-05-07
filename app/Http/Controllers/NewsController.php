@@ -128,6 +128,43 @@ class NewsController extends Controller
         $news = News::onlyTrashed()->where('title', 'LIKE', '%'.$title.'%')->paginate(10);
         return view('News.archive')->with('news',$news);
     }
+    public function description_search(Request $request)
+    {
+        $description = $request->description;
+        $words = explode(" ", $description);
+        $indecies = array();
+        $index = 0;
+        $counter = 0;
+        $ids = News::pluck('id');
+        
+        for ($i = 0; $i < count($words); $i++)
+        {
+            for ($j = 0; $j < News::count(); $j++)
+            {
+                $row = array();
+                $index = News::where('description', 'LIKE', '%'.$words[$i].'%')->pluck('id');
+                dd($index);
+                for ($m = 0; $m < count($ids); $m++)
+                {
+                    for ($x = 0; $x < count($index); $x++)
+                    {
+                        if($ids[$m] == $index[$x])
+                            $counter++;
+                    }
+                }                
+                $counter = count($index);
+                array_push($row,[]);
+            }
+            
+            
+            array_push($indecies,$counter);
+            $counter = 0;
+            
+        }
+        dd($indecies);
+        $news = News::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
+        return view('News.index')->with('news',$news);
+    }
 
 }
 
