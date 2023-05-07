@@ -153,21 +153,25 @@ class NewsController extends Controller
                 }
             }                
         }
-        $max = -1;
+        dd($arr);
+        $max = 0;
+        $flag = false;
         for($i = 0; $i < count($ids); $i++)
         {
             for($j = 0; $j < count($ids); $j++)
             {
                 if($arr[$j][1] > $max)
                 {
+                    $flag = true;
                     $max = $arr[$j][1];
                     $index = $j;
                 }
             }
-            dd($index);
+            // dd($index);
             array_push($index_of_max,$index);
             $arr[$index][1] = -1;
-            $max = -1;
+            $max = 0;
+            $flag = true;
             
         }
         dd($index_of_max);
