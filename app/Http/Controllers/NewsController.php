@@ -153,39 +153,31 @@ class NewsController extends Controller
                 }
             }                
         }
-        dd($arr);
-        $max = -1;
         
+        $max = 0;
         $flag = false;
-        foreach($arr as $element)
+        for($j = 0; $j < count($ids); $j++)
         {
             $i = 0;
-            if($element[1] > $max)
+            foreach($arr as $element)
             {
-                $max = $element[1];
-                $index = $i;
-            }
-            $i++;
-        }
-        for($i = 0; $i < count($ids); $i++)
-        {
-            for($j = 0; $j < count($ids); $j++)
-            {
-                if($arr[$j][1] > $max)
+                if($element[1] > $max)
                 {
                     $flag = true;
-                    $max = $arr[$j][1];
-                    $index = $j;
+                    $max = $element[1];
+                    $index = $i;
                 }
+                $i++;
             }
-            // dd($index);
-            array_push($index_of_max,$index);
-            $arr[$index][1] = -1;
+            if($flag)
+                array_push($index_of_max,$arr[$index][0]);
+            $arr[$index][1] = -100000;
             $max = 0;
-            $flag = true;
-            
+            $flag = false;
         }
+        
         dd($index_of_max);
+        
         // $news = News::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
         // $news = News::where('title', 'LIKE', '%'.$title.'%')->(10);
         // dd()
