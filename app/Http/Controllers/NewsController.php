@@ -154,8 +154,19 @@ class NewsController extends Controller
             }                
         }
         dd($arr);
-        $max = 0;
+        $max = -1;
+        
         $flag = false;
+        foreach($arr as $element)
+        {
+            $i = 0;
+            if($element[1] > $max)
+            {
+                $max = $element[1];
+                $index = $i;
+            }
+            $i++;
+        }
         for($i = 0; $i < count($ids); $i++)
         {
             for($j = 0; $j < count($ids); $j++)
