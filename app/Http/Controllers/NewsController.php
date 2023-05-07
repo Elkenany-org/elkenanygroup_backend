@@ -132,37 +132,48 @@ class NewsController extends Controller
     {
         $description = $request->description;
         $words = explode(" ", $description);
-        $indecies = array();
         $index = 0;
-        $counter = 0;
+        $arr = array();
+        $index_of_max = array();
         $ids = News::pluck('id');
+        for ($i = 0; $i < count($ids); $i++)
+        {
+            array_push($arr ,[$ids[$i],0]);
+        }
         
         for ($i = 0; $i < count($words); $i++)
         {
-            for ($j = 0; $j < News::count(); $j++)
+            $index = News::where('description', 'LIKE', '%'.$words[$i].'%')->pluck('id');
+            for ($x = 0; $x < count($index); $x++)
             {
-                $row = array();
-                $index = News::where('description', 'LIKE', '%'.$words[$i].'%')->pluck('id');
-                dd($index);
                 for ($m = 0; $m < count($ids); $m++)
                 {
-                    for ($x = 0; $x < count($index); $x++)
-                    {
-                        if($ids[$m] == $index[$x])
-                            $counter++;
-                    }
-                }                
-                $counter = count($index);
-                array_push($row,[]);
+                    if($index[$x] == $ids[$m])
+                        $arr[$m][1]++;
+                }
+            }                
+        }
+        $max = -1;
+        for($i = 0; $i < count($ids); $i++)
+        {
+            for($j = 0; $j < count($ids); $j++)
+            {
+                if($arr[$j][1] > $max)
+                {
+                    $max = $arr[$j][1];
+                    $index = $j;
+                }
             }
-            
-            
-            array_push($indecies,$counter);
-            $counter = 0;
+            dd($index);
+            array_push($index_of_max,$index);
+            $arr[$index][1] = -1;
+            $max = -1;
             
         }
-        dd($indecies);
-        $news = News::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
+        dd($index_of_max);
+        // $news = News::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
+        // $news = News::where('title', 'LIKE', '%'.$title.'%')->(10);
+        // dd()
         return view('News.index')->with('news',$news);
     }
 
