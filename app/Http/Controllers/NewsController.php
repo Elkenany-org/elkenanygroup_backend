@@ -156,7 +156,13 @@ class NewsController extends Controller
         
         $max = 0;
         $flag = false;
+        for($j = 0; $j < count($ids); $j++)
+        {
+            
+        }
         
+        
+        // dd($index_of_max);
         // $news = News::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
         // $news = News::where('title', 'LIKE', '%'.$title.'%')->(10);
         // dd()
