@@ -169,6 +169,8 @@ class NewsController extends Controller
                 }
                 $i++;
             }
+            if($flag)
+                array_push($index_of_max,$arr[$index][0]);
             
         }
         
