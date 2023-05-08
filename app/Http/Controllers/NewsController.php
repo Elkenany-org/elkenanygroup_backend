@@ -154,6 +154,8 @@ class NewsController extends Controller
             }                
         }
         
+        $max = 0;
+        $flag = false;
         
         // $news = News::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
         // $news = News::where('title', 'LIKE', '%'.$title.'%')->(10);
