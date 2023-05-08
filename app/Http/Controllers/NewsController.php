@@ -171,7 +171,9 @@ class NewsController extends Controller
             }
             if($flag)
                 array_push($index_of_max,$arr[$index][0]);
-            
+            $arr[$index][1] = -100000;
+            $max = 0;
+            $flag = false;
         }
         
         dd($index_of_max);
