@@ -161,7 +161,15 @@ class NewsController extends Controller
             $i = 0;
             foreach($arr as $element)
             {
+                if($element[1] > $max)
+                {
+                    $flag = true;
+                    $max = $element[1];
+                    $index = $i;
+                }
+                $i++;
             }
+            
         }
         
         dd($index_of_max);
