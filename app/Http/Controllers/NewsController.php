@@ -176,11 +176,10 @@ class NewsController extends Controller
             $flag = false;
         }
         
-        dd($index_of_max);
-        
-        // $news = News::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
-        // $news = News::where('title', 'LIKE', '%'.$title.'%')->(10);
-        // dd()
+        $news = News::whereIn('id',$index_of_max)
+            ->orderByRaw(News::raw("FIELD(id, ".implode(",", $index_of_max).")"))
+            ->paginate(10);
+        // dd($index_of_max,$news[0]);
         return view('News.index')->with('news',$news);
     }
 
