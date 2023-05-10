@@ -14,15 +14,13 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::latest()->paginate(10);
-        $search_flag = false;
-        return view('News.index',compact('news'))->with('search_flag',$search_flag);
+        return view('News.index',compact('news'))->with('search_flag',false);
     }
 
     public function archive()
     {
         $news = News::latest()->onlyTrashed()->paginate(10);
-        $search_flag = false;
-        return view('News.archive')->with('news',$news)->with('search_flag',$search_flag);
+        return view('News.archive')->with('news',$news)->with('search_flag',false);
     }
 
     public function create()
@@ -138,15 +136,19 @@ class NewsController extends Controller
             return redirect()->route('News.index')->with('search_flag',false);
         }
         $words = explode(" ", $description);
-        $index = 0;
+        $flag = false;
         $arr = array();
         $index_of_max = array();
         $ids = News::pluck('id');
+        $indecies_of_words = array(array(),array());
+        
+        
         for ($i = 0; $i < count($ids); $i++)
         {
             array_push($arr ,[$ids[$i],0]);
+            
         }
-        
+
         for ($i = 0; $i < count($words); $i++)
         {
             $index = News::where('description', 'LIKE', '%'.$words[$i].'%')->pluck('id');
@@ -155,13 +157,17 @@ class NewsController extends Controller
                 for ($m = 0; $m < count($ids); $m++)
                 {
                     if($index[$x] == $ids[$m])
+                    {
                         $arr[$m][1]++;
+                    }
                 }
             }                
         }
         
+        if($index->count() == 0)
+            return redirect()->route('News.index')->with('search_flag',false);
+
         $max = 0;
-        $flag = false;
         for($j = 0; $j < count($ids); $j++)
         {
             $i = 0;
@@ -185,7 +191,7 @@ class NewsController extends Controller
         $news = News::whereIn('id',$index_of_max)
             ->orderByRaw(News::raw("FIELD(id, ".implode(",", $index_of_max).")"))
             ->paginate(10);
-            // $search_flag = true;
+
         return view('News.index')->with('news',$news)->with('search_flag',true);
     }
 
