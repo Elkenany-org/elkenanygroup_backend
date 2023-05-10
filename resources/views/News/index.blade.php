@@ -16,7 +16,11 @@
       <input class="mySearch" style="width:25rem;" type="text" name="description" id="search-input" placeholder="ادخل كلمات بالوصف">
       <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
     </form>
-  
+
+    
+      {{-- <span ><i class="fa-solid fa-calendar-days"></i></span> --}}
+      <input type="date" class="form-control">
+    
 
     <a type="button" class="btn btn-secondary py-2" href="{{ route('News.archive') }}">الارشيف</a>
   </div>
@@ -58,3 +62,21 @@
 
 </div>
 @endsection
+
+<link href="{{ asset('css/fullcalendar.min.css') }}" rel="stylesheet" />
+<script src="{{ asset('js/fullcalendar.min.js') }}"></script>
+<script src="{{ asset('js/daygrid.min.js') }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      plugins: [ 'dayGrid' ],
+      events: [
+        // Add your calendar events here
+      ]
+    });
+
+    calendar.render();
+  });
+</script>

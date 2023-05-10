@@ -16,20 +16,31 @@ return new class extends Migration
             $table->string('title');
             $table->string('image');
             $table->longtext('description');
+            $table->string('alt_text');
+            $table->string('focus_keyword')->nullable();
+            
+            $table->string('social_title')->nullable();
+            $table->string('social_image')->nullable();
+            $table->longtext('social_decription')->nullable();
+            $table->string('social_alt_text')->nullable();
+
+            $table->string('meta_title')->nullable();
+            $table->string('meta_link')->nullable();
+            $table->longtext('meta_decription')->nullable();
+
             $table->unsignedBigInteger('category_id')->nullable(false);
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+
             $table->softDeletes();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+    
     public function down(): void
     {
         Schema::dropIfExists('news');
