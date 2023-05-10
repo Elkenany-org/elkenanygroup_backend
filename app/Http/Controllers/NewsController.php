@@ -14,13 +14,15 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::latest()->paginate(10);
-        return view('News.index',compact('news'));
+        $search_flag = false;
+        return view('News.index',compact('news'))->with('search_flag',$search_flag);
     }
 
     public function archive()
     {
         $news = News::latest()->onlyTrashed()->paginate(10);
-        return view('News.archive')->with('news',$news);
+        $search_flag = false;
+        return view('News.archive')->with('news',$news)->with('search_flag',$search_flag);
     }
 
     public function create()
@@ -131,6 +133,10 @@ class NewsController extends Controller
     public function description_search(Request $request)
     {
         $description = $request->description;
+        if($description == "")
+        {
+            return redirect()->route('News.index')->with('search_flag',false);
+        }
         $words = explode(" ", $description);
         $index = 0;
         $arr = array();
@@ -179,8 +185,8 @@ class NewsController extends Controller
         $news = News::whereIn('id',$index_of_max)
             ->orderByRaw(News::raw("FIELD(id, ".implode(",", $index_of_max).")"))
             ->paginate(10);
-        // dd($index_of_max,$news[0]);
-        return view('News.index')->with('news',$news);
+            // $search_flag = true;
+        return view('News.index')->with('news',$news)->with('search_flag',true);
     }
 
 }

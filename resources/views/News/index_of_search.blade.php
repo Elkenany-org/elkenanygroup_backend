@@ -24,23 +24,25 @@
     <table class="table" id="table">
           <thead style="border-bottom: #2f80ed 3px solid">
             <tr style="color: #2f80ed">
-            @if ($search_flag==false)
-              <th scope="col" style="width: 5rem;">#</th>
-              <th scope="col" style="width: 8rem;">الصورة</th>
-              <th scope="col">العنوان</th>
-              <th scope="col">القسم</th>
-              <th scope="col">تاريخ الانشاء</th>
-              <th scope="col">تاريخ التعديل</th>
-              <th scope="col">الخيارات</th>
-            @else
-              <th scope="col" style="width: 5rem;">#</th>
-              <th scope="col" style="width: 8rem;">الصورة</th>
-              <th scope="col">العنوان</th>
-              <th scope="col">الوصف</th>
-              <th scope="col">القسم</th>
-              <th scope="col">تاريخ الانشاء</th>
-              <th scope="col">الخيارات</th>
-            @endif
+              @if ($search_flag==false)
+                <th scope="col" style="width: 5rem;">#</th>
+                <th scope="col" style="width: 8rem;">الصورة</th>
+                <th scope="col">العنوان</th>
+                <th scope="col">القسم</th>
+                <th scope="col">تاريخ الانشاء</th>
+                <th scope="col">تاريخ التعديل</th>
+                <th scope="col">الخيارات</th>
+                
+              @else
+                <th scope="col" style="width: 5rem;">#</th>
+                <th scope="col" style="width: 8rem;">الصورة</th>
+                <th scope="col">العنوان</th>
+                <th scope="col">الوصف</th>
+                <th scope="col">القسم</th>
+                <th scope="col">تاريخ الانشاء</th>
+                <th scope="col">الخيارات</th>
+                  
+              @endif
             </tr>
           </thead>
             <tbody id="tbody">
