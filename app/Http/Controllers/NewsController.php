@@ -138,17 +138,17 @@ class NewsController extends Controller
         $words = explode(" ", $description);
         $flag = false;
         $arr = array();
+        $indecies_of_words = array();
         $index_of_max = array();
         $ids = News::pluck('id');
-        $indecies_of_words = array(array(),array());
-        
+     
         
         for ($i = 0; $i < count($ids); $i++)
         {
             array_push($arr ,[$ids[$i],0]);
             
         }
-
+        $c = 0;
         for ($i = 0; $i < count($words); $i++)
         {
             $index = News::where('description', 'LIKE', '%'.$words[$i].'%')->pluck('id');
@@ -159,11 +159,18 @@ class NewsController extends Controller
                     if($index[$x] == $ids[$m])
                     {
                         $arr[$m][1]++;
+                        $indecies_of_words[ $ids[$m] ][$c] = $words[$i];
+                        $c++;
                     }
-                }
+                }        
             }                
         }
+        foreach ($indecies_of_words as &$row) {
+            $row = array_values($row);
+        }
+
         
+        // dd($indecies_of_words[5][0]);
         if($index->count() == 0)
             return redirect()->route('News.index')->with('search_flag',false);
 
@@ -192,7 +199,8 @@ class NewsController extends Controller
             ->orderByRaw(News::raw("FIELD(id, ".implode(",", $index_of_max).")"))
             ->paginate(10);
 
-        return view('News.index')->with('news',$news)->with('search_flag',true);
+        return view('News.index')->with('news',$news)->with('search_flag',true)
+            ->with('indecies_of_words',$indecies_of_words);
     }
 
 }
