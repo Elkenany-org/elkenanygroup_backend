@@ -42,6 +42,13 @@ class NewsController extends Controller
         $path = 'images/news';
         $request->image->move($path , $image_name);
         
+        if($request->social_image != null)
+        {
+            $social_image_name = $request->social_image->getClientOriginalName();
+            $social_image_name = time().$social_image_name;
+            $path = 'images/social/news';
+            $request->social_image->move($path , $social_image_name);
+        }
         News::create([
             'title'=> $request->title,
             'category_id'=> $request->category_id,
@@ -49,6 +56,15 @@ class NewsController extends Controller
             'description'=> $request->description,
             'alt_text'=> $request->alt_text,
             'focus_keyword'=> $request->focus_keyword,
+
+            'social_title'=> $request->social_title,
+            'social_image'=> $social_image_name,
+            'social_decription'=> $request->social_decription,
+            'social_alt_text'=> $request->social_alt_text,
+
+            'meta_title'=> $request->meta_title,
+            'meta_link'=> $request->meta_link,
+            'meta_decription'=> $request->meta_decription,
         ]);
         return redirect()->route('News.index');
     }
