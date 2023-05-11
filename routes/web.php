@@ -120,15 +120,6 @@ Route::middleware('auth')->group(function () {
     Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
-    Route::get('add_user',function(){
-        return view('auth.register');
-    });
-});
-
-
-// Auth::routes(['register' => false]);
-Route::match(['get', 'post'], 'register', function () {
-    abort(404);
 });
 
 

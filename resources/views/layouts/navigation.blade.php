@@ -107,6 +107,16 @@
             <span class="text">الشكاوي</span>
         </a>
     </li>
+    {{-- @if (Auth::check() && Auth::user()->email == "amr.esmail@elkenany.com")
+        <li class="nav-item @if(request()->routeIs('add_user')) active @endif">
+            <a class="search " href="{{route('add_user')}}">
+                <span class="icon">
+                    <i class="fa-solid fa-user"></i>
+                </span>
+                <span class="text">اضافة ادمن</span>
+            </a>
+        </li>
+    @endif --}}
 
    
 
