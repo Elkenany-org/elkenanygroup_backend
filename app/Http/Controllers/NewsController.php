@@ -101,13 +101,29 @@ class NewsController extends Controller
         $image_name = time().$image_name;
         $path = 'images/news';
         $request->image->move($path , $image_name);
+
+        $social_image_name = $request->social_image->getClientOriginalName();
+        $social_image_name = time().$social_image_name;
+        $path = 'images/social/news';
+        $request->social_image->move($path , $social_image_name);
         
         $event->title = $request->title;
         $event->image = $image_name;
         $event->category_id = $request->category_id;
-        $event->description = $request->description;
-        if($request->focus_keyword != null)
-            $event->focus_keyword = $request->focus_keyword;
+        $event->description = $request->descriptio;
+        $event->focus_keyword = $request->focus_keyword;
+        $event->alt_text = $request->alt_text;
+        
+
+        $event->$social_title = $request->social_title;
+        $event->$social_image_name = $social_image_name;
+        $event->$social_decription = $request->social_decription;
+        $event->$social_alt_text = $request->social_alt_text;
+
+        $event->$meta_title = $request->meta_title;
+        $event->$meta_link = $request->meta_link;
+        $event->$meta_decription = $request->meta_decription;
+
         $event->save();
         
         return redirect()->route('News.index');
