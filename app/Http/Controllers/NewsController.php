@@ -47,6 +47,8 @@ class NewsController extends Controller
             'category_id'=> $request->category_id,
             'image'=> $image_name,
             'description'=> $request->description,
+            'alt_text'=> $request->alt_text,
+            'focus_keyword'=> $request->focus_keyword,
         ]);
         return redirect()->route('News.index');
     }
@@ -88,6 +90,8 @@ class NewsController extends Controller
         $event->image = $image_name;
         $event->category_id = $request->category_id;
         $event->description = $request->description;
+        if($request->focus_keyword != null)
+            $event->focus_keyword = $request->focus_keyword;
         $event->save();
         
         return redirect()->route('News.index');
