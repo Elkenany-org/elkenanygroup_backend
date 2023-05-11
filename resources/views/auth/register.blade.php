@@ -21,7 +21,7 @@
         <div class="signin-wrapper">
             <div class="form-wrapper">
                 <h6 class="mb-15">{{ __('Register') }}</h6>
-                <form action="{{ route('register') }}" method="POST">
+                <form action="" method="POST">
                     @csrf
 
                     <div class="row">
