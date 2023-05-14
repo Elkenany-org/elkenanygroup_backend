@@ -77,6 +77,18 @@ class JobController extends Controller
         $job->title = $request->title;
         $job->address = $request->address;
         $job->description = $request->description;
+        $job->focus_keyword = $request->focus_keyword;
+        $job->alt_text = $request->alt_text;
+        
+        $job->social_title = $request->social_title;
+        $job->social_address = $request->social_address;
+        $job->social_description = $request->social_description;
+        $job->social_alt_text = $request->social_alt_text;
+        
+        $job->meta_title = $request->meta_title;
+        $job->meta_link = $request->meta_link;
+        $job->meta_description = $request->meta_description;
+
         $job->save();
 
         return redirect()->route('job.index');
