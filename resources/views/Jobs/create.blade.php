@@ -25,21 +25,21 @@
                     <div class="col-12">
                         <div class="input-style-1">
                             <label for="description">الوصف</label>
-                            <textarea name="description" class="form-control"></textarea>
+                            <textarea name="description" class="form-control" id="textarea1"></textarea>
                         </div>
                     </div>
             
 
                     <div class="col-12">
                         <div class="input-style-1">
-                          <label for="alt_text">alt_text</label>
-                          <input type="text" class="form-control" name="alt_text">
+                          <label for="alt_text" dir="ltr">alt_text</label>
+                          <input type="text" class="form-control" name="alt_text" dir="ltr">
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="input-style-1">
-                          <label for="focus_word">Focus_keyword</label>
-                          <input type="text" class="form-control" name="focus_keyword">
+                          <label for="focus_word" dir="ltr">Focus_keyword</label>
+                          <input type="text" class="form-control" name="focus_keyword" dir="ltr">
                         </div>
                       </div>
                       
@@ -50,20 +50,20 @@
                       <br><br>
                       <div class="col-12">
                         <div class="input-style-1">
-                          <label for="social_title">Social_title</label>
-                          <input type="text" class="form-control" name="social_title">
+                          <label for="social_title" dir="ltr">Social_title</label>
+                          <input type="text" class="form-control" name="social_title" dir="ltr">
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="input-style-1">
-                          <label for="social_description">Social_decription</label>
-                          <input type="text" class="form-control" name="social_description">
+                          <label for="social_description" dir="ltr">Social_decription</label>
+                          <textarea type="text" class="form-control" name="social_description" dir="ltr" rows="3"></textarea>
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="input-style-1">
-                          <label for="social_alt_text">Social_alt_text</label>
-                          <input type="text" class="form-control" name="social_alt_text">
+                          <label for="social_alt_text" dir="ltr">Social_alt_text</label>
+                          <input type="text" class="form-control" name="social_alt_text" dir="ltr">
                         </div>
                       </div>
                       
@@ -74,21 +74,21 @@
                       <br><br>
                       <div class="col-12">
                         <div class="input-style-1">
-                          <label for="meta_title">Title_tag</label>
-                          <input type="text" class="form-control" name="meta_title">
+                          <label for="meta_title" dir="ltr">Title_tag</label>
+                          <input type="text" class="form-control" name="meta_title" dir="ltr">
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="input-style-1">
-                          <label for="meta_link">Meta_link</label>
-                          <input type="text" class="form-control" name="meta_link">
+                          <label for="meta_link" dir="ltr">Meta_link</label>
+                          <input type="text" class="form-control" name="meta_link" dir="ltr">
                         </div>
                       </div>
                       
                       <div class="col-12">
                         <div class="input-style-1">
-                          <label for="Meta_decription">Meta_decription</label>
-                          <input type="text" class="form-control" name="meta_description">
+                          <label for="Meta_decription" dir="ltr">Meta_decription</label>
+                          <textarea type="text" class="form-control" name="meta_description" dir="ltr" rows="3"></textarea>
                         </div>
                       </div>
 
@@ -106,7 +106,7 @@
 
 <script>
     tinymce.init({
-        selector: "textarea",
+        selector: "#textarea1",
         directionality: 'rtl',
         plugins:
         "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss",
