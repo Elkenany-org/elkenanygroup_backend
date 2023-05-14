@@ -82,7 +82,6 @@ class NewsController extends Controller
     public function edit($id)
     {
         $event = News::where('id' , $id)->first();
-        dd($event);
         $categories = Category::all();
         return view('News.edit',compact('categories'))->with('event' , $event);
     }
@@ -97,10 +96,9 @@ class NewsController extends Controller
             'description' => 'required'
         ]);
         $event = News::find($id);
-        $image_path = 'images/main/news/'.$event->image;
-        if(File::exists($image_path)) {
-            File::delete($image_path);
-        }
+        $image_path = public_path('images/main/news/'.$event->image);
+        if(File::exists($image_path))
+            unlink($image_path);
         
         $image_name = $request->image->getClientOriginalName();
         $image_name = time().$image_name;
@@ -126,10 +124,10 @@ class NewsController extends Controller
             $request->social_image->move($path , $social_image_name);
             $event->social_image = $social_image_name;
 
-            $image_path = 'images/social/news/'.$event->social_image;
+            $image_path = public_path('images/main/news/'.$event->image);
+            $image_path = public_path('images/social/news/'.$event->social_image);
             if(File::exists($image_path))
-                File::delete($image_path);
-            
+                unlink($image_path);
         }
         $event->social_alt_text = $request->social_alt_text;
         
