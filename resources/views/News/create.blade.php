@@ -149,7 +149,7 @@
       function countCharacters(inputField , id) {
         var charCountElement = document.getElementById(id);
         charCountElement.innerText = inputField.value.length;
-    }
+      }
         
     </script>
 @endsection
