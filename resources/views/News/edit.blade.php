@@ -65,14 +65,14 @@
               </div>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="social_description">Social_decription</label>
+                  <label for="social_description">Social_description</label>
                   <input type="text" class="form-control" name="social_description" value="{{$event->social_description}}">
                 </div>
               </div>
               <div class="col-12">
                 <div class="input-style-1">
                   <label for="social_image">Social_image</label>
-                  <input type="file" class="file" name="social_image" value="{{$event->social_image}}">
+                  <input type="file" class="file" name="social_image" value="/images/social/news/{{$event->social_image}}">
                 </div>
               </div>
               <div class="col-12">

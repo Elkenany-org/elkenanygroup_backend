@@ -85,6 +85,7 @@ class NewsController extends Controller
     
     public function update(Request $request, $id)
     {
+        // dd($event->image);
         $request->validate([
             'title' => 'required',
             'category_id' => 'required',
@@ -101,28 +102,45 @@ class NewsController extends Controller
         $image_name = time().$image_name;
         $path = 'images/news';
         $request->image->move($path , $image_name);
-
-        $social_image_name = $request->social_image->getClientOriginalName();
-        $social_image_name = time().$social_image_name;
-        $path = 'images/social/news';
-        $request->social_image->move($path , $social_image_name);
+        
         
         $event->title = $request->title;
         $event->image = $image_name;
         $event->category_id = $request->category_id;
-        $event->description = $request->descriptio;
-        $event->focus_keyword = $request->focus_keyword;
-        $event->alt_text = $request->alt_text;
+        $event->description = $request->description;
+        if($request->focus_keyword != null)
+            $event->focus_keyword = $request->focus_keyword;
+        if($request->alt_text != null)
+            $event->alt_text = $request->alt_text;
+        
+        
+        if($request->social_title != null)
+            $event->social_title = $request->social_title;
+        if($request->social_description != null)
+            $event->social_description = $request->social_description;
+        if($request->social_image != null)
+        {
+            $social_image_name = $request->social_image->getClientOriginalName();
+            $social_image_name = time().$social_image_name;
+            $path = 'images/social/news';
+            $request->social_image->move($path , $social_image_name);
+            $event->social_image = $social_image_name;
+
+            $image_path = 'images/social/news/'.$event->social_image;
+            if(File::exists($image_path))
+                File::delete($image_path);
+            
+        }
+        if($request->social_alt_text != null)
+            $event->social_alt_text = $request->social_alt_text;
         
 
-        $event->$social_title = $request->social_title;
-        $event->$social_image_name = $social_image_name;
-        $event->$social_decription = $request->social_decription;
-        $event->$social_alt_text = $request->social_alt_text;
-
-        $event->$meta_title = $request->meta_title;
-        $event->$meta_link = $request->meta_link;
-        $event->$meta_decription = $request->meta_decription;
+        if($request->meta_title != null)
+            $event->meta_title = $request->meta_title;
+        if($request->meta_link != null)
+            $event->meta_link = $request->meta_link;
+        if($request->meta_decription != null)
+            $event->meta_description = $request->meta_description;
 
         $event->save();
         

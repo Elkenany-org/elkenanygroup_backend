@@ -21,12 +21,12 @@ return new class extends Migration
             
             $table->string('social_title')->nullable();
             $table->string('social_image')->nullable();
-            $table->longtext('social_decription')->nullable();
+            $table->longtext('social_description')->nullable();
             $table->string('social_alt_text')->nullable();
 
             $table->string('meta_title')->nullable();
             $table->string('meta_link')->nullable();
-            $table->longtext('meta_decription')->nullable();
+            $table->longtext('meta_description')->nullable();
 
             $table->unsignedBigInteger('category_id')->nullable(false);
             $table->foreign('category_id')
