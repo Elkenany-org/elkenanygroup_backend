@@ -14,7 +14,7 @@ return new class extends Migration
             $table->text('title');
             $table->text('address');
             $table->longtext('description');
-            $table->string('alt_text');
+            $table->string('alt_text')->nullable();
             $table->string('focus_keyword')->nullable();
             
             $table->string('social_title')->nullable();

@@ -42,6 +42,7 @@ class NewsController extends Controller
         $path = 'images/news';
         $request->image->move($path , $image_name);
         
+        $social_image_name = "";
         if($request->social_image != null)
         {
             $social_image_name = $request->social_image->getClientOriginalName();
@@ -49,6 +50,8 @@ class NewsController extends Controller
             $path = 'images/social/news';
             $request->social_image->move($path , $social_image_name);
         }
+        
+        
         News::create([
             'title'=> $request->title,
             'category_id'=> $request->category_id,
@@ -108,8 +111,8 @@ class NewsController extends Controller
         $event->image = $image_name;
         $event->category_id = $request->category_id;
         $event->description = $request->description;
-        if($request->focus_keyword != null)
-            $event->focus_keyword = $request->focus_keyword;
+        // if($request->focus_keyword != null)
+        $event->focus_keyword = $request->focus_keyword;
         if($request->alt_text != null)
             $event->alt_text = $request->alt_text;
         
