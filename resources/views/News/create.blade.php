@@ -53,7 +53,7 @@
               
               <br><br>              
               <div class="col-12 d-flex justify-content-center align-items-center">
-                <h1 class="font-weight-bold">Social Media Data</h1>
+                <h1 class="font-weight-bold" style="color: #0d6efd;">Social Media Data</h1>
               </div>
               <br><br>
               <div class="col-12">
@@ -83,7 +83,7 @@
               
               <br><br>              
               <div class="col-12 d-flex justify-content-center align-items-center">
-                <h1 class="font-weight-bold">Meta Data</h1>
+                <h1 class="font-weight-bold" style="color: #0d6efd;">Meta Data</h1>
               </div>
               <br><br>
               <div class="col-12">
