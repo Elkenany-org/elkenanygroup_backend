@@ -13,7 +13,7 @@ class News extends Model
     use HasFactory;
     protected $dates = ['deleted_at'];
     protected $fillable = ['title','image','category_id','description','alt_text','focus_keyword'
-                            ,'social_title','social_link','social_description','social_alt_text'
+                            ,'social_title','social_link','social_image','social_description','social_alt_text'
                             ,'meta_title','meta_link','meta_description'];
   
     public function category()

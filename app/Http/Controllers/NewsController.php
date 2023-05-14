@@ -39,7 +39,7 @@ class NewsController extends Controller
         ]);
         $image_name = $request->image->getClientOriginalName();
         $image_name = time().$image_name;
-        $path = 'images/news';
+        $path = 'images/main/news';
         $request->image->move($path , $image_name);
         
         $social_image_name = "";
@@ -82,6 +82,7 @@ class NewsController extends Controller
     public function edit($id)
     {
         $event = News::where('id' , $id)->first();
+        dd($event);
         $categories = Category::all();
         return view('News.edit',compact('categories'))->with('event' , $event);
     }
@@ -96,14 +97,14 @@ class NewsController extends Controller
             'description' => 'required'
         ]);
         $event = News::find($id);
-        $image_path = 'images/news/'.$event->image;
+        $image_path = 'images/main/news/'.$event->image;
         if(File::exists($image_path)) {
             File::delete($image_path);
         }
         
         $image_name = $request->image->getClientOriginalName();
         $image_name = time().$image_name;
-        $path = 'images/news';
+        $path = 'images/main/news';
         $request->image->move($path , $image_name);
         
         
@@ -111,16 +112,12 @@ class NewsController extends Controller
         $event->image = $image_name;
         $event->category_id = $request->category_id;
         $event->description = $request->description;
-        // if($request->focus_keyword != null)
         $event->focus_keyword = $request->focus_keyword;
-        if($request->alt_text != null)
-            $event->alt_text = $request->alt_text;
+        $event->alt_text = $request->alt_text;
         
         
-        if($request->social_title != null)
-            $event->social_title = $request->social_title;
-        if($request->social_description != null)
-            $event->social_description = $request->social_description;
+        $event->social_title = $request->social_title;
+        $event->social_description = $request->social_description;
         if($request->social_image != null)
         {
             $social_image_name = $request->social_image->getClientOriginalName();
@@ -134,16 +131,12 @@ class NewsController extends Controller
                 File::delete($image_path);
             
         }
-        if($request->social_alt_text != null)
-            $event->social_alt_text = $request->social_alt_text;
+        $event->social_alt_text = $request->social_alt_text;
         
-
-        if($request->meta_title != null)
-            $event->meta_title = $request->meta_title;
-        if($request->meta_link != null)
-            $event->meta_link = $request->meta_link;
-        if($request->meta_decription != null)
-            $event->meta_description = $request->meta_description;
+        
+        $event->meta_title = $request->meta_title;
+        $event->meta_link = $request->meta_link;
+        $event->meta_description = $request->meta_description;
 
         $event->save();
         
@@ -166,7 +159,7 @@ class NewsController extends Controller
     public function hard_delete($id)
     {
         $event = News::onlyTrashed()->where('id', $id)->first();
-        $image_path = 'images/news/'.$event->image;
+        $image_path = 'images/main/news/'.$event->image;
         if(File::exists($image_path)) {
             File::delete($image_path);
         }

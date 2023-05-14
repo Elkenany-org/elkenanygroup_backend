@@ -35,7 +35,7 @@
               <div class="col-12">
                 <div class="input-style-1">
                   <label for="name">الصورة</label>
-                  <img src="/images/news/{{$event->image}}" alt="error" style="width: 200px">
+                  <img src="/images/main/news/{{$event->image}}" alt="error" style="width: 200px">
                   <input type="file" class="file" id="file" name="image" value="/images/{{$event->image}}">
                 </div>
               </div>
@@ -71,8 +71,9 @@
               </div>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="social_image">Social_image</label>
-                  <input type="file" class="file" name="social_image" value="/images/social/news/{{$event->social_image}}">
+                  <label for="social_image">Social_image-- {{$event->social_image}}</label>
+                  <img src="/images/social/news/{{$event->social_image}}" alt="error" style="width: 200px">
+                  <input type="file" class="file" name="social_image" value="/images/{{$event->social_image}}">
                 </div>
               </div>
               <div class="col-12">
@@ -102,8 +103,8 @@
               
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="Meta_decription">Meta_decription</label>
-                  <input type="text" class="form-control" name="meta_description" value="{{$event->meta_decription}}">
+                  <label for="Meta_decription">Meta_description</label>
+                  <input type="text" class="form-control" name="meta_description" value="{{$event->meta_description}}">
                 </div>
               </div>
 
