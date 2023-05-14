@@ -28,7 +28,7 @@
               <div class="col-12">
                 <div class="input-style-1">
                   <label for="description">الوصف</label>
-                  <textarea name="description"></textarea>
+                  <textarea name="description" id="textarea1"></textarea>
                 </div>
               </div>
               
@@ -40,13 +40,13 @@
               </div>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="alt_text">alt_text</label>
+                  <label for="alt_text" dir="ltr">alt_text</label>
                   <input type="text" class="form-control" name="alt_text">
                 </div>
               </div>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="focus_word">Focus_keyword</label>
+                  <label for="focus_word" dir="ltr">Focus_keyword</label>
                   <input type="text" class="form-control" name="focus_keyword">
                 </div>
               </div>
@@ -58,25 +58,25 @@
               <br><br>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="social_title">Social_title</label>
+                  <label for="social_title" dir="ltr">Social_title</label>
                   <input type="text" class="form-control" name="social_title">
                 </div>
               </div>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="social_description">Social_decription</label>
-                  <input type="text" class="form-control" name="social_description">
+                  <label for="social_description" dir="ltr">Social_description</label>
+                  <textarea type="text" class="form-control" rows="3" name="social_description"></textarea>
                 </div>
               </div>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="social_image">Social_image</label>
-                  <input type="file" class="file" name="social_image">
+                  <label for="social_image" dir="ltr">Social_image</label>
+                  <input type="file" class="file" dir="ltr" name="social_image">
                 </div>
               </div>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="social_alt_text">Social_alt_text</label>
+                  <label for="social_alt_text" dir="ltr">Social_alt_text</label>
                   <input type="text" class="form-control" name="social_alt_text">
                 </div>
               </div>
@@ -88,21 +88,21 @@
               <br><br>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="meta_title">Title_tag</label>
+                  <label for="meta_title" dir="ltr">Title_tag</label>
                   <input type="text" class="form-control" name="meta_title">
                 </div>
               </div>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="meta_link">Meta_link</label>
-                  <input type="text" class="form-control" name="meta_link">
+                  <label for="meta_link" dir="ltr">Meta_link</label>
+                  <input type="text" class="form-control" dir="ltr" name="meta_link">
                 </div>
               </div>
               
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="Meta_decription">Meta_decription</label>
-                  <input type="text" class="form-control" name="meta_description">
+                  <label for="Meta_description" dir="ltr">Meta_decription</label>
+                  <textarea type="text" class="form-control" rows="3" name="meta_description"></textarea>
                 </div>
               </div>
 
@@ -121,7 +121,7 @@
 
     <script>
       tinymce.init({
-        selector: "textarea",
+        selector: "#textarea1",
         directionality: 'rtl',
         plugins:
           "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss",

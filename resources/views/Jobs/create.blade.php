@@ -33,13 +33,13 @@
                     <div class="col-12">
                         <div class="input-style-1">
                           <label for="alt_text" dir="ltr">alt_text</label>
-                          <input type="text" class="form-control" name="alt_text" dir="ltr">
+                          <input type="text" class="form-control" name="alt_text">
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="input-style-1">
                           <label for="focus_word" dir="ltr">Focus_keyword</label>
-                          <input type="text" class="form-control" name="focus_keyword" dir="ltr">
+                          <input type="text" class="form-control" name="focus_keyword">
                         </div>
                       </div>
                       
@@ -51,19 +51,19 @@
                       <div class="col-12">
                         <div class="input-style-1">
                           <label for="social_title" dir="ltr">Social_title</label>
-                          <input type="text" class="form-control" name="social_title" dir="ltr">
+                          <input type="text" class="form-control" name="social_title">
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="input-style-1">
                           <label for="social_description" dir="ltr">Social_decription</label>
-                          <textarea type="text" class="form-control" name="social_description" dir="ltr" rows="3"></textarea>
+                          <textarea type="text" class="form-control" name="social_description" rows="3"></textarea>
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="input-style-1">
                           <label for="social_alt_text" dir="ltr">Social_alt_text</label>
-                          <input type="text" class="form-control" name="social_alt_text" dir="ltr">
+                          <input type="text" class="form-control" name="social_alt_text">
                         </div>
                       </div>
                       
@@ -75,7 +75,7 @@
                       <div class="col-12">
                         <div class="input-style-1">
                           <label for="meta_title" dir="ltr">Title_tag</label>
-                          <input type="text" class="form-control" name="meta_title" dir="ltr">
+                          <input type="text" class="form-control" name="meta_title">
                         </div>
                       </div>
                       <div class="col-12">
@@ -88,7 +88,7 @@
                       <div class="col-12">
                         <div class="input-style-1">
                           <label for="Meta_decription" dir="ltr">Meta_decription</label>
-                          <textarea type="text" class="form-control" name="meta_description" dir="ltr" rows="3"></textarea>
+                          <textarea type="text" class="form-control" name="meta_description" rows="3"></textarea>
                         </div>
                       </div>
 
