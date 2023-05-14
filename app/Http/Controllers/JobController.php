@@ -36,6 +36,17 @@ class JobController extends Controller
             'title'=>$request->title,
             'address'=>$request->address,
             'description'=>$request->description,
+            'alt_text'=> $request->alt_text,
+            'focus_keyword'=> $request->focus_keyword,
+
+            'social_title'=> $request->social_title,
+            'social_address'=> $request->social_address,
+            'social_decription'=> $request->social_decription,
+            'social_alt_text'=> $request->social_alt_text,
+
+            'meta_title'=> $request->meta_title,
+            'meta_link'=> $request->meta_link,
+            'meta_decription'=> $request->meta_decription,
         ]);
         return redirect()->route('job.index');
     }

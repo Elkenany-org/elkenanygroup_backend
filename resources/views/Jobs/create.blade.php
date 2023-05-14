@@ -62,12 +62,6 @@
                       </div>
                       <div class="col-12">
                         <div class="input-style-1">
-                          <label for="social_image">Social_image</label>
-                          <input type="file" class="file" name="social_image">
-                        </div>
-                      </div>
-                      <div class="col-12">
-                        <div class="input-style-1">
                           <label for="social_alt_text">Social_alt_text</label>
                           <input type="text" class="form-control" name="social_alt_text">
                         </div>
