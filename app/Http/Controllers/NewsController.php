@@ -88,26 +88,30 @@ class NewsController extends Controller
     
     public function update(Request $request, $id)
     {
-        // dd($event->image);
+        // dd($request);
         $request->validate([
             'title' => 'required',
             'category_id' => 'required',
-            'image' => 'required',
             'description' => 'required'
         ]);
         $event = News::find($id);
-        $image_path = public_path('images/main/news/'.$event->image);
-        if(File::exists($image_path))
-            unlink($image_path);
         
-        $image_name = $request->image->getClientOriginalName();
-        $image_name = time().$image_name;
-        $path = 'images/main/news';
-        $request->image->move($path , $image_name);
+        if($request->image != null)
+        {
+            $image_path = public_path('images/main/news/'.$event->image);
+            if(File::exists($image_path))
+                unlink($image_path);
+
+            $image_name = $request->image->getClientOriginalName();
+            $image_name = time().$image_name;
+            $path = 'images/main/news';
+            $request->image->move($path , $image_name);
+            
+            $event->image = $image_name;
+        }
         
         
         $event->title = $request->title;
-        $event->image = $image_name;
         $event->category_id = $request->category_id;
         $event->description = $request->description;
         $event->focus_keyword = $request->focus_keyword;
@@ -124,7 +128,6 @@ class NewsController extends Controller
             $request->social_image->move($path , $social_image_name);
             $event->social_image = $social_image_name;
 
-            $image_path = public_path('images/main/news/'.$event->image);
             $image_path = public_path('images/social/news/'.$event->social_image);
             if(File::exists($image_path))
                 unlink($image_path);
@@ -157,10 +160,14 @@ class NewsController extends Controller
     public function hard_delete($id)
     {
         $event = News::onlyTrashed()->where('id', $id)->first();
-        $image_path = 'images/main/news/'.$event->image;
-        if(File::exists($image_path)) {
-            File::delete($image_path);
-        }
+        
+        $image_path = public_path('images/main/news/'.$event->image);
+        if(File::exists($image_path)) 
+            unlink($image_path);
+        $social_image_path = public_path('images/social/news/'.$event->social_image);
+        if(File::exists($social_image_path)) 
+            unlink($social_image_path);
+        
         $event->forceDelete();
         return redirect()->route('News.archive'); 
     }
