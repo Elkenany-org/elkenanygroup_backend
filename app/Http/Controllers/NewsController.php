@@ -182,83 +182,11 @@ class NewsController extends Controller
         $news = News::onlyTrashed()->where('title', 'LIKE', '%'.$title.'%')->paginate(10);
         return view('News.archive')->with('news',$news);
     }
+   
     public function description_search(Request $request)
     {
-        $description = $request->description;
-        if($description == "")
-        {
-            return redirect()->route('News.index')->with('search_flag',false);
-        }
-        $words = explode(" ", $description);
-        $flag = false;
-        $arr = array();
-        $indecies_of_words = array();
-        $index_of_max = array();
-        $ids = News::pluck('id');
-     
-        
-        for ($i = 0; $i < count($ids); $i++)
-        {
-            array_push($arr ,[$ids[$i],0]);
-            
-        }
-        $c = 0;
-        for ($i = 0; $i < count($words); $i++)
-        {
-            $index = News::where('description', 'LIKE', '%'.$words[$i].'%')->pluck('id');
-            for ($x = 0; $x < count($index); $x++)
-            {
-                for ($m = 0; $m < count($ids); $m++)
-                {
-                    if($index[$x] == $ids[$m])
-                    {
-                        $arr[$m][1]++;
-                        $indecies_of_words[ $ids[$m] ][$c] = $words[$i];
-                        $c++;
-                    }
-                }        
-            }                
-        }
-        foreach ($indecies_of_words as &$row) {
-            $row = array_values($row);
-        }
-
-        
-        if($index->count() == 0)
-            return view('News.index')->with('news',$index)->with('search_flag',false);
-
-        $max = 0;
-        for($j = 0; $j < count($ids); $j++)
-        {
-            $i = 0;
-            foreach($arr as $element)
-            {
-                if($element[1] > $max)
-                {
-                    $flag = true;
-                    $max = $element[1];
-                    $index = $i;
-                }
-                $i++;
-            }
-            if($flag)
-                array_push($index_of_max,$arr[$index][0]);
-            $arr[$index][1] = -100000;
-            $max = 0;
-            $flag = false;
-        }
-        
-        $news = News::whereIn('id',$index_of_max)
-            ->orderByRaw(News::raw("FIELD(id, ".implode(",", $index_of_max).")"))
-            ->paginate(10);
-
-        return view('News.index')->with('news',$news)->with('search_flag',true)
-            ->with('indecies_of_words',$indecies_of_words);
+        return $this->description_search($request , new News() , 'News' , 'news');
     }
-    // public function yourMethod(Request $request)
-    // {
-    //     $this->description_search($request);
-    // }
 
 }
 
