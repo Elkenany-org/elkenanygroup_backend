@@ -114,18 +114,10 @@ class JobController extends Controller
     }
     public function search(Request $request)
     {
-        $title = $request->title;
-        $jobs = Job::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
-        return view('Jobs.index')->with('jobs',$jobs);
+        return $this->description_search($request , 'title' , new Job() , 'Jobs' , 'jobs',false,'index');
     }
     public function archive_search(Request $request)
     {
-        $title = $request->title;
-        $jobs = Job::onlyTrashed()->where('title', 'LIKE', '%'.$title.'%')->paginate(10);
-        return view('Jobs.archive')->with('jobs',$jobs);
-    }
-    public function desc_search(Request $request)
-    {
-        return $this->description_search($request , 'title' , new Job() , 'Jobs' , 'jobs');
+        return $this->description_search($request , 'title' , new Job() , 'Jobs' , 'jobs',true,'archive');
     }
 }
