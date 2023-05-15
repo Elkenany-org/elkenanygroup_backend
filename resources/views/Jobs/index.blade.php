@@ -10,7 +10,7 @@
       <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
     </form>
 
-    <a type="button" class="btn btn-secondary py-2" href="{{ route('job.archive') }}">الارشيف</a>
+    <a type="button" class="btn btn-secondary py-2" href="{{ route('Jobs.archive') }}">الارشيف</a>
   </div>
   
   @if ($jobs->count() > 0)
@@ -38,8 +38,8 @@
             <td style="word-wrap: break-word;"><p class=" title" style=" overflow-wrap: break-word;max-width:  5rem;">{{($job->created_at)->format('d/m/Y   h:i:s')}}</p></td>
             <td style="word-wrap: break-word;"><p class=" title" style=" overflow-wrap: break-word;max-width:  5rem;">{{($job->updated_at)->format('d/m/Y   h:i:s')}}</p></td>
             <td>
-              <a class="btn btn-secondary ms-1 py-1" href="{{ route('job.edit', $job->id) }}">تعديل</a> 
-              <a class="btn btn-danger ms-1 py-1" href="{{ route('job.soft_delete', $job->id) }}">حذف</a>  
+              <a class="btn btn-secondary ms-1 py-1" href="{{ route('Jobs.edit', $job->id) }}">تعديل</a> 
+              <a class="btn btn-danger ms-1 py-1" href="{{ route('Jobs.soft_delete', $job->id) }}">حذف</a>  
             </td>
          
           @endforeach        

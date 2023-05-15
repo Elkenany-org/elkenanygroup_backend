@@ -6,7 +6,7 @@
   <div class="three mb-3 d-flex justify-content-between align-items-center">
     <h1 class="d-inline-block w-25 ">ارشيف الوظائف</h1>
 
-    <form class="display: flex;justify-content: center;align-items: center;" action="{{route('job.archive_search')}}" method="get">
+    <form class="display: flex;justify-content: center;align-items: center;" action="{{route('Jobs.archive_search')}}" method="get">
       <input class="mySearch" type="text" name="title" id="search-input">
       <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
     </form>
@@ -41,8 +41,8 @@
           <td style="max-width:  5rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{($job->updated_at)->format('d/m/Y   h:i:s')}}</p></td>
           <td style="max-width:  5rem;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{($job->deleted_at)->format('d/m/Y   h:i:s')}}</p></td>
           <td>
-            <a class="btn btn-secondary ms-1 py-1" href="{{ route('job.restore', $job->id) }}">استرجاع</a> 
-            <a class="btn btn-danger ms-1 py-1" href="{{ route('job.hard_delete', $job->id) }}">حذف نهائي</a>  
+            <a class="btn btn-secondary ms-1 py-1" href="{{ route('Jobs.restore', $job->id) }}">استرجاع</a> 
+            <a class="btn btn-danger ms-1 py-1" href="{{ route('Jobs.hard_delete', $job->id) }}">حذف نهائي</a>  
           </td>
          </tr>
         @endforeach        

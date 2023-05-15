@@ -6,7 +6,7 @@
     <div class="card-style-3 mb-30">
         <div class="card-content">            
             <div class="row">
-                <form action="{{route('job.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('Jobs.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="col-12">

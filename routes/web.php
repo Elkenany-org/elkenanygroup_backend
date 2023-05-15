@@ -96,17 +96,16 @@ Route::prefix('category')->group(function () {
 //Jobs
 Route::prefix('job')->group(function () {
     Route::get('/' , [JobController::class,'index'])->name('Jobs.index');
-    Route::get('/archive' , [JobController::class,'archive'])->name('job.archive');
-    Route::get('/create' , [JobController::class, 'create'])->name('job.create');
-    Route::post('/store' , [JobController::class, 'store'])->name('job.store');
-    Route::get('/show/{id}' , [JobController::class,'show'])->name('job.show');
-    Route::get('/edit/{id}' , [JobController::class,'edit'])->name('job.edit');
-    Route::post('/update/{id}' , [JobController::class,'update'])->name('job.update');
-    Route::get('/destroy/{id}' , [JobController::class,'soft_delete'])->name('job.soft_delete');
-    Route::get('/restore/{id}' , [JobController::class,'restore'])->name('job.restore');
-    Route::get('/delete/{id}' , [JobController::class,'hard_delete'])->name('job.hard_delete');
+    Route::get('/archive' , [JobController::class,'archive'])->name('Jobs.archive');
+    Route::get('/create' , [JobController::class, 'create'])->name('Jobs.create');
+    Route::post('/store' , [JobController::class, 'store'])->name('Jobs.store');
+    Route::get('/edit/{id}' , [JobController::class,'edit'])->name('Jobs.edit');
+    Route::post('/update/{id}' , [JobController::class,'update'])->name('Jobs.update');
+    Route::get('/destroy/{id}' , [JobController::class,'soft_delete'])->name('Jobs.soft_delete');
+    Route::get('/restore/{id}' , [JobController::class,'restore'])->name('Jobs.restore');
+    Route::get('/delete/{id}' , [JobController::class,'hard_delete'])->name('Jobs.hard_delete');
     Route::get('/search' , [JobController::class,'search'])->name('job.search');
-    Route::get('/archive_search' , [JobController::class,'archive_search'])->name('job.archive_search');
+    Route::get('/archive_search' , [JobController::class,'archive_search'])->name('Jobs.archive_search');
     Route::get('/desc_search', [JobController::class, 'desc_search'])->name('job.description_search');
 });
 
