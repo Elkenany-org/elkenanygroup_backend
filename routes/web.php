@@ -40,8 +40,7 @@ Route::prefix('news')->group(function () {
     Route::get('/restore/{id}' , [NewsController::class,'restore'])->name('News.restore');
     Route::get('/delete/{id}' , [NewsController::class,'hard_delete'])->name('News.hard_delete');
     Route::get('/search', [NewsController::class, 'search'])->name('News.search');
-    Route::get('/archive_search', [NewsController::class, 'archive_search'])->name('News.archive_search');
-    Route::get('/desc_search', [NewsController::class, 'desc_search'])->name('News.description_search');
+    // Route::get('/archive_search', [NewsController::class, 'archive_search'])->name('News.archive_search');
 });
 
 //info
@@ -105,7 +104,7 @@ Route::prefix('job')->group(function () {
     Route::get('/restore/{id}' , [JobController::class,'restore'])->name('Jobs.restore');
     Route::get('/delete/{id}' , [JobController::class,'hard_delete'])->name('Jobs.hard_delete');
     Route::get('/search', [JobController::class, 'search'])->name('Jobs.search');
-    Route::get('/archive_search', [JobController::class, 'archive_search'])->name('Jobs.archive_search');
+    // Route::get('/archive_search', [JobController::class, 'archive_search'])->name('Jobs.archive_search');
 });
 
 

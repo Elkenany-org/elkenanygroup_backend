@@ -15,7 +15,6 @@ class Controller extends BaseController
     public function description_search($request , $column , $Model , $view , $return_data_name , $archive_flag , $page)
     {
         $description = $request->$column;
-        
         if($description == "")
             return redirect()->route($view.'.'.$page)->with('search_flag',false);
         
@@ -55,6 +54,7 @@ class Controller extends BaseController
             $row = array_values($row);
         
         
+            
         if($index->count() == 0)
             return view($view.'.'.$page)->with($return_data_name , $index)->with('search_flag',false);
 
@@ -75,8 +75,8 @@ class Controller extends BaseController
             }
             if($flag)
                 array_push($index_of_max,$arr[$index][0]);
-            if ($archive_flag)
-                $arr[$index][1] = -100000;
+
+            $arr[$index][1] = -100000;
             $max = 0;
             $flag = false;
         }

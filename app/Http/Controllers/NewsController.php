@@ -172,21 +172,13 @@ class NewsController extends Controller
     }
     public function search(Request $request)
     {
-        $title = $request->title;
-        $news = News::where('title', 'LIKE', '%'.$title.'%')->paginate(10);
-        return view('News.index')->with('news',$news);
+        return $this->description_search($request , 'description' , new News() , 'News' , 'news',false,'index');
     }
-    public function archive_search(Request $request)
-    {
-        $title = $request->title;
-        $news = News::onlyTrashed()->where('title', 'LIKE', '%'.$title.'%')->paginate(10);
-        return view('News.archive')->with('news',$news);
-    }
-   
-    public function desc_search(Request $request)
-    {
-        return $this->description_search($request , 'description' , new News() , 'News' , 'news');
-    }
+    // public function archive_search(Request $request)
+    // {
+    //     return $this->description_search($request , 'description' , new News() , 'News' , 'news',true,'archive');
+    // }
+
 
 }
 

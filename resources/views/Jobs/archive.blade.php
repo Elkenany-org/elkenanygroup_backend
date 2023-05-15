@@ -6,7 +6,7 @@
   <div class="three mb-3 d-flex justify-content-between align-items-center">
     <h1 class="d-inline-block w-25 ">ارشيف الوظائف</h1>
 
-    <form class="display: flex;justify-content: center;align-items: center;" action="{{route('Jobs.archive_search')}}" method="get">
+    <form class="display: flex;justify-content: center;align-items: center;" action="" method="get">
       <input class="mySearch" type="text" name="title" id="search-input">
       <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
     </form>

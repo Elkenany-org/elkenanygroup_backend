@@ -12,7 +12,7 @@
     </form>
 
     
-    <form class="display: flex;justify-content: center;align-items: center;" id="search-form" action="{{route('News.description_search')}}" method="get">
+    <form class="display: flex;justify-content: center;align-items: center;" id="search-form" action="{{route('News.search')}}" method="get">
       <input class="mySearch" style="width:25rem;" type="text" name="description" id="search-input" placeholder="ادخل كلمات بالوصف">
       <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
     </form>
