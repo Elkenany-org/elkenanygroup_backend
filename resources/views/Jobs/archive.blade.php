@@ -7,7 +7,7 @@
     <h1 class="d-inline-block w-25 ">ارشيف الوظائف</h1>
 
     <form class="display: flex;justify-content: center;align-items: center;" action="{{ route('Jobs.archive_search')}}" method="get">
-      <input class="mySearch" type="text" name="title" id="search-input">
+      <input class="mySearch" type="text" name="title" id="search-input" placeholder="ادخل اسم الظيفة...">
       <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
     </form>
 

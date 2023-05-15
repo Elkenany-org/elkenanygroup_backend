@@ -6,7 +6,7 @@
     <h1 class="d-inline-block w-25 ">الوظائف</h1>
     
     <form class="display: flex;justify-content: center;align-items: center;" id="search-form" action="{{route('Jobs.search')}}" method="get">
-      <input class="mySearch" type="text" name="title" id="search-input">
+      <input class="mySearch" type="text" name="title" id="search-input" placeholder="ادخل اسم الوظيفة...">
       <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
     </form>
 

@@ -7,19 +7,19 @@
     <h1 class="d-inline-block " style="width: 100px">المقالات</h1>
     
     <form class="display: flex;justify-content: center;align-items: center;" id="search-form" action="{{route('Articles.title_search')}}" method="get">
-      <input class="mySearch" style="width:10rem;" type="text" name="title" id="search-input" placeholder="ادخل عنوان">
+      <input class="mySearch" style="width:10rem;" type="text" name="title" id="search-input" placeholder="ادخل عنوان...">
       <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
     </form>
 
     
     <form class="display: flex;justify-content: center;align-items: center;" id="search-form" action="{{route('Articles.search')}}" method="get">
-      <input class="mySearch" style="width:25rem;" type="text" name="description" id="search-input" placeholder="ادخل كلمات بالوصف">
+      <input class="mySearch" style="width:15rem;" type="text" name="description" id="search-input" placeholder="ادخل كلمات بالوصف...">
       <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
     </form>
 
     
       {{-- <span ><i class="fa-solid fa-calendar-days"></i></span> --}}
-      <input type="date" class="form-control">
+      {{-- <input type="date" class="form-control"> --}}
     
 
     <a type="button" class="btn btn-secondary py-2" href="{{ route('Articles.archive') }}">الارشيف</a>
