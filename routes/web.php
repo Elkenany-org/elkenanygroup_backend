@@ -104,7 +104,7 @@ Route::prefix('job')->group(function () {
     Route::get('/restore/{id}' , [JobController::class,'restore'])->name('Jobs.restore');
     Route::get('/delete/{id}' , [JobController::class,'hard_delete'])->name('Jobs.hard_delete');
     Route::get('/search', [JobController::class, 'search'])->name('Jobs.search');
-    // Route::get('/archive_search', [JobController::class, 'archive_search'])->name('Jobs.archive_search');
+    Route::get('/archive_search', [JobController::class, 'archive_search'])->name('Jobs.archive_search');
 });
 
 

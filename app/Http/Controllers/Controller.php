@@ -15,6 +15,7 @@ class Controller extends BaseController
     public function description_search($request , $column , $Model , $view , $return_data_name , $archive_flag , $page)
     {
         $description = $request->$column;
+        
         if($description == "")
             return redirect()->route($view.'.'.$page)->with('search_flag',false);
         
@@ -23,8 +24,10 @@ class Controller extends BaseController
         $arr = array();
         $indecies_of_words = array();
         $index_of_max = array();
-        $ids = $Model::pluck('id');
-        
+        if($archive_flag == false)
+            $ids = $Model::pluck('id');
+        else
+            $ids = $Model::onlyTrashed()->pluck('id');
         
         for ($i = 0; $i < count($ids); $i++)
             array_push($arr ,[$ids[$i],0]);
@@ -36,7 +39,6 @@ class Controller extends BaseController
                 $index = $Model::where($column, 'LIKE', '%'.$words[$i].'%')->pluck('id');
             else
                 $index = $Model::onlyTrashed()->where($column, 'LIKE', '%'.$words[$i].'%')->pluck('id');
-                
             for ($x = 0; $x < count($index); $x++)
             {
                 for ($m = 0; $m < count($ids); $m++)
@@ -54,7 +56,7 @@ class Controller extends BaseController
             $row = array_values($row);
         
         
-            
+        
         if($index->count() == 0)
             return view($view.'.'.$page)->with($return_data_name , $index)->with('search_flag',false);
 
@@ -81,11 +83,20 @@ class Controller extends BaseController
             $flag = false;
         }
         
-        $ret_data = $Model::whereIn('id',$index_of_max)
-            ->orderByRaw($Model::raw("FIELD(id, ".implode(",", $index_of_max).")"))
-            ->paginate(10);
-        
+        if($archive_flag == false)
+        {
+            $ret_data = $Model::whereIn('id',$index_of_max)
+                ->orderByRaw($Model::raw("FIELD(id, ".implode(",", $index_of_max).")"))
+                ->paginate(10);
+        }
+        else
+        {
+            $ret_data = $Model::onlyTrashed()->whereIn('id',$index_of_max)
+                ->orderByRaw($Model::raw("FIELD(id, ".implode(",", $index_of_max).")"))
+                ->paginate(10);
+        }
         return view($view.'.'.$page)->with($return_data_name ,$ret_data)->with('search_flag',true)
             ->with('indecies_of_words',$indecies_of_words);
     }
+  
 }

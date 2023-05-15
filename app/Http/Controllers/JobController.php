@@ -116,8 +116,8 @@ class JobController extends Controller
     {
         return $this->description_search($request , 'title' , new Job() , 'Jobs' , 'jobs',false,'index');
     }
-    // public function archive_search(Request $request)
-    // {
-    //     return $this->description_search($request , 'title' , new Job() , 'Jobs' , 'jobs',true,'archive');
-    // }
+    public function archive_search(Request $request)
+    {
+        return $this->description_search($request , 'title' , new Job() , 'Jobs' , 'jobs',true,'archive');
+    }
 }
