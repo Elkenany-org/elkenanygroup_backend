@@ -224,9 +224,8 @@ class NewsController extends Controller
         }
 
         
-        // dd($indecies_of_words[5][0]);
         if($index->count() == 0)
-            return redirect()->route('News.index')->with('search_flag',false);
+            return view('News.index')->with('news',$index)->with('search_flag',false);
 
         $max = 0;
         for($j = 0; $j < count($ids); $j++)
@@ -256,6 +255,10 @@ class NewsController extends Controller
         return view('News.index')->with('news',$news)->with('search_flag',true)
             ->with('indecies_of_words',$indecies_of_words);
     }
+    // public function yourMethod(Request $request)
+    // {
+    //     $this->description_search($request);
+    // }
 
 }
 
