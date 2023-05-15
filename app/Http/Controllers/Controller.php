@@ -15,6 +15,7 @@ class Controller extends BaseController
     public function description_search($request , $column , $Model , $view , $return_data_name)
     {
         $description = $request->$column;
+        
         if($description == "")
             return redirect()->route($view.'.index')->with('search_flag',false);
         
@@ -32,7 +33,7 @@ class Controller extends BaseController
         $c = 0;
         for ($i = 0; $i < count($words); $i++)
         {
-            $index = $Model::where('description', 'LIKE', '%'.$words[$i].'%')->pluck('id');
+            $index = $Model::where($column, 'LIKE', '%'.$words[$i].'%')->pluck('id');
             for ($x = 0; $x < count($index); $x++)
             {
                 for ($m = 0; $m < count($ids); $m++)
@@ -78,8 +79,8 @@ class Controller extends BaseController
         $ret_data = $Model::whereIn('id',$index_of_max)
             ->orderByRaw($Model::raw("FIELD(id, ".implode(",", $index_of_max).")"))
             ->paginate(10);
-        dd($return_data);
-        return view($view.'.index')->with($return_data ,$ret_data)->with('search_flag',true)
+        
+        return view($view.'.index')->with($return_data_name ,$ret_data)->with('search_flag',true)
             ->with('indecies_of_words',$indecies_of_words);
     }
 }

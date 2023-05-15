@@ -11,7 +11,7 @@
       <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
     </form>
 
-    <a type="button" class="btn btn-secondary py-2" href="{{ route('job.index') }}">الوظائف</a>
+    <a type="button" class="btn btn-secondary py-2" href="{{ route('Jobs.index') }}">الوظائف</a>
   </div>
   
   @if ($jobs->count() > 0)

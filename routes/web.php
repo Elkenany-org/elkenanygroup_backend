@@ -95,7 +95,7 @@ Route::prefix('category')->group(function () {
 
 //Jobs
 Route::prefix('job')->group(function () {
-    Route::get('/' , [JobController::class,'index'])->name('job.index');
+    Route::get('/' , [JobController::class,'index'])->name('Jobs.index');
     Route::get('/archive' , [JobController::class,'archive'])->name('job.archive');
     Route::get('/create' , [JobController::class, 'create'])->name('job.create');
     Route::post('/store' , [JobController::class, 'store'])->name('job.store');

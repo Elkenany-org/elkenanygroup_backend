@@ -50,7 +50,7 @@
     </li>
     
         
-    <li class=" nav-item @if(request()->routeIs('job.index') || request()->routeIs('job.archive')) active @else noneactive @endif nav-item-has-children">
+    <li class=" nav-item @if(request()->routeIs('Jobs.index') || request()->routeIs('job.archive')) active @else noneactive @endif nav-item-has-children">
         <a class="search collapsed" class="" data-bs-toggle="collapse" data-bs-target="#ddmenu_3"
            aria-controls="ddmenu_3" aria-expanded="true" aria-label="Toggle navigation">
             <span class="icon">
@@ -60,7 +60,7 @@
         </a>
         <ul id="ddmenu_3" class="dropdown-nav collapse" style="">
             <li>
-                <a href="{{route('job.index')}}">
+                <a href="{{route('Jobs.index')}}">
                     <div class="ico w-fit"><i class="fa-solid fa-eye m-0" style="font-size: 14px"></i></div>
                     عرض
                 </a>

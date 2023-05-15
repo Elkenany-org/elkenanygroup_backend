@@ -48,7 +48,7 @@ class JobController extends Controller
             'meta_link'=> $request->meta_link,
             'meta_decription'=> $request->meta_decription,
         ]);
-        return redirect()->route('job.index');
+        return redirect()->route('Jobs.index');
     }
 
     
@@ -91,7 +91,7 @@ class JobController extends Controller
 
         $job->save();
 
-        return redirect()->route('job.index');
+        return redirect()->route('Jobs.index');
     }
 
     public function soft_delete($id)
