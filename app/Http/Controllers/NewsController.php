@@ -14,13 +14,17 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::latest()->paginate(10);
-        return view('News.index',compact('news'))->with('search_flag',false);
+        return view('News.index',compact('news'))
+            ->with('search_flag',true)
+            ->with('search_flag2',true);
     }
 
     public function archive()
     {
         $news = News::latest()->onlyTrashed()->paginate(10);
-        return view('News.archive')->with('news',$news)->with('search_flag',false);
+        return view('News.archive')->with('news',$news)
+            ->with('search_flag',true)
+            ->with('search_flag2',true);
     }
 
     public function create()
@@ -174,10 +178,18 @@ class NewsController extends Controller
     {
         return $this->description_search($request , 'description' , new News() , 'News' , 'news',false,'index');
     }
-    // public function archive_search(Request $request)
-    // {
-    //     return $this->description_search($request , 'description' , new News() , 'News' , 'news',true,'archive');
-    // }
+    public function archive_search(Request $request)
+    {
+        return $this->description_search($request , 'description' , new News() , 'News' , 'news',true,'archive');
+    }
+    public function title_search(Request $request)
+    {
+        return $this->description_search($request , 'title' , new News() , 'News' , 'news',false,'index');
+    }
+    public function archive_title_search(Request $request)
+    {
+        return $this->description_search($request , 'title' , new News() , 'News' , 'news',true,'archive');
+    }
 
 
 }

@@ -6,7 +6,7 @@
   <div class="three mb-3 d-flex justify-content-between align-items-center">
     <h1 class="d-inline-block " style="width: 100px">الاخبار</h1>
     
-    <form class="display: flex;justify-content: center;align-items: center;" id="search-form" action="{{route('News.search')}}" method="get">
+    <form class="display: flex;justify-content: center;align-items: center;" id="search-form" action="{{route('News.title_search')}}" method="get">
       <input class="mySearch" style="width:10rem;" type="text" name="title" id="search-input" placeholder="ادخل عنوان">
       <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
     </form>
@@ -28,7 +28,7 @@
     <table class="table" id="table">
           <thead style="border-bottom: #2f80ed 3px solid">
             <tr style="color: #2f80ed">
-            @if ($search_flag==false)
+            @if ($search_flag == true && $search_flag2 == true)
               <th scope="col" style="width: 5rem;">#</th>
               <th scope="col" style="width: 8rem;">الصورة</th>
               <th scope="col">العنوان</th>

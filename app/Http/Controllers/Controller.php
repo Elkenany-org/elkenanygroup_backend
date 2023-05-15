@@ -15,9 +15,9 @@ class Controller extends BaseController
     public function description_search($request , $column , $Model , $view , $return_data_name , $archive_flag , $page)
     {
         $description = $request->$column;
-        
+    
         if($description == "")
-            return redirect()->route($view.'.'.$page)->with('search_flag',false);
+            return redirect()->route($view.'.'.$page)->with('search_flag',true)->with('search_flag2',false);
         
         $words = explode(" ", $description);
         $flag = false;
@@ -95,7 +95,15 @@ class Controller extends BaseController
                 ->orderByRaw($Model::raw("FIELD(id, ".implode(",", $index_of_max).")"))
                 ->paginate(10);
         }
+
+        if($column == 'title')
+        {
+            return view($view.'.'.$page)->with($return_data_name ,$ret_data)->with('search_flag',true)
+                ->with('search_flag2' , true)
+                ->with('indecies_of_words',$indecies_of_words);
+        }
         return view($view.'.'.$page)->with($return_data_name ,$ret_data)->with('search_flag',true)
+            ->with('search_flag2' , false)
             ->with('indecies_of_words',$indecies_of_words);
     }
   
