@@ -124,4 +124,8 @@ class JobController extends Controller
         $jobs = Job::onlyTrashed()->where('title', 'LIKE', '%'.$title.'%')->paginate(10);
         return view('Jobs.archive')->with('jobs',$jobs);
     }
+    public function desc_search(Request $request)
+    {
+        return $this->description_search($request , 'title' , new Job() , 'Jobs' , 'jobs');
+    }
 }

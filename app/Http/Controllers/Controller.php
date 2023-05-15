@@ -6,17 +6,15 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use App\Models\News;
-use App\Models\Category;
 use Illuminate\Http\Request;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function description_search($request , $Model , $view , $return_data)
+    public function description_search($request , $column , $Model , $view , $return_data_name)
     {
-        $description = $request->description;
+        $description = $request->$column;
         if($description == "")
             return redirect()->route($view.'.index')->with('search_flag',false);
         
@@ -53,7 +51,7 @@ class Controller extends BaseController
         
         
         if($index->count() == 0)
-            return view($view.'.index')->with($return_data , $index)->with('search_flag',false);
+            return view($view.'.index')->with($return_data_name , $index)->with('search_flag',false);
 
         
         $max = 0;
@@ -77,11 +75,11 @@ class Controller extends BaseController
             $flag = false;
         }
         
-        $news = $Model::whereIn('id',$index_of_max)
+        $ret_data = $Model::whereIn('id',$index_of_max)
             ->orderByRaw($Model::raw("FIELD(id, ".implode(",", $index_of_max).")"))
             ->paginate(10);
-        
-        return view($view.'.index')->with($return_data ,$news)->with('search_flag',true)
+        dd($return_data);
+        return view($view.'.index')->with($return_data ,$ret_data)->with('search_flag',true)
             ->with('indecies_of_words',$indecies_of_words);
     }
 }

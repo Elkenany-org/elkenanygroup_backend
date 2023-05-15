@@ -41,7 +41,7 @@ Route::prefix('news')->group(function () {
     Route::get('/delete/{id}' , [NewsController::class,'hard_delete'])->name('News.hard_delete');
     Route::get('/search', [NewsController::class, 'search'])->name('News.search');
     Route::get('/archive_search', [NewsController::class, 'archive_search'])->name('News.archive_search');
-    Route::get('/desc_search', [NewsController::class, 'description_search'])->name('News.description_search');
+    Route::get('/desc_search', [NewsController::class, 'desc_search'])->name('News.description_search');
 });
 
 //info
@@ -107,6 +107,7 @@ Route::prefix('job')->group(function () {
     Route::get('/delete/{id}' , [JobController::class,'hard_delete'])->name('job.hard_delete');
     Route::get('/search' , [JobController::class,'search'])->name('job.search');
     Route::get('/archive_search' , [JobController::class,'archive_search'])->name('job.archive_search');
+    Route::get('/desc_search', [JobController::class, 'desc_search'])->name('job.description_search');
 });
 
 

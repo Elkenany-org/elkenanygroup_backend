@@ -183,9 +183,9 @@ class NewsController extends Controller
         return view('News.archive')->with('news',$news);
     }
    
-    public function description_search(Request $request)
+    public function desc_search(Request $request)
     {
-        return $this->description_search($request , new News() , 'News' , 'news');
+        return $this->description_search($request , 'description' , new News() , 'News' , 'news');
     }
 
 }
