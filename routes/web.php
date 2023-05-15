@@ -6,6 +6,7 @@ use App\Http\Controllers\InfoController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\ArticleController;
 
 
 /*
@@ -43,6 +44,25 @@ Route::prefix('news')->group(function () {
     Route::get('/archive_search', [NewsController::class, 'archive_search'])->name('News.archive_search');
     Route::get('/title_search', [NewsController::class, 'title_search'])->name('News.title_search');
     Route::get('/archive_title_search', [NewsController::class, 'archive_title_search'])->name('News.archive_title_search');
+});
+
+
+//Articles
+Route::prefix('article')->group(function () {
+    Route::get('/' , [ArticleController::class,'index'])->name('Articles.index');
+    Route::get('/archive' , [ArticleController::class,'archive'])->name('Articles.archive');
+    Route::get('/create' , [ArticleController::class, 'create'])->name('Articles.create');
+    Route::post('/store' , [ArticleController::class, 'store'])->name('Articles.store');
+    Route::get('/show/{id}' , [ArticleController::class,'show'])->name('Articles.show');
+    Route::get('/edit/{id}' , [ArticleController::class,'edit'])->name('Articles.edit');
+    Route::post('/update/{id}' , [ArticleController::class,'update'])->name('Articles.update');
+    Route::get('/destroy/{id}' , [ArticleController::class,'soft_delete'])->name('Articles.soft_delete');
+    Route::get('/restore/{id}' , [ArticleController::class,'restore'])->name('Articles.restore');
+    Route::get('/delete/{id}' , [ArticleController::class,'hard_delete'])->name('Articles.hard_delete');
+    Route::get('/search', [ArticleController::class, 'search'])->name('Articles.search');
+    Route::get('/archive_search', [ArticleController::class, 'archive_search'])->name('Articles.archive_search');
+    Route::get('/title_search', [ArticleController::class, 'title_search'])->name('Articles.title_search');
+    Route::get('/archive_title_search', [ArticleController::class, 'archive_title_search'])->name('Articles.archive_title_search');
 });
 
 //info

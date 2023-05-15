@@ -49,6 +49,29 @@
         </ul>
     </li>
     
+    <li class=" nav-item @if(request()->routeIs('Articles.index') || request()->routeIs('Articles.archive')) active @else noneactive @endif nav-item-has-children">
+        <a class="search collapsed" class="" data-bs-toggle="collapse" data-bs-target="#ddmenu_10"
+           aria-controls="ddmenu_10" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="icon">
+                <i class="fa-solid fa-newspaper"></i>
+            </span>
+            <span class="text">المقالات</span>
+        </a>
+        <ul id="ddmenu_10" class="dropdown-nav collapse" style="">
+            <li>
+                <a href="{{route('Articles.index')}}">
+                    <div class="ico w-fit"><i class="fa-solid fa-eye m-0" style="font-size: 14px"></i></div>
+                    عرض
+                </a>
+                <a href="{{route('Articles.create')}}">
+                    <div class="ico w-fit"><i class="fa-solid fa-plus m-0" style="font-size: 14px"></i></div>
+                    اضافة
+                </a>
+            </li>
+            <li>
+            </li>
+        </ul>
+    </li>
         
     <li class=" nav-item @if(request()->routeIs('Jobs.index') || request()->routeIs('Jobs.archive')) active @else noneactive @endif nav-item-has-children">
         <a class="search collapsed" class="" data-bs-toggle="collapse" data-bs-target="#ddmenu_3"
