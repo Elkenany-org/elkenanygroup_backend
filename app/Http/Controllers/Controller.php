@@ -19,11 +19,7 @@ class Controller extends BaseController
         if($description == "")
             return redirect()->route($view.'.'.$page)->with('search_flag',true)->with('search_flag2',false);
         
-        $words = explode(" ", $description);
-        $flag = false;
-        $arr = array();
-        $indecies_of_words = array();
-        $index_of_max = array();
+        
         if($archive_flag == false)
             $ids = $Model::pluck('id');
         else
