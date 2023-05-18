@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -17,7 +18,7 @@ class RegisterController extends Controller
 
     public function __construct()
     {
-        // $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     

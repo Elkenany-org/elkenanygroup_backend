@@ -118,6 +118,7 @@ Route::prefix('category')->group(function () {
 
 //Jobs
 Route::prefix('job')->group(function () {
+    dd(Auth::user());
     Route::get('/' , [JobController::class,'index'])->name('Jobs.index');
     Route::get('/archive' , [JobController::class,'archive'])->name('Jobs.archive');
     Route::get('/create' , [JobController::class, 'create'])->name('Jobs.create');
@@ -147,10 +148,25 @@ Route::middleware('auth')->group(function () {
 // Route::post('/register', 'Auth\RegisterController@register');
 
 
-Route::group(['middleware' => 'auth'], function () {
-    // Redirect authenticated users to a different route
-    Route::get('/register', [RegisterController::class,'showRegistrationForm'])->name('register');
-    // Route::get('/re', function () {
-    //     return redirect('/home');
-    // });
-});
+// Route::group(['middleware' => 'auth'], function () {
+//     // dd(Auth::user());
+//     if (Auth::user()->email === "amr.esmail@elkenany.com")
+//         Route::get('/register', [RegisterController::class,'showRegistrationForm'])->name('register');
+//     // Route::get('/re', function () {
+//     //     return redirect('/home');
+//     // });
+// });
+// Route::get('/', function () {
+//     if (Auth::check()) {
+        
+//         if (Auth::user()->email === "amr.esmail@elkenany.com") {
+//             return redirect()->route('admin.dashboard');
+//         } else {
+//             // Redirect to home for other usernames
+//             return redirect()->route('home');
+//         }
+//     } else {
+//         // User is not authenticated, route to the login page
+//         return redirect()->route('login');
+//     }
+// });
