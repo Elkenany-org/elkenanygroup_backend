@@ -190,7 +190,15 @@ class NewsController extends Controller
     {
         return $this->description_search($request , 'title' , new News() , 'News' , 'news',true,'archive');
     }
-
+    public function searchByDate(Request $request)
+    {
+        $date = $request->input('date');
+      
+        $news = News::where('created_at', 'LIKE', '%'.$date.'%')->paginate(10);
+        
+        return view('News.index')->with('news',$news)->with('search_flag',true)
+            ->with('search_flag2' , true);
+    }
 
 }
 

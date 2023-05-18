@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Auth\RegisterController;
 
 
 /*
@@ -44,6 +45,7 @@ Route::prefix('news')->group(function () {
     Route::get('/archive_search', [NewsController::class, 'archive_search'])->name('News.archive_search');
     Route::get('/title_search', [NewsController::class, 'title_search'])->name('News.title_search');
     Route::get('/archive_title_search', [NewsController::class, 'archive_title_search'])->name('News.archive_title_search');
+    Route::post('/searchByDate', [NewsController::class, 'searchByDate'])->name('News.searchByDate');
 });
 
 
@@ -142,4 +144,13 @@ Route::middleware('auth')->group(function () {
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });
 
+// Route::post('/register', 'Auth\RegisterController@register');
 
+
+Route::group(['middleware' => 'auth'], function () {
+    // Redirect authenticated users to a different route
+    Route::get('/register', [RegisterController::class,'showRegistrationForm'])->name('register');
+    // Route::get('/re', function () {
+    //     return redirect('/home');
+    // });
+});

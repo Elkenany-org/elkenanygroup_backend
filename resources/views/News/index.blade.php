@@ -16,10 +16,16 @@
       <input class="mySearch" style="width:15rem;" type="text" name="description" id="search-input" placeholder="ادخل كلمات بالوصف...">
       <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
     </form>
-
     
-      {{-- <span ><i class="fa-solid fa-calendar-days"></i></span> --}}
-      {{-- <input type="date" class="form-control"> --}}
+    
+
+    <form action="{{ route('News.searchByDate') }}" method="POST">
+      @csrf
+      <i class="fa-solid fa-calendar-days"></i>
+      <input type="date" name="date">
+      <button class="btn btn-outline-secondary py-1" style="border-radius: 12px"  type="submit"><b>بحث</b></button>
+    </form>
+    
     
 
     <a type="button" class="btn btn-secondary py-2" href="{{ route('News.archive') }}">الارشيف</a>
