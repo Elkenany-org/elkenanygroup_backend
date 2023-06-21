@@ -118,7 +118,7 @@ Route::prefix('category')->group(function () {
 
 //Jobs
 Route::prefix('job')->group(function () {
-    dd(Auth::user());
+    // dd(Auth::user());
     Route::get('/' , [JobController::class,'index'])->name('Jobs.index');
     Route::get('/archive' , [JobController::class,'archive'])->name('Jobs.archive');
     Route::get('/create' , [JobController::class, 'create'])->name('Jobs.create');

@@ -109,6 +109,8 @@ class JobController extends Controller
 
     public function hard_delete($id)
     {
+
+        
         Job::where('id', $id)->forceDelete();
         return redirect()->back(); 
     }
