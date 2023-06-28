@@ -130,7 +130,7 @@
             <span class="text">الشكاوي</span>
         </a>
     </li>
-    {{-- @if (Auth::check() && Auth::user()->email == "amr.esmail@elkenany.com")
+    @if (Auth::check() && Auth::user()->id == 1)
         <li class="nav-item @if(request()->routeIs('add_user')) active @endif">
             <a class="search " href="{{route('add_user')}}">
                 <span class="icon">
@@ -139,7 +139,7 @@
                 <span class="text">اضافة ادمن</span>
             </a>
         </li>
-    @endif --}}
+    @endif
 
    
 

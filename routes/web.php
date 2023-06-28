@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -118,7 +119,6 @@ Route::prefix('category')->group(function () {
 
 //Jobs
 Route::prefix('job')->group(function () {
-    // dd(Auth::user());
     Route::get('/' , [JobController::class,'index'])->name('Jobs.index');
     Route::get('/archive' , [JobController::class,'archive'])->name('Jobs.archive');
     Route::get('/create' , [JobController::class, 'create'])->name('Jobs.create');
@@ -140,33 +140,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware('auth')->group(function () {
     Route::view('about', 'about')->name('about');
-    Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+    
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });
 
-// Route::post('/register', 'Auth\RegisterController@register');
-
-
-// Route::group(['middleware' => 'auth'], function () {
-//     // dd(Auth::user());
-//     if (Auth::user()->email === "amr.esmail@elkenany.com")
-//         Route::get('/register', [RegisterController::class,'showRegistrationForm'])->name('register');
-//     // Route::get('/re', function () {
-//     //     return redirect('/home');
-//     // });
-// });
-// Route::get('/', function () {
-//     if (Auth::check()) {
-        
-//         if (Auth::user()->email === "amr.esmail@elkenany.com") {
-//             return redirect()->route('admin.dashboard');
-//         } else {
-//             // Redirect to home for other usernames
-//             return redirect()->route('home');
-//         }
-//     } else {
-//         // User is not authenticated, route to the login page
-//         return redirect()->route('login');
-//     }
-// });
+Route::group(['middleware' => 'auth.admin'], function () {
+    Route::get('register', [RegisterController::class, 'register'])->name('add_user');
+    Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+    // Route::get('users', function () {
+    //     return auth()->users();
+    // });
+});
