@@ -12,6 +12,10 @@ class UserController extends Controller
 
         return view('users.index', compact('users'));
     }
+    public function register_form()
+    {
+        return view('auth.register');
+    }
     public function update_role($id)
     {
         $user = User::find($id);
