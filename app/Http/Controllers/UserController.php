@@ -12,4 +12,18 @@ class UserController extends Controller
 
         return view('users.index', compact('users'));
     }
+    public function update_role($id)
+    {
+        $user = User::find($id);
+        if($user->role == 'admin')
+        {
+            $user->role == 'user';
+        }
+        else
+        {
+            $user->role == 'admin';
+        }
+        $user->save();
+        return redirect();
+    }
 }
