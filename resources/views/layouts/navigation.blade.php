@@ -130,13 +130,13 @@
             <span class="text">الشكاوي</span>
         </a>
     </li>
-    @if (Auth::check() && Auth::user()->id == 1)
-        <li class="nav-item @if(request()->routeIs('add_user')) active @endif">
-            <a class="search " href="{{route('add_user')}}">
+    @if (Auth::check() && Auth::user()->role == 'admin')
+        <li class="nav-item @if(request()->routeIs('register_form')) active @endif">
+            <a class="search " href="{{route('register_form')}}">
                 <span class="icon">
                     <i class="fa-solid fa-user"></i>
                 </span>
-                <span class="text">اضافة ادمن</span>
+                <span class="text">اضافة مستخدم</span>
             </a>
         </li>
     @endif
