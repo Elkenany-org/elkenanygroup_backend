@@ -2,7 +2,7 @@
 
 @section('content')
 <head>
-    {{-- <meta name="csrf-token" content="{{csrf_token()}}"> --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
     <!-- ========== title-wrapper start ========== -->
     <div class="title-wrapper pt-30">
@@ -26,6 +26,7 @@
                     <table class="table striped-table">
                         <thead>
                         <tr>
+                            <th><h6>#</h6></th>
                             <th><h6>Name</h6></th>
                             <th><h6>Email</h6></th>
                             <th><h6>Admin</h6></th>
@@ -36,14 +37,19 @@
                         @foreach($users as $user)
                             <tr>
                                 <td>
+                                    <p>{{ $user->id }}</p>
+                                </td>
+                                <td>
                                     <p>{{ $user->name }}</p>
                                 </td>
                                 <td>
                                     <p>{{ $user->email }}</p>
                                 </td>
                                 <td>
-                                    @csrf
-                                    <input type="checkbox" id="id" value="{{$user->id}}" onchange="myCheckbox()" name="myCheckbox">
+                                    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+                                    <input type="checkbox" id="myCheckbox" value="{{$user->id}}" onchange="myCheckbox()" name="myCheckbox">
+                                    
                                 </td>
                                 
                             </tr>
@@ -63,22 +69,28 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
+
+{{-- <script type="text/javascript"> --}}
+<script>
     
     function myCheckbox(){
-        var id = document.getElementById('id').value;
+        var id = document.getElementById('myCheckbox').value;
+        var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
         console.log(id);
         
         $.ajax({
             type: 'POST',
             url: '/update_role/'+id,
+            csrf_token: csrfToken,
             
         
             success: function(response) {
                 alert(response);
                 console.log(response);
             },
-    })
+        })
+        
     }
 
 </script>  

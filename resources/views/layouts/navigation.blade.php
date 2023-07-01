@@ -131,22 +131,30 @@
         </a>
     </li>
     @if (Auth::check() && Auth::user()->role == 'admin')
-        <li class="nav-item @if(request()->routeIs('register_form')) active @endif">
-            <a class="search " href="{{route('register_form')}}">
-                <span class="icon">
-                    <i class="fa-solid fa-user"></i>
-                </span>
-                <span class="text">اضافة مستخدم</span>
-            </a>
-        </li>
+    <li class=" nav-item @if(request()->routeIs('users.index') || request()->routeIs('register_form')) active @else noneactive @endif nav-item-has-children">
+        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_6"
+        aria-controls="ddmenu_6" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="icon">
+                <i class="fa-solid fa-circle-info"></i>
+            </span>
+            <span class="text">المستخدمين</span>
+        </a>
+        <ul id="ddmenu_6" class="dropdown-nav collapse">
+            <li>
+                <a href="{{ route('users.index') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-eye m-0" style="font-size: 14px"></i></div>
+                    عرض
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('register_form') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-plus m-0" style="font-size: 14px"></i></div>
+                    اضافة
+                </a>
+            </li>
+        </ul>
+    </li>
     @endif
-
-   
-
-    
-
-    
-
 
 </ul>
 
