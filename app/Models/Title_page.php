@@ -11,7 +11,8 @@ class Title_page extends Model
 
     protected $fillable = [
         'page_name',
-        'description',
+        'description_en',
+        'description_ar',
         'image'
     ];
 }

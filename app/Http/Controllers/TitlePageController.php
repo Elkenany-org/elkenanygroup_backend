@@ -7,80 +7,53 @@ use Illuminate\Http\Request;
 
 class TitlePageController extends Controller
 {
-    // public function index()
-    // {
-    //     $titles = Title_page::paginate(10);
-    //     return view('PagesContent.');
-    // }
     public function HomeContent()
     {
-        $title = Title_page::where('page_name','home')->get();
-        return view('PagesContent.home')->with('title',$title);
+        $home_title = Title_page::where('page_name','home')->get();
+        return view('PagesContent.home')->with('home_title',$home_title);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function AboutusContent()
     {
-        //
+        $aboutus_title = Title_page::where('page_name','aboutus')->get();
+        return view('PagesContent.aboutus')->with('aboutus_title',$aboutus_title);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function CareersContent()
     {
-        //
+        $careers_title = Title_page::where('page_name','careers')->get();
+        return view('PagesContent.careers')->with('careers_title',$careers_title);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Title_page  $title_page
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Title_page $title_page)
+  
+    public function update(Request $request, $page_name)
     {
-        //
-    }
+        $page = Title_page::where('page_name',$page_name)->first();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Title_page  $title_page
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Title_page $title_page)
-    {
-        //
-    }
+        $request->validate([
+            'image' => 'required',
+            'description_en' => 'required',
+            'description_ar' => 'required'
+        ]);
+        
+        if($request->image != null)
+        {
+            $image_path = public_path('images/content/'.$page->image);
+            if(File::exists($image_path))
+                unlink($image_path);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Title_page  $title_page
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Title_page $title_page)
-    {
-        //
-    }
+            $image_name = $request->image->getClientOriginalName();
+            $image_name = time().$image_name;
+            $path = 'images/content';
+            $request->image->move($path , $image_name);
+            
+            $page->image = $image_name;
+        }
+        
+        $page->description_en = $request->description_en;
+        $page->description_ar = $request->description_ar;
+        
+        $page->save();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Title_page  $title_page
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Title_page $title_page)
-    {
-        //
+        return redirect()->route('home');
     }
 }

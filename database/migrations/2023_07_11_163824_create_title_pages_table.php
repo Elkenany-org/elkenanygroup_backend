@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('title_pages', function (Blueprint $table) {
             $table->id();
             $table->string('page_name');
-            $table->longtext('description');
             $table->string('image');
+            $table->longtext('description_en')->default('no description');
+            $table->longtext('description_ar')->default('لا يوجد وصف');
             $table->timestamps();
         });
     }
