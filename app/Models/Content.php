@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Header_page extends Model
+class Content extends Model
 {
     use HasFactory;
 
@@ -15,4 +15,5 @@ class Header_page extends Model
         'description_ar',
         'image'
     ];
+
 }

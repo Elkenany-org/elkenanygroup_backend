@@ -155,28 +155,54 @@
         </ul>
     </li>
     @endif
-
+    <br>            
+    <div class="col-12 d-flex justify-content-center align-items-center">
+      <h5 class="font-weight-bold" style="color: #0d6efd;">Content</h5>
+    </div>
+    <br>
     <li class=" nav-item @if(request()->routeIs('homeheader.show') || request()->routeIs('aboutusheader.show') || request()->routeIs('careersheader.show')) active @else noneactive @endif nav-item-has-children">
         <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_7"
         aria-controls="ddmenu_7" aria-expanded="true" aria-label="Toggle navigation">
             <span class="icon">
                 <i class="fa-solid fa-circle-info"></i>
             </span>
-            <span class="text">Header Content</span>
+            <span class="text">Home</span>
         </a>
         <ul id="ddmenu_7" class="dropdown-nav collapse">
             <li>
                 <a href="{{ route('homeheader.show' , 'home') }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
-                    Home
+                    Header
                 </a>
             </li>
+        </ul>
+    </li>
+    <li class=" nav-item @if(request()->routeIs('aboutusheader.show') || request()->routeIs('aboutusheader.show') || request()->routeIs('careersheader.show')) active @else noneactive @endif nav-item-has-children">
+        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_8"
+        aria-controls="ddmenu_8" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="icon">
+                <i class="fa-solid fa-circle-info"></i>
+            </span>
+            <span class="text">About us</span>
+        </a>
+        <ul id="ddmenu_8" class="dropdown-nav collapse">
             <li>
                 <a href="{{ route('aboutusheader.show','aboutus') }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
-                    About us
+                    Header
                 </a>
             </li>
+        </ul>
+    </li>
+    <li class=" nav-item @if(request()->routeIs('careersheader.show') || request()->routeIs('aboutusheader.show') || request()->routeIs('careersheader.show')) active @else noneactive @endif nav-item-has-children">
+        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_9"
+        aria-controls="ddmenu_9" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="icon">
+                <i class="fa-solid fa-circle-info"></i>
+            </span>
+            <span class="text">Careers</span>
+        </a>
+        <ul id="ddmenu_9" class="dropdown-nav collapse">
             <li>
                 <a href="{{ route('careersheader.show','careers') }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>

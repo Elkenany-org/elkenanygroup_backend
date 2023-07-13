@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\HeaderPageController;
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ArticleController;
@@ -157,10 +157,10 @@ Route::group(['middleware' => 'auth.admin'], function () {
 
 //header of pages 
 Route::prefix('headers')->group(function () {
-    Route::get('/{home}' , [HeaderPageController::class,'content'])->name('homeheader.show');
-    Route::get('/{aboutus}' , [HeaderPageController::class,'content'])->name('aboutusheader.show');
-    Route::get('/{careers}' , [HeaderPageController::class,'content'])->name('careersheader.show');
-    Route::post('/update/{page_name}' , [HeaderPageController::class,'update'])->name('pagescontent.update');
+    Route::get('/{home}' , [ContentController::class,'content'])->name('homeheader.show');
+    Route::get('/{aboutus}' , [ContentController::class,'content'])->name('aboutusheader.show');
+    Route::get('/{careers}' , [ContentController::class,'content'])->name('careersheader.show');
+    Route::post('/update/{page_name}' , [ContentController::class,'update'])->name('pagescontent.update');
     Route::get('/create' , [CategoryController::class, 'create'])->name('category.create');
     Route::post('/store' , [CategoryController::class, 'store'])->name('category.store');
     Route::get('/show/{id}' , [CategoryController::class,'show'])->name('category.show');

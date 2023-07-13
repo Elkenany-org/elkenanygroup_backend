@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('header_pages', function (Blueprint $table) {
+        Schema::create('contents', function (Blueprint $table) {
             $table->id();
-            $table->string('page_name');
-            $table->string('image');
+            $table->string('page_name')->default('none');
+            $table->string('type')->default('none');
+            $table->string('image')->default('none');
             $table->longtext('description_en')->default('no description');
             $table->longtext('description_ar')->default('لا يوجد وصف');
             $table->timestamps();
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('header_pages');
+        Schema::dropIfExists('contents');
     }
 };
