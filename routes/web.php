@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HeaderPageController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ArticleController;
@@ -150,4 +151,24 @@ Route::group(['middleware' => 'auth.admin'], function () {
     Route::get('register_form', [UserController::class, 'register_form'])->name('register_form');
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::post('update_role/{id}', [UserController::class, 'update_role'])->name('update_role');
+});
+
+
+
+//header of pages 
+Route::prefix('headers')->group(function () {
+    Route::get('/{home}' , [HeaderPageController::class,'content'])->name('homeheader.show');
+    Route::get('/{aboutus}' , [HeaderPageController::class,'content'])->name('aboutusheader.show');
+    Route::get('/{careers}' , [HeaderPageController::class,'content'])->name('careersheader.show');
+    Route::post('/update/{page_name}' , [HeaderPageController::class,'update'])->name('pagescontent.update');
+    Route::get('/create' , [CategoryController::class, 'create'])->name('category.create');
+    Route::post('/store' , [CategoryController::class, 'store'])->name('category.store');
+    Route::get('/show/{id}' , [CategoryController::class,'show'])->name('category.show');
+    Route::get('/edit/{id}' , [CategoryController::class,'edit'])->name('category.edit');
+    Route::post('/update/{id}' , [CategoryController::class,'update'])->name('category.update');
+    Route::get('/destroy/{id}' , [CategoryController::class,'soft_delete'])->name('category.soft_delete');
+    Route::get('/restore/{id}' , [CategoryController::class,'restore'])->name('category.restore');
+    Route::get('/delete/{id}' , [CategoryController::class,'hard_delete'])->name('category.hard_delete');
+    Route::get('/search' , [CategoryController::class,'search'])->name('category.search');
+    Route::get('/archive_search' , [CategoryController::class,'archive_search'])->name('category.archive_search');
 });

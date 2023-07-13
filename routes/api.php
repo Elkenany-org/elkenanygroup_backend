@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\ApiNewsController;
 use App\Http\Controllers\Api\ApiJobController;
 use App\Http\Controllers\Api\ApiCategoryController;
 use App\Http\Controllers\Api\ApiContactUsController;
+use App\Http\Controllers\Api\ApiHeaderPageController;
 use App\Http\Controllers\Api\ApiInfoController;
 use App\Models\News;
 use App\Models\Job;
@@ -62,3 +63,10 @@ Route::prefix('infos')->group(function () {
 
 //contactus
 Route::post('contactus/store' , [ApiContactUsController::class,'store']);
+
+//header of pages
+Route::prefix('headers')->group(function(){
+    Route::get('/{home}',[ApiHeaderPageController::class,'show']);
+    Route::get('/{aboutus}',[ApiHeaderPageController::class,'show']);
+    Route::get('/{careers}',[ApiHeaderPageController::class,'show']);
+});

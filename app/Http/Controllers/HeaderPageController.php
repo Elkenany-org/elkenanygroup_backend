@@ -2,35 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Title_page;
+use App\Models\Header_page;
 use Illuminate\Http\Request;
+use File;
 
-class TitlePageController extends Controller
+class HeaderPageController extends Controller
 {
+    public function content($page_name)
+    {
+        $header = Header_page::where('page_name',$page_name)->first();
+        return view('PagesContent.edit')->with('header',$header);
+    }
     public function HomeContent()
     {
-        $home_title = Title_page::where('page_name','home')->get();
-        return view('PagesContent.home')->with('home_title',$home_title);
+        $home_header = Header_page::where('page_name','home')->get();
+        return view('PagesContent.home')->with('home_header',$home_header);
     }
 
     public function AboutusContent()
     {
-        $aboutus_title = Title_page::where('page_name','aboutus')->get();
-        return view('PagesContent.aboutus')->with('aboutus_title',$aboutus_title);
+        $aboutus_header = Header_page::where('page_name','aboutus')->get();
+        return view('PagesContent.aboutus')->with('aboutus_header',$aboutus_header);
     }
 
     public function CareersContent()
     {
-        $careers_title = Title_page::where('page_name','careers')->get();
-        return view('PagesContent.careers')->with('careers_title',$careers_title);
+        $careers_header = Header_page::where('page_name','careers')->get();
+        return view('PagesContent.careers')->with('careers_header',$careers_header);
     }
   
     public function update(Request $request, $page_name)
     {
-        $page = Title_page::where('page_name',$page_name)->first();
+        $page = Header_page::where('page_name',$page_name)->first();
 
         $request->validate([
-            'image' => 'required',
             'description_en' => 'required',
             'description_ar' => 'required'
         ]);

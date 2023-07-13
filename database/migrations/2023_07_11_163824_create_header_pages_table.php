@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('title_pages', function (Blueprint $table) {
+        Schema::create('header_pages', function (Blueprint $table) {
             $table->id();
             $table->string('page_name');
             $table->string('image');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('title_pages');
+        Schema::dropIfExists('header_pages');
     }
 };
