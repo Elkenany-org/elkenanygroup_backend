@@ -12,7 +12,7 @@
         
         <div class="card-content">            
             <div class="row">
-                <form action="{{route('pagescontent.update',$header->page_name)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('pageheader.update',$header->page_name)}}" method="POST" enctype="multipart/form-data">
                     @csrf
             
                     <div class="col-12">

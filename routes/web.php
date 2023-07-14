@@ -155,20 +155,15 @@ Route::group(['middleware' => 'auth.admin'], function () {
 
 
 
-//header of pages 
-Route::prefix('headers')->group(function () {
-    Route::get('/{home}' , [ContentController::class,'content'])->name('homeheader.show');
-    Route::get('/{aboutus}' , [ContentController::class,'content'])->name('aboutusheader.show');
-    Route::get('/{careers}' , [ContentController::class,'content'])->name('careersheader.show');
-    Route::post('/update/{page_name}' , [ContentController::class,'update'])->name('pagescontent.update');
-    Route::get('/create' , [CategoryController::class, 'create'])->name('category.create');
-    Route::post('/store' , [CategoryController::class, 'store'])->name('category.store');
-    Route::get('/show/{id}' , [CategoryController::class,'show'])->name('category.show');
-    Route::get('/edit/{id}' , [CategoryController::class,'edit'])->name('category.edit');
-    Route::post('/update/{id}' , [CategoryController::class,'update'])->name('category.update');
-    Route::get('/destroy/{id}' , [CategoryController::class,'soft_delete'])->name('category.soft_delete');
-    Route::get('/restore/{id}' , [CategoryController::class,'restore'])->name('category.restore');
-    Route::get('/delete/{id}' , [CategoryController::class,'hard_delete'])->name('category.hard_delete');
-    Route::get('/search' , [CategoryController::class,'search'])->name('category.search');
-    Route::get('/archive_search' , [CategoryController::class,'archive_search'])->name('category.archive_search');
+Route::prefix('content')->group(function () {
+    //header of pages 
+    Route::get('/{home}/header' , [ContentController::class,'header'])->name('homeheader.show');
+    Route::get('/{aboutus}/header' , [ContentController::class,'header'])->name('aboutusheader.show');
+    Route::get('/{careers}/header' , [ContentController::class,'header'])->name('careersheader.show');
+    Route::post('/{page_name}/header/update' , [ContentController::class,'headerupdate'])->name('pageheader.update');
+    //reasons of careers page
+    Route::get('/careers/{reason1}' , [ContentController::class,'reason'])->name('careersreason1.show');
+    Route::get('/careers/{reason2}' , [ContentController::class,'reason'])->name('careersreason2.show');
+    Route::get('/careers/{reason3}' , [ContentController::class,'reason'])->name('careersreason3.show');
+    Route::post('/careers/{type}/update' , [ContentController::class,'reasonupdate'])->name('careersreason.update');
 });

@@ -11,6 +11,7 @@ class Content extends Model
 
     protected $fillable = [
         'page_name',
+        'type',
         'description_en',
         'description_ar',
         'image'

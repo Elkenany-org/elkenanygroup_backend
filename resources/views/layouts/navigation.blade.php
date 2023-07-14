@@ -160,7 +160,7 @@
       <h5 class="font-weight-bold" style="color: #0d6efd;">Content</h5>
     </div>
     <br>
-    <li class=" nav-item @if(request()->routeIs('homeheader.show') || request()->routeIs('aboutusheader.show') || request()->routeIs('careersheader.show')) active @else noneactive @endif nav-item-has-children">
+    <li class=" nav-item nav-item-has-children">
         <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_7"
         aria-controls="ddmenu_7" aria-expanded="true" aria-label="Toggle navigation">
             <span class="icon">
@@ -177,7 +177,7 @@
             </li>
         </ul>
     </li>
-    <li class=" nav-item @if(request()->routeIs('aboutusheader.show') || request()->routeIs('aboutusheader.show') || request()->routeIs('careersheader.show')) active @else noneactive @endif nav-item-has-children">
+    <li class=" nav-item nav-item-has-children">
         <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_8"
         aria-controls="ddmenu_8" aria-expanded="true" aria-label="Toggle navigation">
             <span class="icon">
@@ -194,7 +194,7 @@
             </li>
         </ul>
     </li>
-    <li class=" nav-item @if(request()->routeIs('careersheader.show') || request()->routeIs('aboutusheader.show') || request()->routeIs('careersheader.show')) active @else noneactive @endif nav-item-has-children">
+    <li class=" nav-item nav-item-has-children">
         <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_9"
         aria-controls="ddmenu_9" aria-expanded="true" aria-label="Toggle navigation">
             <span class="icon">
@@ -206,7 +206,13 @@
             <li>
                 <a href="{{ route('careersheader.show','careers') }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
-                    Careers
+                    Header
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('careersreason1.show','reason1') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Reasons
                 </a>
             </li>
         </ul>

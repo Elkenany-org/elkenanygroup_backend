@@ -6,9 +6,10 @@ use App\Http\Controllers\Api\ApiNewsController;
 use App\Http\Controllers\Api\ApiJobController;
 use App\Http\Controllers\Api\ApiCategoryController;
 use App\Http\Controllers\Api\ApiContactUsController;
-use App\Http\Controllers\Api\ApiHeaderPageController;
+use App\Http\Controllers\Api\ApiContentController;
 use App\Http\Controllers\Api\ApiInfoController;
 use App\Models\News;
+use App\Models\Content;
 use App\Models\Job;
 use App\Models\Category;
 use App\Models\ContactUs;
@@ -64,9 +65,21 @@ Route::prefix('infos')->group(function () {
 //contactus
 Route::post('contactus/store' , [ApiContactUsController::class,'store']);
 
-//header of pages
-Route::prefix('headers')->group(function(){
-    Route::get('/{home}',[ApiHeaderPageController::class,'show']);
-    Route::get('/{aboutus}',[ApiHeaderPageController::class,'show']);
-    Route::get('/{careers}',[ApiHeaderPageController::class,'show']);
+// //header of pages
+// Route::prefix('content')->group(function(){
+//     Route::get('/{home}',[ApiHeaderPageController::class,'show']);
+//     Route::get('/{aboutus}',[ApiHeaderPageController::class,'show']);
+//     Route::get('/{careers}',[ApiHeaderPageController::class,'show']);
+// });
+Route::prefix('content')->group(function () {
+    //header of pages 
+    Route::get('/{home}/header' , [ApiContentController::class,'header'])->name('homeheader.show');
+    Route::get('/{aboutus}/header' , [ApiContentController::class,'header'])->name('aboutusheader.show');
+    Route::get('/{careers}/header' , [ApiContentController::class,'header'])->name('careersheader.show');
+    Route::post('/{page_name}/header/update' , [ApiContentController::class,'headerupdate'])->name('pageheader.update');
+    //reasons of careers page
+    Route::get('/careers/{reason1}' , [ApiContentController::class,'reason'])->name('careersreason1.show');
+    Route::get('/careers/{reason2}' , [ApiContentController::class,'reason'])->name('careersreason2.show');
+    Route::get('/careers/{reason3}' , [ApiContentController::class,'reason'])->name('careersreason3.show');
+    Route::post('/careers/{type}/update' , [ApiContentController::class,'reasonupdate'])->name('careersreason.update');
 });
