@@ -18,18 +18,12 @@ class ContentController extends Controller
         $reason = Content::where('page_name','careers')->where('type',$reason_index)->first();
         return view('Content.reasons')->with('reason',$reason);
     }
-
-    // public function AboutusContent()
-    // {
-    //     $aboutus_header = Header_page::where('page_name','aboutus')->get();
-    //     return view('PagesContent.aboutus')->with('aboutus_header',$aboutus_header);
-    // }
-
-    // public function CareersContent()
-    // {
-    //     $careers_header = Header_page::where('page_name','careers')->get();
-    //     return view('PagesContent.careers')->with('careers_header',$careers_header);
-    // }
+    public function ourteam()
+    {
+        $team = Content::where('page_name','careers')->where('type','ourteam')->first();
+        dd();
+        return view('Content.ourteam')->with('team',$team);
+    }
 
     public function headerupdate(Request $request, $page_name)
     {

@@ -2,14 +2,14 @@
 <ul>
 
     <li class=" nav-item @if(request()->routeIs('News.index') || request()->routeIs('News.archive')) active @else noneactive @endif nav-item-has-children">
-        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_2"
-        aria-controls="ddmenu_2" aria-expanded="true" aria-label="Toggle navigation">
+        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_1"
+        aria-controls="ddmenu_1" aria-expanded="true" aria-label="Toggle navigation">
             <span class="icon">
                 <i class="fa-solid fa-newspaper fa-sm"></i>
             </span>
             <span class="text">الاخبار</span>
         </a>
-        <ul id="ddmenu_2" class="dropdown-nav collapse">
+        <ul id="ddmenu_1" class="dropdown-nav collapse">
             <li>
                 <a href="{{ route('News.index') }}">
                     <div class="ico w-fit"><i class="fa-solid fa-eye m-0" style="font-size: 14px"></i></div>
@@ -26,14 +26,14 @@
     </li>
     
     <li class=" nav-item @if(request()->routeIs('category.index') || request()->routeIs('category.archive')) active @else noneactive @endif nav-item-has-children">
-            <a class="search collapsed"  class="" data-bs-toggle="collapse" data-bs-target="#ddmenu_4"
-            aria-controls="ddmenu_4" aria-expanded="true" aria-label="Toggle navigation">
+            <a class="search collapsed"  class="" data-bs-toggle="collapse" data-bs-target="#ddmenu_2"
+            aria-controls="ddmenu_2" aria-expanded="true" aria-label="Toggle navigation">
             <span class="icon">
                 <i class="fa-solid fa-list"></i>
             </span>
             <span class="text">اقسام الاخبار</span>
         </a>
-        <ul id="ddmenu_4" class="dropdown-nav collapse">
+        <ul id="ddmenu_2" class="dropdown-nav collapse">
             <li>
                 <a href="{{ route('category.index') }}">
                     <div class="ico w-fit"><i class="fa-solid fa-eye m-0" style="font-size: 14px"></i></div>
@@ -50,14 +50,14 @@
     </li>
     
     <li class=" nav-item @if(request()->routeIs('Articles.index') || request()->routeIs('Articles.archive')) active @else noneactive @endif nav-item-has-children">
-        <a class="search collapsed" class="" data-bs-toggle="collapse" data-bs-target="#ddmenu_10"
-           aria-controls="ddmenu_10" aria-expanded="true" aria-label="Toggle navigation">
+        <a class="search collapsed" class="" data-bs-toggle="collapse" data-bs-target="#ddmenu_3"
+           aria-controls="ddmenu_3" aria-expanded="true" aria-label="Toggle navigation">
             <span class="icon">
                 <i class="fa-solid fa-newspaper"></i>
             </span>
             <span class="text">المقالات</span>
         </a>
-        <ul id="ddmenu_10" class="dropdown-nav collapse" style="">
+        <ul id="ddmenu_3" class="dropdown-nav collapse" style="">
             <li>
                 <a href="{{route('Articles.index')}}">
                     <div class="ico w-fit"><i class="fa-solid fa-eye m-0" style="font-size: 14px"></i></div>
@@ -74,14 +74,14 @@
     </li>
         
     <li class=" nav-item @if(request()->routeIs('Jobs.index') || request()->routeIs('Jobs.archive')) active @else noneactive @endif nav-item-has-children">
-        <a class="search collapsed" class="" data-bs-toggle="collapse" data-bs-target="#ddmenu_3"
-           aria-controls="ddmenu_3" aria-expanded="true" aria-label="Toggle navigation">
+        <a class="search collapsed" class="" data-bs-toggle="collapse" data-bs-target="#ddmenu_4"
+           aria-controls="ddmenu_4" aria-expanded="true" aria-label="Toggle navigation">
             <span class="icon">
                 <i class="fa-solid fa-briefcase"></i>
             </span>
             <span class="text">الوظائف</span>
         </a>
-        <ul id="ddmenu_3" class="dropdown-nav collapse" style="">
+        <ul id="ddmenu_4" class="dropdown-nav collapse" style="">
             <li>
                 <a href="{{route('Jobs.index')}}">
                     <div class="ico w-fit"><i class="fa-solid fa-eye m-0" style="font-size: 14px"></i></div>
@@ -134,7 +134,7 @@
     <li class=" nav-item @if(request()->routeIs('users.index') || request()->routeIs('register_form')) active @else noneactive @endif nav-item-has-children">
         <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_6"
         aria-controls="ddmenu_6" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="icon">
+        <span class="icon">
                 <i class="fa-solid fa-circle-info"></i>
             </span>
             <span class="text">المستخدمين</span>
@@ -155,20 +155,42 @@
         </ul>
     </li>
     @endif
+
+    <li class=" nav-item @if(request()->routeIs('metadata.index') || request()->routeIs('metadata.create')) active @else noneactive @endif nav-item-has-children">
+        <a class="search collapsed" class="" data-bs-toggle="collapse" data-bs-target="#ddmenu_7"
+           aria-controls="ddmenu_7" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="icon">
+                <i class="fa-solid fa-link"></i>
+            </span>
+            <span class="text">Meta data</span>
+        </a>
+        <ul id="ddmenu_7" class="dropdown-nav collapse" style="">
+            <li>
+                <a href="{{route('metadata.index')}}">
+                    <div class="ico w-fit"><i class="fa-solid fa-eye m-0" style="font-size: 14px"></i></div>
+                    show
+                </a>
+                <a href="{{route('metadata.create')}}">
+                    <div class="ico w-fit"><i class="fa-solid fa-plus m-0" style="font-size: 14px"></i></div>
+                    add
+                </a>
+            </li>
+        </ul>
+    </li>
     <br>            
     <div class="col-12 d-flex justify-content-center align-items-center">
-      <h5 class="font-weight-bold" style="color: #0d6efd;">Content</h5>
+        <h5 class="font-weight-bold" style="color: #0d6efd;">Content</h5>
     </div>
     <br>
     <li class=" nav-item nav-item-has-children">
-        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_7"
-        aria-controls="ddmenu_7" aria-expanded="true" aria-label="Toggle navigation">
+        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_8"
+        aria-controls="ddmenu_8" aria-expanded="true" aria-label="Toggle navigation">
             <span class="icon">
                 <i class="fa-solid fa-circle-info"></i>
             </span>
             <span class="text">Home</span>
         </a>
-        <ul id="ddmenu_7" class="dropdown-nav collapse">
+        <ul id="ddmenu_8" class="dropdown-nav collapse">
             <li>
                 <a href="{{ route('homeheader.show' , 'home') }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
@@ -178,14 +200,14 @@
         </ul>
     </li>
     <li class=" nav-item nav-item-has-children">
-        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_8"
-        aria-controls="ddmenu_8" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="icon">
-                <i class="fa-solid fa-circle-info"></i>
-            </span>
-            <span class="text">About us</span>
-        </a>
-        <ul id="ddmenu_8" class="dropdown-nav collapse">
+        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_9"
+        aria-controls="ddmenu_9" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="icon">
+            <i class="fa-solid fa-circle-info"></i>
+        </span>
+        <span class="text">About us</span>
+    </a>
+    <ul id="ddmenu_9" class="dropdown-nav collapse">
             <li>
                 <a href="{{ route('aboutusheader.show','aboutus') }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
@@ -195,28 +217,33 @@
         </ul>
     </li>
     <li class=" nav-item nav-item-has-children">
-        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_9"
-        aria-controls="ddmenu_9" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="icon">
-                <i class="fa-solid fa-circle-info"></i>
-            </span>
-            <span class="text">Careers</span>
-        </a>
-        <ul id="ddmenu_9" class="dropdown-nav collapse">
-            <li>
-                <a href="{{ route('careersheader.show','careers') }}">
-                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
-                    Header
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('careersreason1.show','reason1') }}">
-                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
-                    Reasons
-                </a>
-            </li>
-        </ul>
-    </li>
+        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_10"
+        aria-controls="ddmenu_10" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="icon">
+            <i class="fa-solid fa-circle-info"></i>
+        </span>
+        <span class="text">Careers</span>
+    </a>
+    <ul id="ddmenu_10" class="dropdown-nav collapse">
+        <li>
+            <a href="{{ route('careersheader.show','careers') }}">
+                <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                Header
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('careersreason1.show','reason1') }}">
+                <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                Reasons
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('careersteam.show') }}">
+                <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                Our team
+            </a>
+        </li>
+    </ul>
 </ul>
 
 <script>

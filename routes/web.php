@@ -8,6 +8,7 @@ use App\Http\Controllers\ContentController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\MetaDataPagesController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
@@ -153,6 +154,15 @@ Route::group(['middleware' => 'auth.admin'], function () {
     Route::post('update_role/{id}', [UserController::class, 'update_role'])->name('update_role');
 });
 
+//meta data
+Route::prefix('metadata')->group(function () {
+    Route::get('/' , [MetaDataPagesController::class,'index'])->name('metadata.index');
+    Route::get('/create' , [MetaDataPagesController::class, 'create'])->name('metadata.create');
+    Route::post('/store' , [MetaDataPagesController::class, 'store'])->name('metadata.store');
+    Route::get('/edit/{id}' , [MetaDataPagesController::class,'edit'])->name('metadata.edit');
+    Route::post('/update/{id}' , [MetaDataPagesController::class,'update'])->name('metadata.update');
+    Route::get('/delete/{id}' , [MetaDataPagesController::class,'delete'])->name('metadata.delete');
+});
 
 
 Route::prefix('content')->group(function () {
@@ -166,4 +176,6 @@ Route::prefix('content')->group(function () {
     Route::get('/careers/{reason2}' , [ContentController::class,'reason'])->name('careersreason2.show');
     Route::get('/careers/{reason3}' , [ContentController::class,'reason'])->name('careersreason3.show');
     Route::post('/careers/{type}/update' , [ContentController::class,'reasonupdate'])->name('careersreason.update');
+    //be part of our team of careers page
+    Route::get('/careers/ourteam' , [ContentController::class,'ourteam'])->name('careersteam.show');
 });
