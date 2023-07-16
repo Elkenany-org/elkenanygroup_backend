@@ -19,6 +19,11 @@ class ContentController extends Controller
         $reason = Content::where('page_name','careers')->where('type',$reason_index)->first();
         return view('Content.reasons')->with('reason',$reason);
     }
+    public function value($value_index)
+    {
+        $value = Content::where('page_name','home')->where('type',$value_index)->first();
+        return view('Content.values')->with('value',$value);
+    }
     public function ourteam()
     {
         $team = Content::where('page_name','careers')->where('type','ourteam')->first();
@@ -89,7 +94,7 @@ class ContentController extends Controller
     public function update(Request $request, $type)
     {
         $content = Content::where('page_name',$request->page_name)->where('type',$type)->first();
-    
+        
         $request->validate([
             'description_en' => 'required',
             'description_ar' => 'required'

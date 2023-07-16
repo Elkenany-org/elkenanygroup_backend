@@ -203,6 +203,12 @@
                     Activity
                 </a>
             </li>
+            <li>
+                <a href="{{ route('value1.show' , 'value1') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Values
+                </a>
+            </li>
         </ul>
     </li>
     <li class=" nav-item nav-item-has-children">

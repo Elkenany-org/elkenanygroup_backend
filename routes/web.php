@@ -165,6 +165,12 @@ Route::prefix('metadata')->group(function () {
 });
 
 Route::prefix('content')->group(function () {
+    //values of home page
+    Route::get('/home/{value1}' , [ContentController::class,'value'])->name('value1.show');
+    Route::get('/home/{value2}' , [ContentController::class,'value'])->name('value2.show');
+    Route::get('/home/{value3}' , [ContentController::class,'value'])->name('value3.show');
+});
+Route::prefix('content')->group(function () {
     Route::get('/{ourcompanies}/header' , [ContentController::class,'header'])->name('ourcompaniesheader.show');
     Route::get('/aboutus/ceo' , [ContentController::class,'ceo'])->name('ceo.show');
     Route::get('/aboutus/mission' , [ContentController::class,'mission'])->name('mission.show');
@@ -172,6 +178,7 @@ Route::prefix('content')->group(function () {
     Route::get('/ourcompanies/{activity}' , [ContentController::class,'ourcompanies'])->name('activity.show');
     Route::get('/ourcompanies/{experience}' , [ContentController::class,'ourcompanies'])->name('experience.show');
     Route::get('/home/{activity}' , [ContentController::class,'homeactivity'])->name('homeactivity.show');
+    
 });
 
 Route::prefix('content')->group(function () {
