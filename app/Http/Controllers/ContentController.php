@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Content;
 use Illuminate\Http\Request;
+use File;
 
 class ContentController extends Controller
 {
@@ -44,6 +45,16 @@ class ContentController extends Controller
         $vision = Content::where('type','vision')->first();
         return view('Content.mission&vision')->with('missionvision',$vision);
     }
+    public function ourcompanies($type)
+    {
+        $content = Content::where('page_name','ourcompanies')->where('type',$type)->first();
+        return view('Content.content')->with('content',$content);
+    }
+    public function homeactivity($type)
+    {
+        $content = Content::where('page_name','home')->where('type',$type)->first();
+        return view('Content.content')->with('content',$content);
+    }
     
     public function headerupdate(Request $request, $page_name)
     {
@@ -77,17 +88,31 @@ class ContentController extends Controller
     }
     public function update(Request $request, $type)
     {
-        $reason = Content::where('type',$type)->first();
-
+        $content = Content::where('page_name',$request->page_name)->where('type',$type)->first();
+    
         $request->validate([
             'description_en' => 'required',
             'description_ar' => 'required'
         ]);
+
+        if($request->image != null)
+        {
+            $image_path = public_path('images/content/'.$content->image);
+            if(File::exists($image_path))
+                unlink($image_path);
+
+            $image_name = $request->image->getClientOriginalName();
+            $image_name = time().$image_name;
+            $path = 'images/content';
+            $request->image->move($path , $image_name);
+            
+            $content->image = $image_name;
+        }
+
+        $content->description_en = $request->description_en;
+        $content->description_ar = $request->description_ar;
         
-        $reason->description_en = $request->description_en;
-        $reason->description_ar = $request->description_ar;
-        
-        $reason->save();
+        $content->save();
 
         return redirect()->route('home');
     }

@@ -165,9 +165,13 @@ Route::prefix('metadata')->group(function () {
 });
 
 Route::prefix('content')->group(function () {
+    Route::get('/{ourcompanies}/header' , [ContentController::class,'header'])->name('ourcompaniesheader.show');
     Route::get('/aboutus/ceo' , [ContentController::class,'ceo'])->name('ceo.show');
     Route::get('/aboutus/mission' , [ContentController::class,'mission'])->name('mission.show');
     Route::get('/aboutus/vision' , [ContentController::class,'vision'])->name('vision.show');
+    Route::get('/ourcompanies/{activity}' , [ContentController::class,'ourcompanies'])->name('activity.show');
+    Route::get('/ourcompanies/{experience}' , [ContentController::class,'ourcompanies'])->name('experience.show');
+    Route::get('/home/{activity}' , [ContentController::class,'homeactivity'])->name('homeactivity.show');
 });
 
 Route::prefix('content')->group(function () {

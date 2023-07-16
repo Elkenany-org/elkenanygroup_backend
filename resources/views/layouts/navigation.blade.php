@@ -197,6 +197,12 @@
                     Header
                 </a>
             </li>
+            <li>
+                <a href="{{ route('homeactivity.show' , 'activity') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Activity
+                </a>
+            </li>
         </ul>
     </li>
     <li class=" nav-item nav-item-has-children">
@@ -241,27 +247,57 @@
             <i class="fa-solid fa-circle-info"></i>
         </span>
         <span class="text">Careers</span>
-    </a>
-    <ul id="ddmenu_10" class="dropdown-nav collapse">
-        <li>
-            <a href="{{ route('careersheader.show','careers') }}">
-                <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
-                Header
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('careersreason1.show','reason1') }}">
-                <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
-                Reasons
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('careersteam.show') }}">
-                <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
-                Our team
-            </a>
-        </li>
-    </ul>
+        </a>
+        <ul id="ddmenu_10" class="dropdown-nav collapse">
+            <li>
+                <a href="{{ route('careersheader.show','careers') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Header
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('careersreason1.show','reason1') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Reasons
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('careersteam.show') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Our team
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class=" nav-item nav-item-has-children">
+        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_11"
+        aria-controls="ddmenu_11" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="icon">
+            <i class="fa-solid fa-circle-info"></i>
+        </span>
+        <span class="text">Our Companies</span>
+        </a>
+        <ul id="ddmenu_11" class="dropdown-nav collapse">
+            <li>
+                <a href="{{ route('ourcompaniesheader.show','ourcompanies') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Header
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('activity.show','activity') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Activity
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('experience.show','experience') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Experience
+                </a>
+            </li>
+        </ul>
+    </li>
 </ul>
 
 <script>
