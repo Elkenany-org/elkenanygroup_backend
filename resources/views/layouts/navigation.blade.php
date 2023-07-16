@@ -214,6 +214,12 @@
                     Header
                 </a>
             </li>
+            <li>
+                <a href="{{ route('aboutuscharacteristic1.show','characteristic1') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Characteristics
+                </a>
+            </li>
         </ul>
     </li>
     <li class=" nav-item nav-item-has-children">

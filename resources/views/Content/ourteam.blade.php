@@ -14,7 +14,7 @@
         <br>
         <div class="card-content">            
             <div class="row">
-                <form action="" method="POST">
+                <form action="{{ route('careersreason.update', $team->type) }}" method="POST">
                     @csrf
             
                     <div class="col-12">

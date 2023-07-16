@@ -176,11 +176,11 @@ Route::prefix('content')->group(function () {
     Route::get('/careers/{reason2}' , [ContentController::class,'reason'])->name('careersreason2.show');
     Route::get('/careers/{reason3}' , [ContentController::class,'reason'])->name('careersreason3.show');
     Route::post('/careers/{type}/update' , [ContentController::class,'reasonupdate'])->name('careersreason.update');
-    //characteristics of careers page
-    Route::get('/careers/{reason1}' , [ContentController::class,'reason'])->name('careersreason1.show');
-    Route::get('/careers/{reason2}' , [ContentController::class,'reason'])->name('careersreason2.show');
-    Route::get('/careers/{reason3}' , [ContentController::class,'reason'])->name('careersreason3.show');
-    Route::post('/careers/{type}/update' , [ContentController::class,'reasonupdate'])->name('careersreason.update');
+    //characteristics of aboutus page
+    Route::get('/aboutus/{characteristic1}' , [ContentController::class,'characteristic'])->name('aboutuscharacteristic1.show');
+    Route::get('/aboutus/{characteristic2}' , [ContentController::class,'characteristic'])->name('aboutuscharacteristic2.show');
+    Route::get('/aboutus/{characteristic3}' , [ContentController::class,'characteristic'])->name('aboutuscharacteristic3.show');
+    Route::post('/aboutus/{type}/update' , [ContentController::class,'characteristicupdate'])->name('aboutuscharacteristics.update');
     //be part of our team of careers page
     Route::get('/ourteam' , [ContentController::class,'ourteam'])->name('careersteam.show');
 });

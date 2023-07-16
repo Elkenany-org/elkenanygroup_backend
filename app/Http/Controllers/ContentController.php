@@ -75,4 +75,20 @@ class ContentController extends Controller
 
         return redirect()->route('home');
     }
+    public function characteristicupdate(Request $request, $type)
+    {
+        $reason = Content::where('page_name','aboutus')->where('type',$type)->first();
+
+        $request->validate([
+            'description_en' => 'required',
+            'description_ar' => 'required'
+        ]);
+        
+        $reason->description_en = $request->description_en;
+        $reason->description_ar = $request->description_ar;
+        
+        $reason->save();
+
+        return redirect()->route('home');
+    }
 }
