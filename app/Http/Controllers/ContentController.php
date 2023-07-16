@@ -25,8 +25,24 @@ class ContentController extends Controller
     }
     public function characteristic($characteristic_index)
     {
+
         $characteristic = Content::where('page_name','aboutus')->where('type',$characteristic_index)->first();
         return view('Content.characteristics')->with('characteristic',$characteristic);
+    }
+    public function ceo()
+    {
+        $ceo = Content::where('type','ceo')->first();
+        return view('Content.ceo')->with('ceo',$ceo);
+    }
+    public function mission()
+    {
+        $mission = Content::where('type','mission')->first();
+        return view('Content.mission&vision')->with('missionvision',$mission);
+    }
+    public function vision()
+    {
+        $vision = Content::where('type','vision')->first();
+        return view('Content.mission&vision')->with('missionvision',$vision);
     }
     
     public function headerupdate(Request $request, $page_name)
@@ -59,9 +75,9 @@ class ContentController extends Controller
 
         return redirect()->route('home');
     }
-    public function reasonupdate(Request $request, $type)
+    public function update(Request $request, $type)
     {
-        $reason = Content::where('page_name','careers')->where('type',$type)->first();
+        $reason = Content::where('type',$type)->first();
 
         $request->validate([
             'description_en' => 'required',
@@ -75,20 +91,5 @@ class ContentController extends Controller
 
         return redirect()->route('home');
     }
-    public function characteristicupdate(Request $request, $type)
-    {
-        $reason = Content::where('page_name','aboutus')->where('type',$type)->first();
-
-        $request->validate([
-            'description_en' => 'required',
-            'description_ar' => 'required'
-        ]);
-        
-        $reason->description_en = $request->description_en;
-        $reason->description_ar = $request->description_ar;
-        
-        $reason->save();
-
-        return redirect()->route('home');
-    }
+    
 }

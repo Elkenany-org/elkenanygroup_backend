@@ -5,7 +5,7 @@
 <div class="card-styles">
     <br>           
     <div class="col-12 d-flex justify-content-center align-items-center">
-      <h1 class="font-weight-bold" style="color: #0d6efd;">Be part of our team section in {{$team->page_name}} page</h1>
+      <h1 class="font-weight-bold" style="color: #0d6efd;">Ceo Message of {{$ceo->page_name}} page</h1>
     </div>
     <br>
     <div class="card-style-3 mb-30">
@@ -14,20 +14,20 @@
         <br>
         <div class="card-content">            
             <div class="row">
-                <form action="{{ route('content.update', $team->type) }}" method="POST">
+                <form action="{{ route('content.update', $ceo->type) }}" method="POST">
                     @csrf
             
                     <div class="col-12">
                         <div class="input-style-1">
                             <label for="description_ar">الوصف</label>
-                            <textarea name="description_ar" class="form-control" rows="6">{{$team->description_ar}}</textarea>
+                            <textarea name="description_ar" class="form-control" rows="6">{{$ceo->description_ar}}</textarea>
                         </div>
                     </div>
 
                     <div class="col-12">
                         <div class="input-style-1" dir="ltr">
                             <label for="description_en">Description</label>
-                            <textarea name="description_en" class="form-control" rows="6">{{$team->description_en}}</textarea>
+                            <textarea name="description_en" class="form-control" rows="6">{{$ceo->description_en}}</textarea>
                         </div>
                     </div>
 

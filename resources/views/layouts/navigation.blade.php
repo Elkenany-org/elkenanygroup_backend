@@ -220,6 +220,18 @@
                     Characteristics
                 </a>
             </li>
+            <li>
+                <a href="{{ route('ceo.show') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Ceo message
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('mission.show') }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Mission & Vision
+                </a>
+            </li>
         </ul>
     </li>
     <li class=" nav-item nav-item-has-children">
