@@ -21,10 +21,14 @@ class ContentController extends Controller
     public function ourteam()
     {
         $team = Content::where('page_name','careers')->where('type','ourteam')->first();
-        dd();
         return view('Content.ourteam')->with('team',$team);
     }
-
+    public function characteristic($characteristic_index)
+    {
+        $characteristic = Content::where('page_name','aboutus')->where('type',$characteristic_index)->first();
+        return view('Content.characteristics')->with('characteristic',$characteristic);
+    }
+    
     public function headerupdate(Request $request, $page_name)
     {
         $page = Content::where('page_name',$page_name)->first();

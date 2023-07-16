@@ -176,6 +176,11 @@ Route::prefix('content')->group(function () {
     Route::get('/careers/{reason2}' , [ContentController::class,'reason'])->name('careersreason2.show');
     Route::get('/careers/{reason3}' , [ContentController::class,'reason'])->name('careersreason3.show');
     Route::post('/careers/{type}/update' , [ContentController::class,'reasonupdate'])->name('careersreason.update');
+    //characteristics of careers page
+    Route::get('/careers/{reason1}' , [ContentController::class,'reason'])->name('careersreason1.show');
+    Route::get('/careers/{reason2}' , [ContentController::class,'reason'])->name('careersreason2.show');
+    Route::get('/careers/{reason3}' , [ContentController::class,'reason'])->name('careersreason3.show');
+    Route::post('/careers/{type}/update' , [ContentController::class,'reasonupdate'])->name('careersreason.update');
     //be part of our team of careers page
-    Route::get('/careers/ourteam' , [ContentController::class,'ourteam'])->name('careersteam.show');
+    Route::get('/ourteam' , [ContentController::class,'ourteam'])->name('careersteam.show');
 });
