@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\ApiCategoryController;
 use App\Http\Controllers\Api\ApiContactUsController;
 use App\Http\Controllers\Api\ApiContentController;
 use App\Http\Controllers\Api\ApiInfoController;
+use App\Http\Controllers\Api\ApiOrderController;
 use App\Models\News;
 use App\Models\Content;
 use App\Models\Job;
@@ -64,6 +65,9 @@ Route::prefix('infos')->group(function () {
 
 //contactus
 Route::post('contactus/store' , [ApiContactUsController::class,'store']);
+
+//order
+Route::post('order/store' , [ApiOrderController::class,'store']);
 
 // //header of pages
 // Route::prefix('content')->group(function(){

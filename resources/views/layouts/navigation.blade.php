@@ -130,8 +130,8 @@
             <span class="text">الشكاوي</span>
         </a>
     </li>
-    <li class="nav-item @if(request()->routeIs('contactus.index') || request()->routeIs('contactus.archive')) active @endif">
-        <a class="search " href="{{route('contactus.index')}}">
+    <li class="nav-item @if(request()->routeIs('orders.index') || request()->routeIs('orders.archive')) active @endif">
+        <a class="search " href="{{route('orders.index')}}">
               <span class="icon">
                 <i class="fa-solid fa-message"></i>
               </span>

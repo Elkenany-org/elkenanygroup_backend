@@ -6,6 +6,7 @@ use App\Http\Controllers\InfoController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\MetaDataPagesController;
@@ -96,8 +97,19 @@ Route::prefix('contactus')->group(function () {
     Route::get('/restore/{id}' , [ContactUsController::class,'restore'])->name('contactus.restore');
     Route::get('/delete/{id}' , [ContactUsController::class,'hard_delete'])->name('contactus.hard_delete');
     Route::get('/search' , [ContactUsController::class,'search'])->name('contactus.search');
-    Route::get('/archive_search' , [ContactUsController::class,'archive_search'])->name('contactus.archive_search');
-    
+    Route::get('/archive_search' , [ContactUsController::class,'archive_search'])->name('contactus.archive_search'); 
+});
+
+//orders
+Route::prefix('orders')->group(function () {
+    Route::get('/' , [OrderController::class,'index'])->name('orders.index');
+    Route::get('/archive' , [OrderController::class,'archive'])->name('orders.archive');
+    Route::get('/show/{id}' , [OrderController::class,'show'])->name('orders.show');
+    Route::get('/destroy/{id}' , [OrderController::class,'soft_delete'])->name('orders.soft_delete');
+    Route::get('/restore/{id}' , [OrderController::class,'restore'])->name('orders.restore');
+    Route::get('/delete/{id}' , [OrderController::class,'hard_delete'])->name('orders.hard_delete');
+    // Route::get('/search' , [ContactUsController::class,'search'])->name('contactus.search');
+    // Route::get('/archive_search' , [ContactUsController::class,'archive_search'])->name('contactus.archive_search'); 
 });
 
 
