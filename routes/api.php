@@ -69,21 +69,34 @@ Route::post('contactus/store' , [ApiContactUsController::class,'store']);
 //order
 Route::post('order/store' , [ApiOrderController::class,'store']);
 
-// //header of pages
-// Route::prefix('content')->group(function(){
-//     Route::get('/{home}',[ApiHeaderPageController::class,'show']);
-//     Route::get('/{aboutus}',[ApiHeaderPageController::class,'show']);
-//     Route::get('/{careers}',[ApiHeaderPageController::class,'show']);
-// });
+
 Route::prefix('content')->group(function () {
     //header of pages 
-    Route::get('/{home}/header' , [ApiContentController::class,'header'])->name('homeheader.show');
-    Route::get('/{aboutus}/header' , [ApiContentController::class,'header'])->name('aboutusheader.show');
-    Route::get('/{careers}/header' , [ApiContentController::class,'header'])->name('careersheader.show');
-    Route::post('/{page_name}/header/update' , [ApiContentController::class,'headerupdate'])->name('pageheader.update');
+    Route::get('/{home}/header' , [ApiContentController::class,'header']);
+    Route::get('/{aboutus}/header' , [ApiContentController::class,'header']);
+    Route::get('/{careers}/header' , [ApiContentController::class,'header']);
+    //ourteam of careers page
+    Route::get('/ourteam' , [ApiContentController::class,'ourteam']);
+
+    Route::get('/aboutus/ceo' , [ApiContentController::class,'ceo']);
+    Route::get('/aboutus/mission' , [ApiContentController::class,'mission']);
+    Route::get('/aboutus/vision' , [ApiContentController::class,'vision']);
+    Route::get('/home/{activity}' , [ApiContentController::class,'homeactivity']);
+    Route::get('/{ourcompanies}/header' , [ApiContentController::class,'header']);
+    Route::get('/ourcompanies/{activity}' , [ApiContentController::class,'ourcompanies']);
+    Route::get('/ourcompanies/{experience}' , [ApiContentController::class,'ourcompanies']);
+});
+Route::prefix('content')->group(function () {
+    //header of pages 
+    Route::get('/{home}/header' , [ApiContentController::class,'header']);
+    Route::get('/{aboutus}/header' , [ApiContentController::class,'header']);
+    Route::get('/{careers}/header' , [ApiContentController::class,'header']);
     //reasons of careers page
-    Route::get('/careers/{reason1}' , [ApiContentController::class,'reason'])->name('careersreason1.show');
-    Route::get('/careers/{reason2}' , [ApiContentController::class,'reason'])->name('careersreason2.show');
-    Route::get('/careers/{reason3}' , [ApiContentController::class,'reason'])->name('careersreason3.show');
-    Route::post('/careers/{type}/update' , [ApiContentController::class,'reasonupdate'])->name('careersreason.update');
+    Route::get('/careers/{reason1}' , [ApiContentController::class,'reason']);
+    Route::get('/careers/{reason2}' , [ApiContentController::class,'reason']);
+    Route::get('/careers/{reason3}' , [ApiContentController::class,'reason']);
+    //values of home page
+    Route::get('/home/{value1}' , [ApiContentController::class,'value']);
+    Route::get('/home/{value2}' , [ApiContentController::class,'value']);
+    Route::get('/home/{value3}' , [ApiContentController::class,'value']);
 });

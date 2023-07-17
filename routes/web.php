@@ -176,13 +176,13 @@ Route::prefix('metadata')->group(function () {
     Route::get('/delete/{id}' , [MetaDataPagesController::class,'delete'])->name('metadata.delete');
 });
 
-Route::prefix('content')->group(function () {
+Route::prefix('contentw')->group(function () {
     //values of home page
     Route::get('/home/{value1}' , [ContentController::class,'value'])->name('value1.show');
     Route::get('/home/{value2}' , [ContentController::class,'value'])->name('value2.show');
     Route::get('/home/{value3}' , [ContentController::class,'value'])->name('value3.show');
 });
-Route::prefix('content')->group(function () {
+Route::prefix('contenta')->group(function () {
     Route::get('/{ourcompanies}/header' , [ContentController::class,'header'])->name('ourcompaniesheader.show');
     Route::get('/aboutus/ceo' , [ContentController::class,'ceo'])->name('ceo.show');
     Route::get('/aboutus/mission' , [ContentController::class,'mission'])->name('mission.show');
@@ -193,7 +193,7 @@ Route::prefix('content')->group(function () {
     
 });
 
-Route::prefix('content')->group(function () {
+Route::prefix('contents')->group(function () {
     //header of pages 
     Route::get('/{home}/header' , [ContentController::class,'header'])->name('homeheader.show');
     Route::get('/{aboutus}/header' , [ContentController::class,'header'])->name('aboutusheader.show');
@@ -207,7 +207,6 @@ Route::prefix('content')->group(function () {
     Route::get('/aboutus/{characteristic1}' , [ContentController::class,'characteristic'])->name('aboutuscharacteristic1.show');
     Route::get('/aboutus/{characteristic2}' , [ContentController::class,'characteristic'])->name('aboutuscharacteristic2.show');
     Route::get('/aboutus/{characteristic3}' , [ContentController::class,'characteristic'])->name('aboutuscharacteristic3.show');
-    //ceo message of aboutus page
     //be part of our team of careers page
     Route::get('/ourteam' , [ContentController::class,'ourteam'])->name('careersteam.show');
     
