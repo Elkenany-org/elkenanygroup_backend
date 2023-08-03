@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiNewsController;
+use App\Http\Controllers\Api\ApiArticleController;
 use App\Http\Controllers\Api\ApiJobController;
 use App\Http\Controllers\Api\ApiCategoryController;
 use App\Http\Controllers\Api\ApiContactUsController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Api\ApiContentController;
 use App\Http\Controllers\Api\ApiInfoController;
 use App\Http\Controllers\Api\ApiOrderController;
 use App\Models\News;
+use App\Models\Article;
 use App\Models\Content;
 use App\Models\Job;
 use App\Models\Category;
@@ -37,6 +39,12 @@ Route::prefix('news')->group(function () {
     Route::get('/' , [ApiNewsController::class,'index']);
     Route::get('/show/{id}' , [ApiNewsController::class,'show']);
     Route::get('/search', [ApiNewsController::class, 'search']);
+});
+
+//articles
+Route::prefix('articles')->group(function () {
+    Route::get('/' , [ApiArticleController::class,'index']);
+    Route::get('/show/{id}' , [ApiArticleController::class,'show']);
 });
 
 

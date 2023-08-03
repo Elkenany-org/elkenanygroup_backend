@@ -8,7 +8,20 @@
           <div class="row">
             <form action="{{route('News.update',$event->id)}}" method="POST" enctype="multipart/form-data">
               @csrf
-
+              <div class="col-12">
+                <div class="input-style-1">
+                  <label for="language">اللغة</label>
+                  <select name="language" class="form-control w-25" >
+                    @if ($event->language == "en")
+                      <option value="en">انجليزي</option>  
+                      <option value="ar">عربي</option>
+                    @else
+                      <option value="ar">عربي</option>
+                      <option value="en">انجليزي</option>  
+                    @endif
+                  </select>  
+                </div>
+              </div>
               <div class="col-12">
                 <div class="input-style-1">
                   <label for="title">العنوان</label>
@@ -20,10 +33,20 @@
                 <div class="input-style-1">
                   <label for="category_id">القسم</label>
                   <select name="category_id" class="form-control w-25">
+                    <option value="{{ $event->category->id }}">{{ $event->category->name_ar }}</option>
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name_ar }}</option>
+                        @if ($category->name_ar != $event->category->name_ar)
+                        <option value="{{ $category->id }}">{{ $category->name_ar }}</option>  
+                        @endif
                     @endforeach
                   </select>  
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="input-style-1">
+                  <label for="shortdescription">الوصف المختصر</label>
+                  <textarea name="shortdescription" id="textarea" oninput="countCharacters(this,12)">{{$event->shortdescription}}</textarea>
+                  <div dir="ltr"><span id="12"></span></div>
                 </div>
               </div>
               <div class="col-12">

@@ -8,7 +8,20 @@
           <div class="row">
             <form action="{{route('Articles.update',$article->id)}}" method="POST" enctype="multipart/form-data">
               @csrf
-
+              <div class="col-12">
+                <div class="input-style-1">
+                  <label for="language">اللغة</label>
+                  <select name="language" class="form-control w-25" >
+                    @if ($article->language == "en")
+                      <option value="en">انجليزي</option>  
+                      <option value="ar">عربي</option>
+                    @else
+                      <option value="ar">عربي</option>
+                      <option value="en">انجليزي</option>  
+                    @endif
+                  </select>  
+                </div>
+              </div>
               <div class="col-12">
                 <div class="input-style-1">
                   <label for="title">العنوان</label>
@@ -24,6 +37,13 @@
                         <option value="{{ $category->id }}">{{ $category->name_ar }}</option>
                     @endforeach
                   </select>  
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="input-style-1">
+                  <label for="shortdescription">الوصف المختصر</label>
+                  <textarea name="shortdescription" id="textarea" oninput="countCharacters(this,20)">{{$article->shortdescription}}</textarea>
+                  <div dir="ltr"><span id="20"></span></div>
                 </div>
               </div>
               <div class="col-12">

@@ -8,7 +8,15 @@
           <div class="row">
             <form action="{{route('News.store')}}" method="POST" enctype="multipart/form-data">
               @csrf
-
+              <div class="col-12">
+                <div class="input-style-1">
+                  <label for="category_id">اللغة</label>
+                  <select name="language" class="form-control w-25">
+                        <option value="ar">عربي</option>
+                        <option value="en">انجليزي</option>
+                  </select>  
+                </div>
+              </div>
               <div class="col-12">
                 <div class="input-style-1">
                   <label for="title">العنوان</label>
@@ -28,9 +36,16 @@
               </div>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="description">الوصف</label>
-                  <textarea name="description" id="textarea1" oninput="countCharacters(this,2)"></textarea>
+                  <label for="shortdescription">الوصف المختصر</label>
+                  <textarea name="shortdescription" id="textarea" oninput="countCharacters(this,2)"></textarea>
                   <div dir="ltr"><span id="2"></span></div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="input-style-1">
+                  <label for="description">الوصف</label>
+                  <textarea name="description" id="textarea1" oninput="countCharacters(this,3)"></textarea>
+                  <div dir="ltr"><span id="3"></span></div>
                 </div>
               </div>
               
@@ -43,15 +58,15 @@
               <div class="col-12">
                 <div class="input-style-1">
                   <label for="alt_text" dir="ltr">Alt_text</label>
-                  <input type="text" class="form-control" name="alt_text" oninput="countCharacters(this,3)">
-                  <div dir="ltr"><span id="3"></span></div>
+                  <input type="text" class="form-control" name="alt_text" oninput="countCharacters(this,4)">
+                  <div dir="ltr"><span id="4"></span></div>
                 </div>
               </div>
               <div class="col-12">
                 <div class="input-style-1">
                   <label for="focus_word" dir="ltr">Focus_keyword</label>
-                  <input type="text" class="form-control" name="focus_keyword" oninput="countCharacters(this,4)">
-                  <div dir="ltr"><span id="4"></span></div>
+                  <input type="text" class="form-control" name="focus_keyword" oninput="countCharacters(this,5)">
+                  <div dir="ltr"><span id="5"></span></div>
                 </div>
               </div>
               
@@ -63,29 +78,29 @@
               <div class="col-12">
                 <div class="input-style-1">
                   <label for="social_title" dir="ltr">Social_title</label>
-                  <input type="text" class="form-control" name="social_title" oninput="countCharacters(this,5)">
-                  <div dir="ltr"><span id="5"></span></div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="input-style-1">
-                  <label for="social_description" dir="ltr">Social_description</label>
-                  <textarea type="text" class="form-control" rows="3" name="social_description" oninput="countCharacters(this,6)"></textarea>
+                  <input type="text" class="form-control" name="social_title" oninput="countCharacters(this,6)">
                   <div dir="ltr"><span id="6"></span></div>
                 </div>
               </div>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="social_image" dir="ltr">Social_image</label>
-                  <input type="file" class="file" dir="ltr" name="social_image" oninput="countCharacters(this,7)">
+                  <label for="social_description" dir="ltr">Social_description</label>
+                  <textarea type="text" class="form-control" rows="3" name="social_description" oninput="countCharacters(this,7)"></textarea>
                   <div dir="ltr"><span id="7"></span></div>
                 </div>
               </div>
               <div class="col-12">
                 <div class="input-style-1">
-                  <label for="social_alt_text" dir="ltr">Social_alt_text</label>
-                  <input type="text" class="form-control" name="social_alt_text" oninput="countCharacters(this,8)">
+                  <label for="social_image" dir="ltr">Social_image</label>
+                  <input type="file" class="file" dir="ltr" name="social_image" oninput="countCharacters(this,8)">
                   <div dir="ltr"><span id="8"></span></div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="input-style-1">
+                  <label for="social_alt_text" dir="ltr">Social_alt_text</label>
+                  <input type="text" class="form-control" name="social_alt_text" oninput="countCharacters(this,9)">
+                  <div dir="ltr"><span id="9"></span></div>
                 </div>
               </div>
               
@@ -97,23 +112,23 @@
               <div class="col-12">
                 <div class="input-style-1">
                   <label for="meta_title" dir="ltr">Title_tag</label>
-                  <input type="text" class="form-control" name="meta_title" oninput="countCharacters(this,9)">
-                  <div dir="ltr"><span id="9"></span></div>
+                  <input type="text" class="form-control" name="meta_title" oninput="countCharacters(this,10)">
+                  <div dir="ltr"><span id="10"></span></div>
                 </div>
               </div>
               <div class="col-12">
                 <div class="input-style-1">
                   <label for="meta_link" dir="ltr">Meta_link</label>
-                  <input type="text" class="form-control" dir="ltr" name="meta_link" oninput="countCharacters(this,10)">
-                  <div><span id="10"></span></div>
+                  <input type="text" class="form-control" dir="ltr" name="meta_link" oninput="countCharacters(this,11)">
+                  <div><span id="11"></span></div>
                 </div>
               </div>
               
               <div class="col-12">
                 <div class="input-style-1">
                   <label for="Meta_description" dir="ltr">Meta_decription</label>
-                  <textarea type="text" class="form-control" rows="3" name="meta_description" oninput="countCharacters(this,11)"></textarea>
-                  <div dir="ltr"><span id="11"></span></div>
+                  <textarea type="text" class="form-control" rows="3" name="meta_description" oninput="countCharacters(this,12)"></textarea>
+                  <div dir="ltr"><span id="12"></span></div>
                 </div>
               </div>
 

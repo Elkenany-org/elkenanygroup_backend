@@ -36,10 +36,12 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request , [
+            'language'=> 'required',
             'title'=> 'required',
             'category_id'=> 'required',
             'image'=> 'required',
             'description'=> 'required',
+            'shortdescription'=> 'required',
         ]);
         $image_name = $request->image->getClientOriginalName();
         $image_name = time().$image_name;
@@ -57,10 +59,12 @@ class ArticleController extends Controller
         
         
         Article::create([
+            'language'=> $request->language,
             'title'=> $request->title,
             'category_id'=> $request->category_id,
             'image'=> $image_name,
             'description'=> $request->description,
+            'shortdescription'=> $request->shortdescription,
             'alt_text'=> $request->alt_text,
             'focus_keyword'=> $request->focus_keyword,
 
@@ -95,7 +99,8 @@ class ArticleController extends Controller
         $request->validate([
             'title' => 'required',
             'category_id' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'shortdescription' => 'required',
         ]);
         $article = Article::find($id);
         
@@ -117,6 +122,7 @@ class ArticleController extends Controller
         $article->title = $request->title;
         $article->category_id = $request->category_id;
         $article->description = $request->description;
+        $article->shortdescription = $request->shortdescription;
         $article->focus_keyword = $request->focus_keyword;
         $article->alt_text = $request->alt_text;
         
@@ -136,7 +142,6 @@ class ArticleController extends Controller
             $article->social_image = $social_image_name;
         }
         $article->social_alt_text = $request->social_alt_text;
-        
         
         $article->meta_title = $request->meta_title;
         $article->meta_link = $request->meta_link;

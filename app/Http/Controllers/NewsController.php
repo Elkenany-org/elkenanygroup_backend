@@ -40,6 +40,7 @@ class NewsController extends Controller
             'category_id'=> 'required',
             'image'=> 'required',
             'description'=> 'required',
+            'shortdescription'=> 'required',
         ]);
         $image_name = $request->image->getClientOriginalName();
         $image_name = time().$image_name;
@@ -57,10 +58,12 @@ class NewsController extends Controller
         
         
         News::create([
+            'language'=> $request->language,
             'title'=> $request->title,
             'category_id'=> $request->category_id,
             'image'=> $image_name,
             'description'=> $request->description,
+            'shortdescription'=>$request->shortdescription,
             'alt_text'=> $request->alt_text,
             'focus_keyword'=> $request->focus_keyword,
 
@@ -93,9 +96,11 @@ class NewsController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'language' => 'required',
             'title' => 'required',
             'category_id' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'shortdescription' => 'required'
         ]);
         $event = News::find($id);
         
@@ -114,9 +119,11 @@ class NewsController extends Controller
         }
         
         
+        $event->language = $request->language;
         $event->title = $request->title;
         $event->category_id = $request->category_id;
         $event->description = $request->description;
+        $event->shortdescription = $request->shortdescription;
         $event->focus_keyword = $request->focus_keyword;
         $event->alt_text = $request->alt_text;
         

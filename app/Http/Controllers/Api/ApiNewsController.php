@@ -17,7 +17,22 @@ class ApiNewsController extends Controller
             $query->select('id','name_ar','name_en');
         }])
         ->get();
-        return response()->json($news, 200);
+        $data = array();
+        
+        foreach($news as &$event)
+        {
+            if($event->language == 'ar')
+            {
+                $data['ar'] = $event;
+                $data['en'] = null;
+            }
+            else
+            {
+                $data['en'] = $event;
+                $data['ar'] = null;
+            }
+        }
+        return response()->json($data, 200);
     }
 
     public function show($id)
@@ -26,8 +41,20 @@ class ApiNewsController extends Controller
             ->with(['category' => function ($query) {
             $query->select('id','name_ar','name_en');
         }])
-        ->get();
-        return response()->json($event, 200);
+        ->first();
+        $data = array();
+        
+        if($event->language == 'ar')
+        {
+            $data['ar'] = $event;
+            $data['en'] = null;
+        }
+        else
+        {
+            $data['en'] = $event;
+            $data['ar'] = null;
+        }
+        return response()->json($data, 200);
     }
 
     public function search(Request $request)
