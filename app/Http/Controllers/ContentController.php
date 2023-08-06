@@ -9,9 +9,9 @@ use File;
 class ContentController extends Controller
 {
     
-    public function header($page_name)
+    public function header(Request $request)
     {
-        $header = Content::where('page_name',$page_name)->first();
+        $header = Content::where([['page_name',$request->page_name],['type',$request->type]])->first();
         return view('Content.header')->with('header',$header);
     }
     public function reason($reason_index)
@@ -91,14 +91,15 @@ class ContentController extends Controller
 
         return redirect()->route('home');
     }
-    public function update(Request $request, $type)
+    public function update(Request $request)
     {
-        $content = Content::where('page_name',$request->page_name)->where('type',$type)->first();
+        $content = Content::where([['page_name',$request->page_name],['type',$request->type]])->first();
         
         $request->validate([
             'description_en' => 'required',
             'description_ar' => 'required'
         ]);
+        
 
         if($request->image != null)
         {
@@ -113,7 +114,7 @@ class ContentController extends Controller
             
             $content->image = $image_name;
         }
-
+        
         $content->description_en = $request->description_en;
         $content->description_ar = $request->description_ar;
         

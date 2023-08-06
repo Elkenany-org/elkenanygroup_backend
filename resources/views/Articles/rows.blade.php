@@ -4,7 +4,7 @@ $counter =1;
 @foreach ($articles as $article)
 <tr style="border-bottom: 1px double #5d657b">
     <th scope="row" style="color: #2f80ed">{{$counter++}}</th>
-    <td><img src="/images/main/articles/{{$article->image}}" alt="error" style="width: 60px"></td>
+    <td><img src="{{$article->image}}" alt="error" style="width: 60px"></td>
     @if ($search_flag == true && $search_flag2 == true)
         <td style="max-width:  11rem;word-wrap: break-word;padding-left: 40px;"><p style=" overflow-wrap: break-word">{{$article->title}}</p></td>
         <td style="max-width:  11rem;word-wrap: break-word;padding-left: 90px;"><p style=" overflow-wrap: break-word">{{$article->category->name_ar}}</p></td>

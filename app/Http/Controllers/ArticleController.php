@@ -62,7 +62,7 @@ class ArticleController extends Controller
             'language'=> $request->language,
             'title'=> $request->title,
             'category_id'=> $request->category_id,
-            'image'=> $image_name,
+            'image'=> $path.'/'.$image_name,
             'description'=> $request->description,
             'shortdescription'=> $request->shortdescription,
             'alt_text'=> $request->alt_text,
@@ -115,7 +115,7 @@ class ArticleController extends Controller
             $path = 'images/main/articles';
             $request->image->move($path , $image_name);
             
-            $article->image = $image_name;
+            $article->image = $path.'/'.$image_name;
         }
         
         
@@ -154,7 +154,7 @@ class ArticleController extends Controller
     
     public function soft_delete($id)
     {
-        $article = Article::find($id);    
+        $article = Article::find($id);
         $article->delete();
         return redirect()->route('Articles.index');
     }
@@ -169,7 +169,7 @@ class ArticleController extends Controller
     {
         $article = Article::onlyTrashed()->where('id', $id)->first();
         
-        $image_path = public_path('images/main/articles/'.$article->image);
+        $image_path = public_path($article->image);
         if(File::exists($image_path)) 
             unlink($image_path);
         $social_image_path = public_path('images/social/articles/'.$article->social_image);

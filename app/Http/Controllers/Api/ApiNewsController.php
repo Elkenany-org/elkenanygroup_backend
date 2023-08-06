@@ -17,22 +17,25 @@ class ApiNewsController extends Controller
             $query->select('id','name_ar','name_en');
         }])
         ->get();
+        $ret = array();
         $data = array();
         
-        foreach($news as &$event)
+        foreach($news as $event)
         {
             if($event->language == 'ar')
             {
                 $data['ar'] = $event;
                 $data['en'] = null;
+                array_push($ret , $data);
             }
             else
             {
                 $data['en'] = $event;
                 $data['ar'] = null;
+                array_push($ret , $data);
             }
         }
-        return response()->json($data, 200);
+        return response()->json($ret, 200);
     }
 
     public function show($id)

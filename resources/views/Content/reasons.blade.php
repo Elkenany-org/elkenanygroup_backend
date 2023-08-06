@@ -16,7 +16,6 @@
               $reason2 = request()->url() === route('careersreason2.show', 'reason2');
               $reason1 = request()->url() === route('careersreason1.show', 'reason1');
             @endphp
-
             <a class="main-btn primary-btn btn-hover w-25 text-center m-3 {{ $reason3 ? 'active' : '' }}" href="{{ route('careersreason3.show','reason3') }}">Reason 3</a>
             <a class="main-btn primary-btn btn-hover w-25 text-center m-3 {{ $reason2 ? 'active' : '' }}" href="{{ route('careersreason2.show','reason2') }}">Reason 2</a>
             <a class="main-btn primary-btn btn-hover w-25 text-center m-3 {{ $reason1 ? 'active' : '' }}" href="{{ route('careersreason1.show','reason1') }}">Reason 1</a>
@@ -24,9 +23,8 @@
         <br>
         <div class="card-content">            
             <div class="row">
-                <form action="{{ route('content.update', $reason->type) }}" method="POST">
+                <form action="{{ route('content.update', ['page_name' => $reason->page_name, 'type' => $reason->type]) }}" method="POST">
                     @csrf
-            
                     <div class="col-12">
                         <div class="input-style-1">
                             <label for="description_ar">الوصف</label>

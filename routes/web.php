@@ -193,11 +193,14 @@ Route::prefix('contenta')->group(function () {
     
 });
 
-Route::prefix('contents')->group(function () {
+Route::prefix('content9')->group(function () {
+    //headers of home page
+    Route::get('/home/header1' , [ContentController::class,'header'])->name('homeheader1.show');
+    Route::get('/home/header2' , [ContentController::class,'header'])->name('homeheader2.show');
+    Route::get('/home/header3' , [ContentController::class,'header'])->name('homeheader3.show');
     //header of pages 
-    Route::get('/{home}/header' , [ContentController::class,'header'])->name('homeheader.show');
-    Route::get('/{aboutus}/header' , [ContentController::class,'header'])->name('aboutusheader.show');
-    Route::get('/{careers}/header' , [ContentController::class,'header'])->name('careersheader.show');
+    Route::get('/careers/header' , [ContentController::class,'header'])->name('careersheader.show');
+    Route::get('/aboutus/header' , [ContentController::class,'header'])->name('aboutusheader.show');
     Route::post('/{page_name}/header/update' , [ContentController::class,'headerupdate'])->name('pageheader.update');
     //reasons of careers page
     Route::get('/careers/{reason1}' , [ContentController::class,'reason'])->name('careersreason1.show');

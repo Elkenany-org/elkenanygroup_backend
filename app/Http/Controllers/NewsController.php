@@ -44,7 +44,7 @@ class NewsController extends Controller
         ]);
         $image_name = $request->image->getClientOriginalName();
         $image_name = time().$image_name;
-        $path = 'images/main/news';
+        $path = 'images/main/news'; 
         $request->image->move($path , $image_name);
         
         $social_image_name = "";
@@ -61,7 +61,7 @@ class NewsController extends Controller
             'language'=> $request->language,
             'title'=> $request->title,
             'category_id'=> $request->category_id,
-            'image'=> $image_name,
+            'image'=> $path.'/'.$image_name,
             'description'=> $request->description,
             'shortdescription'=>$request->shortdescription,
             'alt_text'=> $request->alt_text,
@@ -115,7 +115,7 @@ class NewsController extends Controller
             $path = 'images/main/news';
             $request->image->move($path , $image_name);
             
-            $event->image = $image_name;
+            $event->image = $path.'/'.$image_name;
         }
         
         
@@ -171,12 +171,15 @@ class NewsController extends Controller
     {
         $event = News::onlyTrashed()->where('id', $id)->first();
         
-        $image_path = public_path('images/main/news/'.$event->image);
+        $image_path = public_path($event->image);
         if(File::exists($image_path)) 
             unlink($image_path);
-        $social_image_path = public_path('images/social/news/'.$event->social_image);
-        if(File::exists($social_image_path)) 
-            unlink($social_image_path);
+        if($event->social_image != null)
+        {
+            $social_image_path = public_path('images/social/news/'.$event->social_image);
+            if(File::exists($social_image_path)) 
+                unlink($social_image_path);
+        }
         
         $event->forceDelete();
         return redirect()->route('News.archive'); 

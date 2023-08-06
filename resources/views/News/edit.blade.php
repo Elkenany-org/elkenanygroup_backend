@@ -60,6 +60,7 @@
               <div class="col-12">
                 <div class="input-style-1">
                   <label for="name">الصورة</label>
+                  {{$event->image}}
                   <img src="/images/main/news/{{$event->image}}" alt="error" style="width: 200px">
                   <input type="file" class="file" id="file" name="image">
                 </div>

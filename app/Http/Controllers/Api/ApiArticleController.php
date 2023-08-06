@@ -13,22 +13,25 @@ class ApiArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
+        $ret = array();
         $data = array();
         
-        foreach($articles as &$article)
+        foreach($articles as $article)
         {
             if($article->language == 'ar')
             {
                 $data['ar'] = $article;
                 $data['en'] = null;
+                array_push($ret , $data);
             }
             else
             {
                 $data['en'] = $article;
                 $data['ar'] = null;
+                array_push($ret , $data);
             }
         }
-        return response()->json($data, 200);
+        return response()->json($ret, 200);
     }
 
     public function show($id)

@@ -18,9 +18,6 @@
     </form>
 
     
-      {{-- <span ><i class="fa-solid fa-calendar-days"></i></span> --}}
-      {{-- <input type="date" class="form-control"> --}}
-    
 
     <a type="button" class="btn btn-secondary py-2" href="{{ route('Articles.archive') }}">الارشيف</a>
   </div>
