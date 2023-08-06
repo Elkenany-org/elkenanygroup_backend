@@ -201,7 +201,6 @@ Route::prefix('content9')->group(function () {
     //header of pages 
     Route::get('/careers/header' , [ContentController::class,'header'])->name('careersheader.show');
     Route::get('/aboutus/header' , [ContentController::class,'header'])->name('aboutusheader.show');
-    Route::post('/{page_name}/header/update' , [ContentController::class,'headerupdate'])->name('pageheader.update');
     //reasons of careers page
     Route::get('/careers/{reason1}' , [ContentController::class,'reason'])->name('careersreason1.show');
     Route::get('/careers/{reason2}' , [ContentController::class,'reason'])->name('careersreason2.show');

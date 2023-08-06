@@ -14,7 +14,7 @@
         <br>
         <div class="card-content">            
             <div class="row">
-                <form action="{{ route('content.update', $team->type) }}" method="POST">
+                <form action="{{ route('content.update',['page_name' => $team->page_name, 'type' => $team->type]) }}" method="POST">
                     @csrf
             
                     <div class="col-12">
