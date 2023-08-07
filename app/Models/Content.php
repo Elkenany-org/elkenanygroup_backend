@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Content extends Model
 {
     use HasFactory;
-
+    protected $appends = ['image_url'];
+    protected $hidden = ['image'];
     protected $fillable = [
         'page_name',
         'type',
@@ -16,5 +17,9 @@ class Content extends Model
         'description_ar',
         'image'
     ];
+    public function getImageUrlAttribute()
+    {  
+        return url('/').'/'.$this->image;
+    }
 
 }

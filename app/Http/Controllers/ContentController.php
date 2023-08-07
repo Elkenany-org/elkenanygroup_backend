@@ -14,53 +14,11 @@ class ContentController extends Controller
         $header = Content::where([['page_name',$request->page_name],['type',$request->type]])->first();
         return view('Content.header')->with('header',$header);
     }
-    public function reason($reason_index)
+    public function content(Request $request)
     {
-        $reason = Content::where('page_name','careers')->where('type',$reason_index)->first();
-        return view('Content.reasons')->with('reason',$reason);
-    }
-    public function value($value_index)
-    {
-        $value = Content::where('page_name','home')->where('type',$value_index)->first();
-        return view('Content.values')->with('value',$value);
-    }
-    public function ourteam()
-    {
-        $team = Content::where('page_name','careers')->where('type','ourteam')->first();
-        return view('Content.ourteam')->with('team',$team);
-    }
-    public function characteristic($characteristic_index)
-    {
-
-        $characteristic = Content::where('page_name','aboutus')->where('type',$characteristic_index)->first();
-        return view('Content.characteristics')->with('characteristic',$characteristic);
-    }
-    public function ceo()
-    {
-        $ceo = Content::where('type','ceo')->first();
-        return view('Content.ceo')->with('ceo',$ceo);
-    }
-    public function mission()
-    {
-        $mission = Content::where('type','mission')->first();
-        return view('Content.mission&vision')->with('missionvision',$mission);
-    }
-    public function vision()
-    {
-        $vision = Content::where('type','vision')->first();
-        return view('Content.mission&vision')->with('missionvision',$vision);
-    }
-    public function ourcompanies($type)
-    {
-        $content = Content::where('page_name','ourcompanies')->where('type',$type)->first();
+        $content = Content::where([['page_name',$request->page_name],['type',$request->type]])->first();
         return view('Content.content')->with('content',$content);
     }
-    public function homeactivity($type)
-    {
-        $content = Content::where('page_name','home')->where('type',$type)->first();
-        return view('Content.content')->with('content',$content);
-    }
-    
     public function update(Request $request)
     {
         $content = Content::where([['page_name',$request->page_name],['type',$request->type]])->first();
@@ -82,7 +40,7 @@ class ContentController extends Controller
             $path = 'images/content';
             $request->image->move($path , $image_name);
             
-            $content->image = $image_name;
+            $content->image = $path.'/'.$image_name;
         }
         
         $content->description_en = $request->description_en;

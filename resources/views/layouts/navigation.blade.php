@@ -200,19 +200,19 @@
         </a>
         <ul id="ddmenu_8" class="dropdown-nav collapse">
             <li>
-                <a href="{{ route('homeheader1.show' ,['page_name' => 'home', 'type' => 'header1']) }}">
+                <a href="{{ route('header.show' ,['page_name' => 'home', 'type' => 'header1']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Header
                 </a>
             </li>
             <li>
-                <a href="{{ route('homeactivity.show' , 'activity') }}">
+                <a href="{{ route('content.show' , ['page_name' => 'home', 'type' => 'activity']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Activity
                 </a>
             </li>
             <li>
-                <a href="{{ route('value1.show' , 'value1') }}">
+                <a href="{{ route('content.show' , ['page_name' => 'home', 'type' => 'value1']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Values
                 </a>
@@ -229,27 +229,27 @@
     </a>
     <ul id="ddmenu_9" class="dropdown-nav collapse">
             <li>
-                <a href="{{ route('aboutusheader.show','aboutus') }}">
+                <a href="{{ route('header.show' ,['page_name' => 'aboutus', 'type' => 'header']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Header
                 </a>
             </li>
             <li>
-                <a href="{{ route('aboutuscharacteristic1.show','characteristic1') }}">
+                <a href="{{ route('content.show',['page_name' => 'aboutus', 'type' => 'body']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
-                    Characteristics
+                    Body
                 </a>
             </li>
             <li>
-                <a href="{{ route('ceo.show') }}">
+                <a href="{{ route('content.show',['page_name' => 'aboutus', 'type' => 'ceomessage']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Ceo message
                 </a>
             </li>
             <li>
-                <a href="{{ route('mission.show') }}">
+                <a href="{{ route('content.show',['page_name' => 'aboutus', 'type' => 'vision']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
-                    Mission & Vision
+                    Vision & Objective
                 </a>
             </li>
         </ul>
@@ -264,19 +264,19 @@
         </a>
         <ul id="ddmenu_10" class="dropdown-nav collapse">
             <li>
-                <a href="{{ route('careersheader.show' ,['page_name' => 'careers', 'type' => 'header']) }}">
+                <a href="{{ route('header.show' ,['page_name' => 'careers', 'type' => 'header']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Header
                 </a>
             </li>
             <li>
-                <a href="{{ route('careersreason1.show','reason1') }}">
+                <a href="{{ route('content.show',['page_name' => 'careers', 'type' => 'reason1']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Reasons
                 </a>
             </li>
             <li>
-                <a href="{{ route('careersteam.show') }}">
+                <a href="{{ route('content.show',['page_name' => 'careers', 'type' => 'ourteam']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Our team
                 </a>
@@ -293,19 +293,25 @@
         </a>
         <ul id="ddmenu_11" class="dropdown-nav collapse">
             <li>
-                <a href="{{ route('ourcompaniesheader.show','ourcompanies') }}">
+                <a href="{{ route('header.show',['page_name' => 'ourcompanies', 'type' => 'header']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Header
                 </a>
             </li>
             <li>
-                <a href="{{ route('activity.show','activity') }}">
+                <a href="{{ route('content.show',['page_name' => 'ourcompanies', 'type' => 'activity']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Activity
                 </a>
             </li>
             <li>
-                <a href="{{ route('experience.show','experience') }}">
+                <a href="{{ route('content.show',['page_name' => 'ourcompanies', 'type' => 'materials']) }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Materials
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('content.show',['page_name' => 'ourcompanies', 'type' => 'experience']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Experience
                 </a>
