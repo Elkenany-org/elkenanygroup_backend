@@ -177,7 +177,6 @@ Route::prefix('metadata')->group(function () {
 });
 
 Route::prefix('content')->group(function () {
-    Route::get('/header' , [ContentController::class,'header'])->name('header.show');
     Route::get('/content' , [ContentController::class,'content'])->name('content.show');
     Route::post('/update' , [ContentController::class,'update'])->name('content.update');
 });

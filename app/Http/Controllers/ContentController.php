@@ -8,12 +8,6 @@ use File;
 
 class ContentController extends Controller
 {
-    
-    public function header(Request $request)
-    {
-        $header = Content::where([['page_name',$request->page_name],['type',$request->type]])->first();
-        return view('Content.header')->with('header',$header);
-    }
     public function content(Request $request)
     {
         $content = Content::where([['page_name',$request->page_name],['type',$request->type]])->first();

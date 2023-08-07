@@ -200,7 +200,7 @@
         </a>
         <ul id="ddmenu_8" class="dropdown-nav collapse">
             <li>
-                <a href="{{ route('header.show' ,['page_name' => 'home', 'type' => 'header1']) }}">
+                <a href="{{ route('content.show' ,['page_name' => 'home', 'type' => 'header1']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Header
                 </a>
@@ -229,7 +229,7 @@
     </a>
     <ul id="ddmenu_9" class="dropdown-nav collapse">
             <li>
-                <a href="{{ route('header.show' ,['page_name' => 'aboutus', 'type' => 'header']) }}">
+                <a href="{{ route('content.show' ,['page_name' => 'aboutus', 'type' => 'header']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Header
                 </a>
@@ -264,7 +264,7 @@
         </a>
         <ul id="ddmenu_10" class="dropdown-nav collapse">
             <li>
-                <a href="{{ route('header.show' ,['page_name' => 'careers', 'type' => 'header']) }}">
+                <a href="{{ route('content.show' ,['page_name' => 'careers', 'type' => 'header']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Header
                 </a>
@@ -293,7 +293,7 @@
         </a>
         <ul id="ddmenu_11" class="dropdown-nav collapse">
             <li>
-                <a href="{{ route('header.show',['page_name' => 'ourcompanies', 'type' => 'header']) }}">
+                <a href="{{ route('content.show',['page_name' => 'ourcompanies', 'type' => 'header']) }}">
                     <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
                     Header
                 </a>
