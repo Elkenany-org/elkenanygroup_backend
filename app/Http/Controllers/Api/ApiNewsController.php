@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Category;
+use App\Models\Content;
 
 
 
@@ -20,22 +21,24 @@ class ApiNewsController extends Controller
         $ret = array();
         $data = array();
         
+        $data['ar']['events'] = null;
+        $data['en']['events'] = null;
         foreach($news as $event)
         {
             if($event->language == 'ar')
             {
-                $data['ar'] = $event;
-                $data['en'] = null;
-                array_push($ret , $data);
+                $data['ar']['events'][] = $event;   
             }
             else
             {
-                $data['en'] = $event;
-                $data['ar'] = null;
-                array_push($ret , $data);
+                $data['en']['events'][] = $event;   
             }
         }
-        return response()->json($ret, 200);
+        return response()->json([
+            'error'=>'',
+            'message'=>'',
+            'data'=>$data
+        ], 200);
     }
 
     public function show($id)
@@ -47,17 +50,22 @@ class ApiNewsController extends Controller
         ->first();
         $data = array();
         
+        $data['en'] = null;
+        $data['ar'] = null;
+        
         if($event->language == 'ar')
         {
             $data['ar'] = $event;
-            $data['en'] = null;
         }
         else
         {
             $data['en'] = $event;
-            $data['ar'] = null;
         }
-        return response()->json($data, 200);
+        return response()->json([
+            'error'=>'',
+            'message'=>'',
+            'data'=>$data
+        ], 200);
     }
 
     public function search(Request $request)
