@@ -31,10 +31,12 @@ class JobController extends Controller
             'title'=>'required',
             'address'=>'required',
             'description'=>'required',
+            'shortdescription'=>'required',
         ]);
         Job::create([
             'title'=>$request->title,
             'address'=>$request->address,
+            'shortdescription'=>$request->shortdescription,
             'description'=>$request->description,
             'alt_text'=> $request->alt_text,
             'focus_keyword'=> $request->focus_keyword,
@@ -71,12 +73,14 @@ class JobController extends Controller
         $request->validate([
             'title'=>'required',
             'address'=>'required',
-            'description'=>'required'
+            'description'=>'required',
+            'shortdescription'=>'required'
         ]);
         $job = Job::find($id);
         $job->title = $request->title;
         $job->address = $request->address;
         $job->description = $request->description;
+        $job->shortdescription = $request->shortdescription;
         $job->focus_keyword = $request->focus_keyword;
         $job->alt_text = $request->alt_text;
         

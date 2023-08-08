@@ -81,21 +81,10 @@
                     <div class="col-12">
                         <div class="input-style-1">
                             <label for="name">الصورة</label>
-                            <img src="/images/content/{{$content->image}}" alt="error" style="width: 200px">
+                            <img src="{{$content->image_url}}" alt="error" style="width: 200px">
                             <input type="file" class="file" id="file" name="image">
                         </div>
                     </div>
-{{--     
-                    <input name="page_name" value="{{$content->page_name}}" hidden>
-                    @if ($content->type == 'experience')
-                        <div class="col-12">
-                            <div class="input-style-1">
-                                <label for="image">الصورة</label>
-                                <img src="/images/content/{{$content->image}}" alt="error" style="width: 200px">
-                                <input type="file" class="file" id="file" name="image">
-                            </div>
-                        </div>
-                    @endif --}}
 
                     <div class="col-12">
                         <div class="input-style-1">

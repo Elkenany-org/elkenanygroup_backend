@@ -22,7 +22,13 @@
                             <div dir="ltr"><span id="2"></span></div>
                         </div>
                     </div>
-            
+                    <div class="col-12">
+                      <div class="input-style-1">
+                        <label for="shortdescription">الوصف المختصر</label>
+                        <textarea name="shortdescription" id="textarea" oninput="countCharacters(this,21)">{{$job->shortdescription}}</textarea>
+                        <div dir="ltr"><span id="21"></span></div>
+                      </div>
+                    </div>
                     <div class="col-12">
                         <div class="input-style-1">
                             <label for="description">الوصف</label>

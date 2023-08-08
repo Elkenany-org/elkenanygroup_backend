@@ -25,6 +25,14 @@
                     </div>
             
                     <div class="col-12">
+                      <div class="input-style-1">
+                        <label for="shortdescription">الوصف المختصر</label>
+                        <textarea name="shortdescription" id="textarea" oninput="countCharacters(this,22)"></textarea>
+                        <div dir="ltr"><span id="22"></span></div>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
                         <div class="input-style-1">
                             <label for="description">الوصف</label>
                             <textarea name="description" class="form-control" id="textarea1"></textarea>
