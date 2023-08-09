@@ -21,6 +21,8 @@ class ApiNewsController extends Controller
         $ret = array();
         $data = array();
         
+        $data['content']['image'] = Content::where([['page_name','news'],['type','header']])->pluck('image')->first();
+
         $data['ar']['events'] = null;
         $data['en']['events'] = null;
         foreach($news as $event)
@@ -49,7 +51,8 @@ class ApiNewsController extends Controller
         }])
         ->first();
         $data = array();
-        
+
+
         $data['en'] = null;
         $data['ar'] = null;
         
