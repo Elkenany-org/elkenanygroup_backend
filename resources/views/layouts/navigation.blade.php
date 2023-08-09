@@ -369,6 +369,39 @@
             </li>
         </ul>
     </li>
+    <li class=" nav-item nav-item-has-children">
+        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_15"
+        aria-controls="ddmenu_15" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="icon">
+            <i class="fa-solid fa-circle-info"></i>
+        </span>
+        <span class="text">Order Now</span>
+        </a>
+        <ul id="ddmenu_15" class="dropdown-nav collapse">
+            <li>
+                <a href="{{ route('content.show',['page_name' => 'ordernow', 'type' => 'header']) }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Main Image
+                </a>
+            </li>
+        </ul>
+        <ul id="ddmenu_15" class="dropdown-nav collapse">
+            <li>
+                <a href="{{ route('content.show',['page_name' => 'ordernow', 'type' => 'leftimage']) }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Left Image
+                </a>
+            </li>
+        </ul>
+        <ul id="ddmenu_15" class="dropdown-nav collapse">
+            <li>
+                <a href="{{ route('content.show',['page_name' => 'ordernow', 'type' => 'rightimage']) }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Right Image
+                </a>
+            </li>
+        </ul>
+    </li>
     
 </ul>
 

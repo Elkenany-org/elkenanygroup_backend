@@ -87,6 +87,25 @@ class ApiContentController extends Controller
             'data'=>$data
         ], 200);
     }
+    public function ordernow()
+    {
+        $contents = Content::where([['page_name','ordernow']])->get();
+        $data = array();
+        $data['ar'] = null;
+        $data['en'] = null;
+        
+        foreach($contents as $content)
+        {
+            $data['ar'][$content->type] = ['image' => $content->image_url ,'desc' => $content->description_ar];
+            $data['en'][$content->type] = ['image' => $content->image_url ,'desc' => $content->description_en];
+        }
+
+        return response()->json([
+            'error'=>'',
+            'message'=>'',
+            'data'=>$data
+        ], 200);
+    }
 
     public function partnersImage()
     {
@@ -99,47 +118,5 @@ class ApiContentController extends Controller
             'message'=>'',
             'data'=>$data
         ], 200);
-    }
-    public function reason($reason_index)
-    {
-        $reason = Content::where('page_name','careers')->where('type',$reason_index)->first();
-        return response()->json($reason, 200);
-    }
-    public function value($value_index)
-    {
-        $value = Content::where('page_name','home')->where('type',$value_index)->first();
-        return response()->json($value, 200);
-    }
-    public function ourteam()
-    {
-        $team = Content::where('page_name','careers')->where('type','ourteam')->first();
-        return response()->json($team, 200);
-    }
-    
-    
-    public function characteristic($characteristic_index)
-    {
-        $characteristic = Content::where('page_name','aboutus')->where('type',$characteristic_index)->first();
-        return response()->json($characteristic, 200);
-    }
-    public function ceo()
-    {
-        $ceo = Content::where('type','ceo')->first();
-        return response()->json($ceo, 200);
-    }
-    public function mission()
-    {
-        $mission = Content::where('type','mission')->first();
-        return response()->json($mission, 200);
-    }
-    public function vision()
-    {
-        $vision = Content::where('type','vision')->first();
-        return response()->json($vision, 200);
-    }
-    public function homeactivity($type)
-    {
-        $content = Content::where('page_name','home')->where('type',$type)->first();
-        return response()->json($content, 200);
     }
 }
