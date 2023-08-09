@@ -22,6 +22,25 @@ class ApiContentController extends Controller
             'data'=>$data
         ], 200);
     }
+    public function ourcompanies()
+    {
+        $contents = Content::where([['page_name','ourcompanies']])->get();
+        $data = array();
+        $data['ar'] = null;
+        $data['en'] = null;
+        
+        foreach($contents as $content)
+        {
+            $data['ar'][$content->type] = ['image' => $content->image ,'desc' => $content->description_ar];
+            $data['en'][$content->type] = ['image' => $content->image ,'desc' => $content->description_en];
+        }
+
+        return response()->json([
+            'error'=>'',
+            'message'=>'',
+            'data'=>$data
+        ], 200);
+    }
     public function header($page_name)
     {
         $header = Content::where('page_name',$page_name)->first();
@@ -43,7 +62,7 @@ class ApiContentController extends Controller
         return response()->json($team, 200);
     }
     
-    //////
+    
     public function characteristic($characteristic_index)
     {
         $characteristic = Content::where('page_name','aboutus')->where('type',$characteristic_index)->first();
@@ -63,11 +82,6 @@ class ApiContentController extends Controller
     {
         $vision = Content::where('type','vision')->first();
         return response()->json($vision, 200);
-    }
-    public function ourcompanies($type)
-    {
-        $content = Content::where('page_name','ourcompanies')->where('type',$type)->first();
-        return response()->json($content, 200);
     }
     public function homeactivity($type)
     {

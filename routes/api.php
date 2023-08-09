@@ -59,6 +59,9 @@ Route::prefix('jobs')->group(function () {
 //partners
 Route::get('/content/partners' , [ApiContentController::class,'partnersImage']);
 
+//ourcompanies
+Route::get('/content/ourcompanies' , [ApiContentController::class,'ourcompanies']);
+
 
 //catgories
 Route::prefix('categories')->group(function () {
