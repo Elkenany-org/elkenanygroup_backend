@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Article;
-
+use App\Models\Content;
 
 
 class ApiArticleController extends Controller
@@ -17,6 +17,9 @@ class ApiArticleController extends Controller
         $ret = array();
         $data = array();
         
+        $content = Content::where([['page_name','blog'],['type','header']])->first();
+        $data['content']['image'] = $content['image_url']; 
+
         $data['ar']['articles'] = null;
         $data['en']['articles'] = null;
         foreach($articles as $article)

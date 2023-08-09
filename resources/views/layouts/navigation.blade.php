@@ -318,6 +318,58 @@
             </li>
         </ul>
     </li>
+    <li class=" nav-item nav-item-has-children">
+        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_13"
+        aria-controls="ddmenu_13" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="icon">
+            <i class="fa-solid fa-circle-info"></i>
+        </span>
+        <span class="text">Events</span>
+        </a>
+        <ul id="ddmenu_13" class="dropdown-nav collapse">
+            <li>
+                <a href="{{ route('content.show',['page_name' => 'events', 'type' => 'header']) }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Main Image
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class=" nav-item nav-item-has-children">
+        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_12"
+        aria-controls="ddmenu_12" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="icon">
+            <i class="fa-solid fa-circle-info"></i>
+        </span>
+        <span class="text">Blog</span>
+        </a>
+        <ul id="ddmenu_12" class="dropdown-nav collapse">
+            <li>
+                <a href="{{ route('content.show',['page_name' => 'blog', 'type' => 'header']) }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Main Image
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class=" nav-item nav-item-has-children">
+        <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_14"
+        aria-controls="ddmenu_14" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="icon">
+            <i class="fa-solid fa-circle-info"></i>
+        </span>
+        <span class="text">Partners</span>
+        </a>
+        <ul id="ddmenu_14" class="dropdown-nav collapse">
+            <li>
+                <a href="{{ route('content.show',['page_name' => 'partners', 'type' => 'header']) }}">
+                    <div class="ico w-fit"><i class="fa-solid fa-page m-0" style="font-size: 14px"></i></div>
+                    Main Image
+                </a>
+            </li>
+        </ul>
+    </li>
+    
 </ul>
 
 <script>

@@ -13,7 +13,6 @@ class ContentController extends Controller
         $content = Content::where([['page_name',$request->page_name],['type',$request->type]])->first();
         return view('Content.content')->with('content',$content);
     }
-
     public function update(Request $request)
     {
         $content = Content::where([['page_name',$request->page_name],['type',$request->type]])->first();

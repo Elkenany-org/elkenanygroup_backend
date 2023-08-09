@@ -21,7 +21,8 @@ class ApiNewsController extends Controller
         $ret = array();
         $data = array();
         
-        $data['content']['image'] = Content::where([['page_name','news'],['type','header']])->pluck('image')->first();
+        $content = Content::where([['page_name','events'],['type','header']])->first();
+        $data['content']['image'] = $content['image_url']; 
 
         $data['ar']['events'] = null;
         $data['en']['events'] = null;

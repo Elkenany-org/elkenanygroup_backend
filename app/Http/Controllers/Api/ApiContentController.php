@@ -10,6 +10,18 @@ use App\Models\Content;
 
 class ApiContentController extends Controller
 {
+    public function partnersImage()
+    {
+        $header = Content::where([['page_name','partners'],['type','header']])->first();
+        $data = array();
+        $data['ar']['image'] = $header['image_url'];
+        $data['en']['image'] = $header['image_url'];
+        return response()->json([
+            'error'=>'',
+            'message'=>'',
+            'data'=>$data
+        ], 200);
+    }
     public function header($page_name)
     {
         $header = Content::where('page_name',$page_name)->first();
