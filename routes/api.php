@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\ApiContactUsController;
 use App\Http\Controllers\Api\ApiContentController;
 use App\Http\Controllers\Api\ApiInfoController;
 use App\Http\Controllers\Api\ApiOrderController;
+use App\Http\Controllers\Api\ApiPartnerController;
 use App\Models\News;
 use App\Models\Article;
 use App\Models\Content;
@@ -17,6 +18,7 @@ use App\Models\Job;
 use App\Models\Category;
 use App\Models\ContactUs;
 use App\Models\Info;
+use App\Models\Partner;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//partners
+Route::get('/partners' , [ApiPartnerController::class,'index']);
 
 //news
 Route::prefix('news')->group(function () {

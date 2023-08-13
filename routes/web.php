@@ -10,6 +10,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\MetaDataPagesController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
@@ -54,6 +55,19 @@ Route::prefix('news')->group(function () {
     Route::post('/searchByDate', [NewsController::class, 'searchByDate'])->name('News.searchByDate');
 });
 
+//Partners
+Route::prefix('partners')->group(function () {
+    Route::get('/' , [PartnerController::class,'index'])->name('Partners.index');
+    Route::get('/archive' , [PartnerController::class,'archive'])->name('Partners.archive');
+    Route::get('/create' , [PartnerController::class, 'create'])->name('Partners.create');
+    Route::post('/store' , [PartnerController::class, 'store'])->name('Partners.store');
+    Route::get('/show/{id}' , [PartnerController::class,'show'])->name('Partners.show');
+    Route::get('/edit/{id}' , [PartnerController::class,'edit'])->name('Partners.edit');
+    Route::post('/update/{id}' , [PartnerController::class,'update'])->name('Partners.update');
+    Route::get('/destroy/{id}' , [PartnerController::class,'soft_delete'])->name('Partners.soft_delete');
+    Route::get('/restore/{id}' , [PartnerController::class,'restore'])->name('Partners.restore');
+    Route::get('/delete/{id}' , [PartnerController::class,'hard_delete'])->name('Partners.hard_delete');
+});
 
 //Articles
 Route::prefix('article')->group(function () {

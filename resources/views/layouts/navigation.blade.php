@@ -97,6 +97,30 @@
         </ul>
     </li>
     
+    <li class=" nav-item @if(request()->routeIs('Partners.index') || request()->routeIs('Partners.archive')) active @else noneactive @endif nav-item-has-children">
+        <a class="search collapsed" class="" data-bs-toggle="collapse" data-bs-target="#ddmenu_40"
+           aria-controls="ddmenu_40" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="icon">
+                <i class="fa-solid fa-briefcase"></i>
+            </span>
+            <span class="text">الشركاء</span>
+        </a>
+        <ul id="ddmenu_40" class="dropdown-nav collapse" style="">
+            <li>
+                <a href="{{route('Partners.index')}}">
+                    <div class="ico w-fit"><i class="fa-solid fa-eye m-0" style="font-size: 14px"></i></div>
+                    عرض
+                </a>
+                <a href="{{route('Partners.create')}}">
+                    <div class="ico w-fit"><i class="fa-solid fa-plus m-0" style="font-size: 14px"></i></div>
+                    اضافة
+                </a>
+            </li>
+            <li>
+            </li>
+        </ul>
+    </li>
+
     <li class=" nav-item @if(request()->routeIs('info.index') || request()->routeIs('info.archive')) active @else noneactive @endif nav-item-has-children">
         <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_5"
         aria-controls="ddmenu_5" aria-expanded="true" aria-label="Toggle navigation">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Content;
+use App\Models\Partner;
 
 
 
@@ -17,6 +18,16 @@ class ApiContentController extends Controller
         $data['ar'] = null;
         $data['en'] = null;
         
+        $partners = Partner::all();
+        
+        $data['ar']['partners'] = [];
+        $data['en']['partners'] = [];
+
+        foreach($partners as $partner)
+        {
+            $data['en']['partners'][$partner->name] = $partner->logo_url;
+        }
+
         foreach($contents as $content)
         {
             $data['ar'][$content->type] = ['image' => $content->image_url ,'desc' => $content->description_ar];
