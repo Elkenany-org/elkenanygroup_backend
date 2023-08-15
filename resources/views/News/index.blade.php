@@ -39,6 +39,7 @@
               <th scope="col" style="width: 8rem;">الصورة</th>
               <th scope="col">العنوان</th>
               <th scope="col">القسم</th>
+              
               <th scope="col">تاريخ الانشاء</th>
               <th scope="col">تاريخ التعديل</th>
               <th scope="col">الخيارات</th>
