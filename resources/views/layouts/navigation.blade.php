@@ -169,6 +169,14 @@
     </li>
 
 
+    <li class="nav-item @if(request()->routeIs('Newcomers.index')) active @endif">
+        <a class="search " href="{{route('Newcomers.index')}}">
+              <span class="icon">
+                <i class="fa-solid fa-message"></i>
+              </span>
+            <span class="text">المتقدمين لوظائف</span>
+        </a>
+    </li>
     <li class="nav-item @if(request()->routeIs('contactus.index') || request()->routeIs('contactus.archive')) active @endif">
         <a class="search " href="{{route('contactus.index')}}">
               <span class="icon">

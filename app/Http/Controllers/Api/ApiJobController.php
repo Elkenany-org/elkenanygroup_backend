@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\Content;
+use App\Models\Newcomer;
 
 
 class ApiJobController extends Controller
@@ -67,7 +68,25 @@ class ApiJobController extends Controller
     }
     public function apply(Request $request)
     {
+        $this->validate($request,[
+            'firstname' => 'required',
+            'secondname' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'cv' => 'required'
+        ]);
+        $file_name = $request->cv->getClientOriginalName();
+        $file_name = time().$file_name;
+        $path = 'images/main/CVs'; 
+        $request->cv->move($path , $file_name);
         
-        return response()->json(200);
+        Newcomer::create([
+            'firstname' => $request->firstname,
+            'secondname' => $request->secondname,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'cv' => $path.'/'.$file_name
+        ]);
+        return response()->json('creation done',200);
     }
 }

@@ -31,9 +31,9 @@ class OrderController extends Controller
 
     public function soft_delete($id)
     {
-        $order = Order::find($id);
+        $order = Order::find($id)->first();
         $order->delete();
-        return redirect()->back();
+        return redirect()->route('orders.index');
     }
 
     public function restore($id)

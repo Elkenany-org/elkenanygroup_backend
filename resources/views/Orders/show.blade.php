@@ -47,7 +47,7 @@
                 
                 <div class="col-12">
                     <div class="button-group d-flex justify-content-center flex-wrap">
-                        <a href="{{ route('contactus.soft_delete', $order->id) }}" class="main-btn danger-btn btn-hover w-25 text-center">
+                        <a href="{{ route('orders.soft_delete', $order->id) }}" class="main-btn danger-btn btn-hover w-25 text-center">
                             حذف
                         </a>
                     </div>

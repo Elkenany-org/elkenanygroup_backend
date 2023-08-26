@@ -10,6 +10,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\NewcomerController;
 use App\Http\Controllers\MetaDataPagesController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -135,6 +136,13 @@ Route::prefix('orders')->group(function () {
     Route::get('/delete/{id}' , [OrderController::class,'hard_delete'])->name('orders.hard_delete');
     // Route::get('/search' , [ContactUsController::class,'search'])->name('contactus.search');
     // Route::get('/archive_search' , [ContactUsController::class,'archive_search'])->name('contactus.archive_search'); 
+});
+
+//newcomers
+Route::prefix('newcomers')->group(function () {
+    Route::get('/' , [NewcomerController::class,'index'])->name('Newcomers.index');
+    Route::get('/show/{id}' , [NewcomerController::class,'show'])->name('Newcomers.show');
+    Route::get('/destroy/{id}' , [NewcomerController::class,'destroy'])->name('Newcomers.destroy'); 
 });
 
 
