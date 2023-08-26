@@ -63,6 +63,10 @@ class ApiArticleController extends Controller
             'data'=>$data
         ], 200);
     }
-
+    public function search(Request $request)
+    {
+        $event = Article::where('description', 'LIKE', "%{$request->description}%")->first();
+        return response()->json($event, 200);
+    }
 
 }

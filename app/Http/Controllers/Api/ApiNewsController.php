@@ -74,7 +74,7 @@ class ApiNewsController extends Controller
 
     public function search(Request $request)
     {
-        $event = News::where('title', 'LIKE', "%{$request->title}%")->first();
+        $event = News::where('description', 'LIKE', "%{$request->description}%")->first();
         return response()->json($event, 200);
     }
 

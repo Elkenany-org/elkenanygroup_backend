@@ -120,6 +120,29 @@
             </li>
         </ul>
     </li>
+    <li class=" nav-item @if(request()->routeIs('Employees.index') || request()->routeIs('Employees.create')) active @else noneactive @endif nav-item-has-children">
+        <a class="search collapsed" class="" data-bs-toggle="collapse" data-bs-target="#ddmenu_400"
+           aria-controls="ddmenu_400" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="icon">
+                <i class="fa-solid fa-briefcase"></i>
+            </span>
+            <span class="text">الموظفين</span>
+        </a>
+        <ul id="ddmenu_400" class="dropdown-nav collapse" style="">
+            <li>
+                <a href="{{route('Employees.index')}}">
+                    <div class="ico w-fit"><i class="fa-solid fa-eye m-0" style="font-size: 14px"></i></div>
+                    عرض
+                </a>
+                <a href="{{route('Employees.create')}}">
+                    <div class="ico w-fit"><i class="fa-solid fa-plus m-0" style="font-size: 14px"></i></div>
+                    اضافة
+                </a>
+            </li>
+            <li>
+            </li>
+        </ul>
+    </li>
 
     <li class=" nav-item @if(request()->routeIs('info.index') || request()->routeIs('info.archive')) active @else noneactive @endif nav-item-has-children">
         <a class="search collapsed"  data-bs-toggle="collapse" data-bs-target="#ddmenu_5"

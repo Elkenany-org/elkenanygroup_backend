@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\MetaDataPagesController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -67,6 +68,16 @@ Route::prefix('partners')->group(function () {
     Route::get('/destroy/{id}' , [PartnerController::class,'soft_delete'])->name('Partners.soft_delete');
     Route::get('/restore/{id}' , [PartnerController::class,'restore'])->name('Partners.restore');
     Route::get('/delete/{id}' , [PartnerController::class,'hard_delete'])->name('Partners.hard_delete');
+});
+
+//Employees
+Route::prefix('employees')->group(function () {
+    Route::get('/' , [EmployeeController::class,'index'])->name('Employees.index');
+    Route::get('/create' , [EmployeeController::class, 'create'])->name('Employees.create');
+    Route::post('/store' , [EmployeeController::class, 'store'])->name('Employees.store');
+    Route::get('/edit/{id}' , [EmployeeController::class,'edit'])->name('Employees.edit');
+    Route::post('/update/{id}' , [EmployeeController::class,'update'])->name('Employees.update');
+    Route::get('/destroy/{id}' , [EmployeeController::class,'destroy'])->name('Employees.delete');
 });
 
 //Articles

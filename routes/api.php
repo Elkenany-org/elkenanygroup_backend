@@ -49,6 +49,7 @@ Route::prefix('news')->group(function () {
 Route::prefix('articles')->group(function () {
     Route::get('/' , [ApiArticleController::class,'index']);
     Route::get('/show/{id}' , [ApiArticleController::class,'show']);
+    Route::get('/search' , [ApiArticleController::class,'search']);
 });
 
 

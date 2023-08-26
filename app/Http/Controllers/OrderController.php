@@ -49,16 +49,5 @@ class OrderController extends Controller
         $order->forceDelete();
         return redirect()->back();
     }
-    // public function search(Request $request)
-    // {
-    //     $all_orders = Order::where('company_name', 'LIKE', '%'.$request->company_name.'%')
-    //         ->where('first_name','LIKE','%'.$request->first_name.'%')->paginate(10);
-    //     return view('Order.index')->with('all_orders',$all_orders);
-    // }
-    // public function archive_search(Request $request)
-    // {
-    //     $all_orders = Order::onlyTrashed()->where('company_name', 'LIKE', '%'.$request->company_name.'%')
-    //         ->where('first_name','LIKE','%'.$request->first_name.'%')->paginate(10);
-    //     return view('Order.archive')->with('all_orders',$all_orders);
-    // }
+
 }

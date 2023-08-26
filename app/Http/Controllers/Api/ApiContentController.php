@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Content;
 use App\Models\Partner;
+use App\Models\Employee;
 
 
 
@@ -22,10 +23,23 @@ class ApiContentController extends Controller
         
         $data['ar']['partners'] = [];
         $data['en']['partners'] = [];
+        
+        $employees = Employee::all();
+        
+        $data['ar']['employees'] = [];
+        $data['en']['employees'] = [];
 
         foreach($partners as $partner)
         {
-            $data['en']['partners'][$partner->name] = $partner->logo_url;
+            $data['en']['partners']['name'] = $partner->name;
+            $data['en']['partners']['image'] = $partner->logo_url;
+        }
+        foreach($employees as $employee)
+        {
+            $data['en']['employees'][] = ['name'=>$employee->name ,
+                    'position'=>$employee->position ,
+                    'image' => $employee->image_url
+                ];
         }
 
         foreach($contents as $content)

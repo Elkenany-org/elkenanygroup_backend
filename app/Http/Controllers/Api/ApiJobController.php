@@ -65,4 +65,9 @@ class ApiJobController extends Controller
         $job = Job::where('title', 'LIKE', "%{$request->title}%")->first();
         return response()->json($job, 200);
     }
+    public function apply(Request $request)
+    {
+        
+        return response()->json(200);
+    }
 }
