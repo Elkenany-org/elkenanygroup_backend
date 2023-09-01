@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Partner;
+use App\Models\Content;
 
 
 class ApiPartnerController extends Controller
@@ -15,6 +16,9 @@ class ApiPartnerController extends Controller
         $data['ar'] = null;
         $data['en'] = null;
         
+        $header = Content::where([['page_name','partners'],['type','header']])->first();
+        $data['ar']['header_image'] = $header['image_url'];
+        $data['en']['header_image'] = $header['image_url'];
         
         $partners = Partner::all();
         

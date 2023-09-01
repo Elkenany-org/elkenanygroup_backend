@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Content;
 use App\Models\Partner;
 use App\Models\Employee;
+use App\Models\Info;
 
 
 
@@ -112,6 +113,38 @@ class ApiContentController extends Controller
             'data'=>$data
         ], 200);
     }
+    public function contactus()
+    {
+        $data = array();
+        $data['ar'] = null;
+        $data['en'] = null;
+        
+        $header = Content::where([['page_name','contactus'],['type','header']])->first();
+        $data['ar']['header_image'] = $header['image_url'];
+        $data['en']['header_image'] = $header['image_url'];
+
+        $types = ['--لا شئ--' , 'عنوان' , 'ايميل' , 'رقم تليفون' ];
+
+        $all_info = Info::all();
+        foreach($all_info as $info)
+        {
+            if($info->type == 'رقم تليفون')
+                $info->type = 'phone';
+            elseif($info->type == 'ايميل')
+                $info->type = 'email';
+            elseif($info->type == 'عنوان')
+                $info->type = 'title';
+        
+            $data['ar']['info'][$info->type] = $info->description;
+            $data['en']['info'][$info->type] = $info->description;
+        }
+
+        return response()->json([
+            'error'=>'',
+            'message'=>'',
+            'data'=>$data
+        ], 200);
+    }
     public function ordernow()
     {
         $contents = Content::where([['page_name','ordernow']])->get();
@@ -132,16 +165,5 @@ class ApiContentController extends Controller
         ], 200);
     }
 
-    public function partnersImage()
-    {
-        $header = Content::where([['page_name','partners'],['type','header']])->first();
-        $data = array();
-        $data['ar']['image'] = $header['image_url'];
-        $data['en']['image'] = $header['image_url'];
-        return response()->json([
-            'error'=>'',
-            'message'=>'',
-            'data'=>$data
-        ], 200);
-    }
+    
 }

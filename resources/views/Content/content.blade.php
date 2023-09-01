@@ -11,7 +11,7 @@
     <div class="card-style-3 mb-30">
         <div class="button-group d-flex justify-content-center flex-wrap">
 
-            @if ($content->page_name == 'home' && ($content->type == 'value1' || $content->type == 'value2' || $content->type == 'value3'))
+            @if ($content->page_name == 'aboutus' && ($content->type == 'value1' || $content->type == 'value2' || $content->type == 'value3'))
             @php
             $value3 = Route::currentRouteName() === 'content.show' && 
                 request()->query('page_name') === $content->page_name && 
@@ -23,9 +23,9 @@
                 request()->query('page_name') === $content->page_name && 
                 request()->query('type') === 'value1';
             @endphp
-            <a class="main-btn primary-btn btn-hover w-25 text-center m-3 {{ $value3 ? 'active' : '' }}" href="{{ route('content.show',['page_name' => 'home', 'type' => 'value3']) }}">Value 3</a>
-            <a class="main-btn primary-btn btn-hover w-25 text-center m-3 {{ $value2 ? 'active' : '' }}" href="{{ route('content.show',['page_name' => 'home', 'type' => 'value2']) }}">Value 2</a>
-            <a class="main-btn primary-btn btn-hover w-25 text-center m-3 {{ $value1 ? 'active' : '' }}" href="{{ route('content.show',['page_name' => 'home', 'type' => 'value1']) }}">Value 1</a>
+            <a class="main-btn primary-btn btn-hover w-25 text-center m-3 {{ $value3 ? 'active' : '' }}" href="{{ route('content.show',['page_name' => 'aboutus', 'type' => 'value3']) }}">Value 3</a>
+            <a class="main-btn primary-btn btn-hover w-25 text-center m-3 {{ $value2 ? 'active' : '' }}" href="{{ route('content.show',['page_name' => 'aboutus', 'type' => 'value2']) }}">Value 2</a>
+            <a class="main-btn primary-btn btn-hover w-25 text-center m-3 {{ $value1 ? 'active' : '' }}" href="{{ route('content.show',['page_name' => 'aboutus', 'type' => 'value1']) }}">Value 1</a>
                     
             @elseif($content->page_name == 'aboutus' && ($content->type == 'vision' || $content->type == 'objective'))
             @php

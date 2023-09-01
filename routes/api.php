@@ -62,9 +62,6 @@ Route::prefix('jobs')->group(function () {
 });
 
 
-//partners
-Route::get('/content/partners' , [ApiContentController::class,'partnersImage']);
-
 //aboutus
 Route::get('/content/aboutus' , [ApiContentController::class,'aboutus']);
 
@@ -76,6 +73,9 @@ Route::get('/content/ourcompanies' , [ApiContentController::class,'ourcompanies'
 
 //home
 Route::get('/content/home' , [ApiContentController::class,'home']);
+
+//contactus
+Route::get('/content/contactus' , [ApiContentController::class,'contactus']);
 
 //ordernow
 Route::get('/content/ordernow' , [ApiContentController::class,'ordernow']);

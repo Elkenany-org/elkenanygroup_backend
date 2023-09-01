@@ -171,7 +171,7 @@ class NewsController extends Controller
     {
         $event = News::onlyTrashed()->where('id', $id)->first();
         
-        $image_path = public_path($event->image);
+        $image_path = public_path('images/main/news/'.$event->image);
         if(File::exists($image_path)) 
             unlink($image_path);
         if($event->social_image != null)

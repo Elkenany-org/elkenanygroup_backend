@@ -13,17 +13,14 @@ class ApiJobController extends Controller
 {
     public function index()
     {
-        $contents = Content::where([['page_name','careers']])->get();
-        
         $data = array();
         $data['ar'] = null;
         $data['en'] = null;
         
-        foreach($contents as $content)
-        {
-            $data['ar']['content'][$content->type] = ['image' => $content->image_url ,'desc' => $content->description_ar];
-            $data['en']['content'][$content->type] = ['image' => $content->image_url ,'desc' => $content->description_en];
-        }
+        $header = Content::where([['page_name','jobs']])->first();
+        $data['ar']['header_image'] = "";
+        $data['en']['header_image'] = $header['image_url'];
+
         
         $jobs = Job::all();
         
