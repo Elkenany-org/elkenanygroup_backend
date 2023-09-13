@@ -28,6 +28,7 @@ class ApiPartnerController extends Controller
         foreach($partners as $partner)
         {
             $data['en']['partners'][] = $partner->logo_url;
+            $data['ar']['partners'][] = $partner->logo_url;
         }
 
         return response()->json([
