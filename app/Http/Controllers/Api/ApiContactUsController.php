@@ -29,7 +29,7 @@ class ApiContactUsController extends Controller
         ]);
         if($ret != null)
         {
-            return response()->json(200);
+            return response()->json('The message was added successfully',200);
         }
         else
         {
