@@ -43,6 +43,35 @@ class ApiNewsController extends Controller
             'data'=>$data
         ], 200);
     }
+    public function latestnews()
+    {
+        $news = News::with(['category' => function ($query) {
+            $query->select('id','name_ar','name_en');
+        }])
+        ->get();
+        $ret = array();
+        $data = array();
+        
+        $data['ar']['events'] = null;
+        $data['en']['events'] = null;
+        
+        for($i=0; $i<3;$i++)
+        {
+            if($news[$i]->language == 'ar')
+            {
+                $data['ar']['events'][] = $news[$i];   
+            }
+            else
+            {
+                $data['en']['events'][] = $news[$i];   
+            }
+        }
+        return response()->json([
+            'error'=>'',
+            'message'=>'',
+            'data'=>$data
+        ], 200);
+    }
 
     public function show($id)
     {

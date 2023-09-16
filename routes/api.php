@@ -43,6 +43,7 @@ Route::prefix('news')->group(function () {
     Route::get('/' , [ApiNewsController::class,'index']);
     Route::get('/show/{id}' , [ApiNewsController::class,'show']);
     Route::get('/search', [ApiNewsController::class, 'search']);
+    Route::get('/latestnews', [ApiNewsController::class, 'latestnews']);
 });
 
 //articles
