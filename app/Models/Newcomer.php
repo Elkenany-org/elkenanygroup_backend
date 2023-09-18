@@ -15,6 +15,7 @@ class Newcomer extends Model
         'secondname',
         'phone',
         'email',
+        'job_title',
         'cv'
     ];
     public function getCvUrlAttribute()

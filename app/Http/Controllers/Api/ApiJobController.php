@@ -108,4 +108,30 @@ class ApiJobController extends Controller
         ]);
         return response()->json('creation done',200);
     }
+    public function applyByJobId(Request $request)
+    {
+        $this->validate($request,[
+            'job_id' => 'required',
+            'firstname' => 'required',
+            'secondname' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'cv' => 'required'
+        ]);
+        $file_name = $request->cv->getClientOriginalName();
+        $file_name = time().$file_name;
+        $path = 'images/main/CVs'; 
+        $request->cv->move($path , $file_name);
+        
+        $job = Job::find($request->job_id);
+        Newcomer::create([
+            'firstname' => $request->firstname,
+            'secondname' => $request->secondname,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'job_title' => $job->title,
+            'cv' => $path.'/'.$file_name
+        ]);
+        return response()->json('creation done',200);
+    }
 }
