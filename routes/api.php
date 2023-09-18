@@ -57,6 +57,7 @@ Route::prefix('articles')->group(function () {
 //jobs
 Route::prefix('jobs')->group(function () {
     Route::get('/' , [ApiJobController::class,'index']);
+    Route::get('/available_jobs' , [ApiJobController::class,'available_jobs']);
     Route::get('/show/{id}' , [ApiJobController::class,'show']);
     Route::get('/search', [ApiJobController::class, 'search']);
     Route::post('/apply', [ApiJobController::class, 'apply']);

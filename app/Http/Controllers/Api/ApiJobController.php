@@ -38,6 +38,28 @@ class ApiJobController extends Controller
             'data'=>$data
         ], 200);
     }
+    public function available_jobs()
+    {
+        $data = array();
+        $data['ar'] = null;
+        $data['en'] = null;
+        
+        $jobs = Job::all()->take(6);
+        
+        $data['ar']['jobs'] = [];
+        $data['en']['jobs'] = [];
+
+        foreach($jobs as $job)
+        {
+            $data['en']['jobs'][] = $job;
+        }
+
+        return response()->json([
+            'error'=>'',
+            'message'=>'',
+            'data'=>$data
+        ], 200);
+    }
     
     public function show($id)
     {
