@@ -15,18 +15,18 @@
     <div class="card-style-3 mb-30">
         <div class="card-content">            
             <div class="row">
-                <div class="col-12 d-flex align-items-center ">
-                    <div class="d-inline-block input-style-1">
-                        <label for="first_name">الاسم الاول</label>
-                        <input type="text" class="form-control" name="first_name"
-                            style=" margin-left: 70px;" id="name" placeholder="{{$message->first_name}}"
-                            readonly>
+                <div class="col-12">
+                    <div class="input-style-1">
+                    <label for="name">الاسم</label>
+                    <input type="text" class="form-control" name="email"
+                            id="name" placeholder="{{$message->name}}" readonly>
                     </div>
-                    <div class="d-inline-block input-style-1">
-                        <label for="second_name" style=" margin-right: 70px;">الاسم الثاني</label>
-                        <input type="text" class="form-control" name="second_name"
-                            style=" margin-right: 70px;" id="name" placeholder="{{$message->second_name}}"
-                            readonly>
+                </div>
+                <div class="col-12">
+                    <div class="input-style-1">
+                    <label for="company">الشركة</label>
+                    <input type="text" class="form-control" name="phone_number"
+                            id="company" placeholder="{{$message->company}}" readonly>
                     </div>
                 </div>
                 <div class="col-12">
@@ -38,9 +38,9 @@
                 </div>
                 <div class="col-12">
                     <div class="input-style-1">
-                    <label for="phone_number">رقم الموبايل</label>
-                    <input type="text" class="form-control" name="phone_number"
-                            id="name" placeholder="{{$message->phone}}" readonly>
+                    <label for="country">الدولة</label>
+                    <input type="text" class="form-control" name="country"
+                            id="country" placeholder="{{$message->country}}" readonly>
                     </div>
                 </div>
                 <div class="col-12">

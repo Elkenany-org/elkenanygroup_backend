@@ -20,11 +20,10 @@
   <table class="table" id="table">
         <thead style="border-bottom: #2f80ed 3px solid">
           <tr style="color: #2f80ed">
-            <th scope="col" style="width:5rem">#</th>
-            <th style="width: 7rem" scope="col">الاسم الاول</th>
-            <th scope="col">الاسم الثاني</th>
-            <th scope="col">اسم الشركة</th>
-            <th scope="col">تاريخ الانشاء</th>
+            <th scope="col" style="width: 3rem;">#</th>
+            <th scope="col">الاسم</th>
+            <th scope="col">الشركة</th>
+            <th scope="col">تاريخ الارسال</th>
             <th scope="col">تاريخ الحذف</th>
             <th scope="col">الخيارات</th>
           </tr>
@@ -34,13 +33,12 @@
                 $counter =1;
             @endphp
           @foreach ($all_messages as $message)
-          <tr class="search2" style="border-bottom: 1px double #5d657b">
-            <th scope="row" style="color: #2f80ed">{{$counter++}}</th>
-            <td style="max-width: 30px;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$message->first_name}}</p></td>
-            <td style="max-width: 30px;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$message->second_name}}</p></td>
-            <td style="max-width: 30px;word-wrap: break-word;padding-left: 40px;"><p class=" title" style=" overflow-wrap: break-word">{{$message->company_name}}</p></td>
-            <td ><p class=" title" style=" overflow-wrap: break-word;max-width: 85px;">{{$message->created_at}}</p></td>
-            <td ><p class=" title" style=" overflow-wrap: break-word;max-width: 85px;">{{$message->deleted_at}}</p></td>
+          <tr style="border-bottom: 1px double #5d657b">
+            <td scope="row" style="color: #2f80ed">{{$counter++}}</td>
+            <td>{{$message->name}}</td>
+            <td>{{$message->company}}</td>
+            <td>{{$message->created_at}}</td>
+            <td>{{$message->deleted_at}}</td>
             <td>
               <a class="btn btn-secondary ms-1 py-1" href="{{ route('contactus.restore', $message->id) }}">استرجاع</a>  
               <a class="btn btn-danger ms-1 py-1" href="{{ route('contactus.hard_delete', $message->id) }}">حذف نهائي</a> 

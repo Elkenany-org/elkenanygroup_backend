@@ -8,16 +8,17 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('contact_us', function (Blueprint $table) {
             $table->id();
-            $table->string('company_name');
-            $table->string('first_name');
-            $table->string('second_name');
+            $table->string('name');
             $table->string('email');
-            $table->string('phone');
+            $table->string('company');
+            $table->string('country');
             $table->longtext('message');
             $table->boolean('read')->default(false);
             $table->softDeletes();
@@ -27,8 +28,10 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('contact_us');
     }

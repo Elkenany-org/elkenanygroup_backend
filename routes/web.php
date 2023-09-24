@@ -121,7 +121,7 @@ Route::prefix('contactus')->group(function () {
     Route::get('/show/{id}' , [ContactUsController::class,'show'])->name('contactus.show');
     Route::get('/destroy/{id}' , [ContactUsController::class,'soft_delete'])->name('contactus.soft_delete');
     Route::get('/restore/{id}' , [ContactUsController::class,'restore'])->name('contactus.restore');
-    Route::get('/delete/{id}' , [ContactUsController::class,'hard_delete'])->name('contactus.hard_delete');
+    Route::get('/delete/{id}' , [ContactUsController::class,'hardDelete'])->name('contactus.hard_delete');
     Route::get('/search' , [ContactUsController::class,'search'])->name('contactus.search');
     Route::get('/archive_search' , [ContactUsController::class,'archive_search'])->name('contactus.archive_search'); 
 });

@@ -34,7 +34,7 @@ class ContactUsController extends Controller
     {
         $message = ContactUs::find($id);
         $message->delete();
-        return redirect()->back();
+        return $this->index();
     }
 
     public function restore($id)
@@ -46,20 +46,20 @@ class ContactUsController extends Controller
 
     public function hardDelete($id)
     {
-        $message = ContactUs::find($id);
+        $message = ContactUs::onlyTrashed()->find($id);
         $message->forceDelete();
         return redirect()->back();
     }
     public function search(Request $request)
     {
-        $all_messages = ContactUs::where('company_name', 'LIKE', '%'.$request->company_name.'%')
-            ->where('first_name','LIKE','%'.$request->first_name.'%')->paginate(10);
+        $all_messages = ContactUs::where('company', 'LIKE', '%'.$request->company.'%')
+            ->where('name','LIKE','%'.$request->name.'%')->paginate(10);
         return view('ContactUs.index')->with('all_messages',$all_messages);
     }
     public function archive_search(Request $request)
     {
-        $all_messages = ContactUs::onlyTrashed()->where('company_name', 'LIKE', '%'.$request->company_name.'%')
-            ->where('first_name','LIKE','%'.$request->first_name.'%')->paginate(10);
+        $all_messages = ContactUs::onlyTrashed()->where('company', 'LIKE', '%'.$request->company.'%')
+            ->where('name','LIKE','%'.$request->name.'%')->paginate(10);
         return view('ContactUs.archive')->with('all_messages',$all_messages);
     }
 
