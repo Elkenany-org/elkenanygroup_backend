@@ -70,12 +70,12 @@ class ApiJobController extends Controller
         if($job->language == 'ar')
         {
             $data['ar'] = $job;
-            $data['en'] = null;
+            $data['en'] = $job;
         }
         else
         {
             $data['en'] = $job;
-            $data['ar'] = null;
+            $data['ar'] = $job;
         }
         return response()->json($job, 200);
     }
